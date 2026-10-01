@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Captcha - Regularização CPF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased flex justify-center min-h-screen">
+
+    <div class="w-full max-w-[480px] bg-white min-h-screen shadow-xl flex flex-col justify-between pb-10">
+        
+        <!-- Top Status Bar -->
+        <div class="bg-white px-4 pt-4 pb-3 border-b border-slate-100 sticky top-0 z-50">
+            <div class="flex justify-between items-center text-xs font-semibold mb-1.5">
+                <span class="text-slate-500 uppercase tracking-wider">Status de Liberação</span>
+                <span class="text-emerald-600 font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-check"></i> 4 Concluídas
+                </span>
+            </div>
+            <div class="flex justify-between items-center text-sm font-extrabold mb-2">
+                <span class="text-slate-800">ETAPA 5 DE 7</span>
+                <span class="text-slate-400 font-medium text-xs">FALTAM: 2 ETAPAS</span>
+            </div>
+            <!-- Progress Bar -->
+            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-emerald-500 to-emerald-400 h-full w-[71%] rounded-full"></div>
+            </div>
+        </div>
+
+        <!-- Main Content Wrapper -->
+        <div class="px-5 pt-6 flex-1">
+
+            <!-- Warning Badge -->
+            <div class="flex justify-center mb-5">
+                <div class="bg-red-600 text-white font-bold text-xs px-4 py-2 rounded-full flex items-center gap-2 shadow-md shadow-red-200 tracking-wide">
+                    <i class="fa-solid fa-triangle-exclamation"></i> CPF NA MALHA FINA FISCAL
+                </div>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="text-2xl sm:text-[28px] font-black text-center text-slate-900 leading-tight mb-4">
+                O Governo reteve os <span class="text-slate-900">R$ 17.658,00</span> por falta de <span class="text-red-600 underline decoration-red-500 decoration-2 underline-offset-4">declaração!</span>
+            </h1>
+
+            <!-- Explanatory Text -->
+            <p class="text-center text-slate-600 text-sm sm:text-[15px] leading-relaxed mb-6">
+                Seu CPF foi travado na Malha Fina. A Receita Federal exige o pagamento imediato da Guia DARF (Imposto de Renda Retido na Fonte) para provar a origem lícita do saldo.
+            </p>
+
+            <!-- Confiscation Box -->
+            <div class="bg-red-50 border border-red-200 rounded-2xl p-5 mb-5 text-center shadow-sm">
+                <h3 class="text-red-700 font-extrabold text-sm uppercase tracking-wider mb-2">Confisco iminente de bens</h3>
+                <p class="text-slate-700 text-xs sm:text-sm leading-relaxed">
+                    Se não pagar esta guia agora, o Governo vai <strong class="text-red-700 font-bold">CONFISCAR</strong> todo o valor de <strong class="text-slate-900">R$ 17.658,00</strong>. Além disso, as taxas já pagas (<strong class="text-slate-900">R$ 365,00</strong>) <strong class="text-red-600 font-bold">NÃO SERÃO DEVOLVIDAS</strong> e seu CPF pode ser suspenso.
+                </p>
+            </div>
+
+            <!-- Countdown Badge -->
+            <div class="flex justify-center mb-6">
+                <div class="border border-red-300 text-red-600 bg-white font-bold text-sm px-6 py-2.5 rounded-full flex items-center gap-2 shadow-sm">
+                    <span class="text-slate-600 font-normal">Tempo para evitar confisco:</span> 
+                    <span id="countdown" class="text-red-600 font-black">06:28</span>
+                </div>
+            </div>
+
+            <!-- DARF Card -->
+            <div class="bg-white border-2 border-red-100 rounded-3xl p-5 mb-8 shadow-md relative overflow-hidden">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] font-bold text-red-600 tracking-wider uppercase">Receita Federal do Brasil</span>
+                        <h2 class="text-base sm:text-lg font-extrabold text-slate-900">Guia DARF Unificada (IRRF)</h2>
+                    </div>
+                </div>
+
+                <!-- Value Display Box -->
+                <div class="bg-slate-50 border border-slate-100 rounded-2xl p-4 text-center mb-5">
+                    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Valor da Autuação Fiscal:</span>
+                    <div class="text-3xl sm:text-4xl font-black text-red-600 tracking-tight">R$ 195,00</div>
+                </div>
+
+                <!-- Action Button -->
+                <a href="https://go.perfectpay.com.br/PPU38CQGM2E?upsell=true" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] transition-all text-white font-extrabold text-sm sm:text-base py-4 px-6 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-200 text-center">
+                    <span>PAGAR DARF DE R$ 195 E LIBERAR CPF</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Transaction Summary -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-5 mb-8 shadow-sm">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Resumo da transação</h3>
+                
+                <div class="space-y-3.5 text-sm">
+                    <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                        <span class="text-slate-600 font-medium">Saldo Confiscado (Temporário)</span>
+                        <span class="font-extrabold text-slate-900">R$ 17.658,00</span>
+                    </div>
+
+                    <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                        <span class="text-slate-600 font-medium">Taxas Pagas Acumuladas</span>
+                        <span class="bg-emerald-100 text-emerald-700 text-xs font-extrabold px-2.5 py-1 rounded-md">PAGO R$ 365,00</span>
+                    </div>
+
+                    <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                        <span class="text-slate-600 font-medium">Taxas Pagas Acumuladas</span>
+                        <span class="bg-emerald-100 text-emerald-700 text-xs font-extrabold px-2.5 py-1 rounded-md">PAGO R$ 370,00</span>
+                    </div>
+
+                    <div class="flex justify-between items-center py-1 border-b border-slate-100">
+                        <span class="text-red-600 font-bold">Guia DARF Pendente</span>
+                        <span class="font-black text-red-600">R$ 195,00</span>
+                    </div>
+
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-slate-900 font-bold text-base">Valor líquido a receber:</span>
+                        <span class="font-black text-blue-600 text-lg">R$ 17.658,00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-5 mb-8 shadow-sm">
+                <h3 class="text-sm font-bold text-slate-900 mb-4">Comentários (41)</h3>
+
+                <div class="flex items-start gap-3">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Marcelo Vieira" class="w-10 h-10 rounded-full object-cover flex-shrink-0" onerror="this.src='https://placehold.co/100x100/cbd5e1/475569?text=MV'">
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-1">
+                            <h4 class="font-bold text-slate-900 text-sm">Marcelo Vieira</h4>
+                            <span class="text-xs text-slate-400">Há 3 min</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Gente a malha fina quase me matou do coração. Paguei os 195 tremendo de raiva pq eu já tinha pago quase 400 conto antes! Mas fiquem tranquilos que DEU BOM. Meu CPF limpou na hora e o processo andou.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legal Footer -->
+            <div class="text-[10px] text-slate-400 leading-normal text-justify px-1">
+                <p><strong>AVISO LEGAL E TERMOS DE USO:</strong> O G Captcha é um produto educacional e de acesso a um curso em vídeo aulas. Os valores, exemplos e depoimentos apresentados nesta página têm caráter estritamente ilustrativo e representam uma projeção matemática baseada no potencial máximo de resolução de dados, não configurando uma promessa, garantia de ganho exato ou direito adquirido. O acesso a plataforma é concedido mediante o pagamento da taxa de adesão descrita no checkout.</p>
+                <p class="mt-2">Ao prosseguir com o pagamento, o usuário declara estar ciente de que o saldo referenciado trata-se de um teto de ganhos potenciais atrelado à performance e execução de tarefas dentro do curso, e não de um valor financeiro já depositado ou garantido em seu nome. A taxa cobrada refere-se ao custo, infraestrutura e suporte da plataforma. Os resultados reais variam de acordo com o empenho individual, tempo dedicado. Em caso de insatisfação, o usuário está protegido pela garantia incondicional de reembolso do valor da taxa de adesão, conforme prevê o Art. 49 do Código de Defesa do Consumidor, não havendo qualquer obrigação de pagamento de valores ilustrativos ou bônus não alcançados.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Simple countdown logic
+        let totalSeconds = 6 * 60 + 28;
+        const countdownEl = document.getElementById('countdown');
+
+        setInterval(() => {
+            if (totalSeconds > 0) {
+                totalSeconds--;
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                countdownEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

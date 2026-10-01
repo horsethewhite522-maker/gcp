@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URGENTE: Transação retida pelo Imposto Obrigatório!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .pulse-timer {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 antialiased flex justify-center min-h-screen">
+
+    <div class="w-full max-w-md bg-white shadow-xl min-h-screen flex flex-col justify-between pb-8">
+        
+        <div>
+            <!-- Top Status Bar -->
+            <div class="bg-white border-b border-gray-100 px-4 py-3 sticky top-0 z-50 shadow-sm">
+                <div class="flex justify-between items-center text-xs font-semibold mb-2">
+                    <span class="text-gray-500 uppercase tracking-wide">Status de Liberação</span>
+                    <span class="text-emerald-600 font-bold flex items-center gap-1">
+                        <i class="fa-solid fa-circle-check text-xs"></i> 2 Concluídas
+                    </span>
+                </div>
+                <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-indigo-600 font-extrabold text-sm tracking-tight">Etapa 3 de 7</span>
+                    <span class="text-gray-400 text-xs font-medium">Faltam: 4 etapas</span>
+                </div>
+                <!-- Progress Bar -->
+                <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden flex">
+                    <div class="bg-indigo-600 h-full w-[42%] rounded-l-full"></div>
+                    <div class="bg-blue-400 h-full w-[15%]"></div>
+                </div>
+            </div>
+
+            <div class="px-4 pt-4">
+                <!-- Acelerador Confirmado Badge -->
+                <div class="flex justify-center mb-4">
+                    <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm">
+                        <i class="fa-solid fa-check"></i>
+                        <span>ACELERADOR CONFIRMADO</span>
+                    </div>
+                </div>
+
+                <!-- Main Heading -->
+                <div class="text-center mb-6">
+                    <h1 class="text-2xl sm:text-3xl font-black text-gray-900 leading-tight mb-2">
+                        URGENTE: Transação retida pelo <span class="text-red-600">Imposto Obrigatório!</span>
+                    </h1>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed px-1">
+                        O acelerador foi ativado, mas o <strong>Banco Central</strong> detectou uma quebra de sigilo bancário pelo alto valor da transferência. Por lei (transferências acima de R$ 10.000), você deve recolher o IOF para concluir o envio.
+                    </p>
+                </div>
+
+                <!-- Warning Box -->
+                <div class="bg-red-50 border border-red-200 rounded-2xl p-4 mb-5 text-center shadow-sm">
+                    <div class="flex justify-center items-center gap-2 text-red-600 font-bold text-sm mb-1">
+                        <i class="fa-solid fa-triangle-exclamation text-base"></i>
+                        <span>RISCO DE PERDER TUDO</span>
+                    </div>
+                    <p class="text-xs text-red-700 leading-normal">
+                        Você já pagou <strong class="text-red-800">R$ 155,00</strong> nas etapas anteriores. O Banco Central não debita o imposto do prêmio. Se abandonar a página, você perde o que já pagou e o saque é bloqueado definitivamente.
+                    </p>
+                </div>
+
+                <!-- Countdown Timer Button -->
+                <div class="mb-6 flex justify-center">
+                    <div class="inline-flex items-center gap-2 border-2 border-red-400 bg-white text-red-600 px-5 py-2.5 rounded-full text-sm font-bold shadow-sm pulse-timer">
+                        <i class="fa-regular fa-clock"></i>
+                        <span id="timer">Tempo para evitar bloqueio: 13:11</span>
+                    </div>
+                </div>
+
+                <!-- Imposto Card -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-5 mb-6 relative overflow-hidden shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center text-red-600 text-lg shadow-inner">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 block">Burocracia Governamental</span>
+                            <h2 class="text-base font-extrabold text-gray-900">Imposto Transacional (IOF)</h2>
+                        </div>
+                    </div>
+
+                    <div class="text-center bg-white border border-gray-100 py-6 rounded-xl shadow-inner">
+                        <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1">Guia de Imposto:</span>
+                        <div class="text-3xl sm:text-4xl font-black text-blue-600 tracking-tight">
+                            R$ 85<span class="text-2xl">,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Primary CTA Button -->
+                <div class="mb-6">
+                    <a href="https://go.perfectpay.com.br/PPU38CQGM1O?upsell=true" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] transition-all text-white font-black py-4 px-6 rounded-2xl shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 text-base tracking-wide text-center">
+                        <span>PAGAR R$ 85 E AVANÇAR</span>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Transaction Summary -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-5 mb-6 shadow-sm">
+                    <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 pb-2 border-b border-gray-100">Resumo da Transação</h3>
+                    
+                    <div class="space-y-3 text-xs sm:text-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 font-medium">Saldo Acumulado</span>
+                            <span class="font-extrabold text-gray-900 text-sm sm:text-base">R$ 17.658,00</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 font-medium">Taxas Pagas (Cad + Acel.)</span>
+                            <span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-bold text-xs border border-emerald-200">PAGO R$ 155,00</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 font-medium">Guia de IOF Obrigatória</span>
+                            <span class="font-extrabold text-red-600 text-sm sm:text-base">R$ 85,00</span>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 flex justify-between items-center">
+                            <span class="text-gray-900 font-bold">Valor líquido a receber:</span>
+                            <span class="font-black text-blue-600 text-base sm:text-lg">R$ 17.658,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comments Section -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-5 mb-6 shadow-sm">
+                    <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 pb-2 border-b border-gray-100">Comentários (24)</h3>
+                    
+                    <div class="flex gap-3">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80" alt="Juliana Freitas" class="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0" onerror="this.src='https://placehold.co/100x100/e2e8f0/64748b?text=JF'">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-bold text-xs text-gray-900">Juliana Freitas</span>
+                                <span class="text-[10px] text-gray-400">Há 5 min</span>
+                            </div>
+                            <p class="text-xs text-gray-700 leading-relaxed mb-2">
+                                Mano, dá uma raiva pagar imposto pro governo né? Mas eu vi que ia perder os R$ 155 se saísse, então fechei o olho e paguei os 85. Graças a Deus continuou o processo!
+                            </p>
+                            <div class="flex items-center gap-4 text-xs font-semibold text-gray-500">
+                                <button class="hover:text-indigo-600 transition-colors">Curtir</button>
+                                <button class="hover:text-indigo-600 transition-colors">Responder</button>
+                                <span class="text-red-500 flex items-center gap-1 font-bold"><i class="fa-solid fa-heart"></i> 67</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Legal Notice -->
+        <div class="px-5 text-center mt-auto">
+            <p class="text-[7.5px] leading-[1.1] text-gray-400 uppercase font-medium">
+                <strong>AVISO LEGAL E TERMOS DE USO:</strong> O G Captcha é um produto educacional e de acesso a um curso em vídeo aulas. Os valores, exemplos e depoimentos apresentados nesta página têm caráter estritamente ilustrativo e representam uma projeção matemática baseada no potencial máximo de resolução de dados, não configurando uma promessa, garantia de ganho exato ou direito adquirido. O acesso à plataforma é concedido mediante o pagamento da taxa de adesão descrita no checkout. Ao prosseguir com o pagamento, o usuário declara estar ciente de que o saldo referenciado trata-se de um teto de ganhos potenciais atrelado à performance e execução de tarefas dentro do curso, e não de um valor financeiro já depositado ou garantido em seu nome. A taxa cobrada refere-se ao custo, infraestrutura e suporte da plataforma. Os resultados reais variam de acordo com o empenho individual, tempo dedicado. Em caso de insatisfação, o usuário está protegido pela garantia incondicional de reembolso da taxa de adesão, conforme prevê o Art. 49 do Código de Defesa do Consumidor, não havendo qualquer obrigação de pagamento de valores ilustrativos ou bônus não alcançados.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        // Countdown timer simulation
+        let totalSeconds = 13 * 60 + 11;
+        const timerElement = document.getElementById('timer');
+
+        function updateTimer() {
+            let minutes = Math.floor(totalSeconds / 60);
+            let seconds = totalSeconds % 60;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            timerElement.textContent = `Tempo para evitar bloqueio: ${minutes}:${seconds}`;
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            }
+        }
+
+        setInterval(updateTimer, 1000);
+
+        function handlePayment() {
+            // Redirecionamento direto para o link da Perfect Pay fornecido
+            window.location.href = "https://go.perfectpay.com.br/PPU38CQGM1O?upsell=true";
+        }
+    </script>
+</body>
+</html>
